@@ -1,6 +1,6 @@
 export default {
 	Pionniers: { type: 'telesiege', to: ['La Folie Douce'] },
-	'La Folie Douce': { type: 'telesiege', to: ['Plein sud', 'Corniche'] },
+	'La Folie Douce': { to: ['Plein sud', 'Corniche'] },
 	'Plein sud': { type: 'blue', to: ['La Val Tho (top)', 'Voie de la boucle'] },
 	'La Val Tho (top)': { type: 'blue', to: ['Place de Caron'] },
 	'Place de Caron': { to: ['La Val Tho (bottom)', 'Voie lactee'] },
