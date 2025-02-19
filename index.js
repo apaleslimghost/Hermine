@@ -27,7 +27,7 @@ function getPath(from, to, exclude) {
 		data[u].to
 			.filter(v => unvisited.has(v))
 			.forEach(v => {
-				const alt = orInfinity(distances.get(u)) + (data[u].length || 1)
+				const alt = orInfinity(distances.get(u)) + (data[u].length ?? 0)
 				if (alt < orInfinity(distances.get(v))) {
 					distances.set(v, alt)
 					previous.set(v, u)
@@ -124,7 +124,14 @@ const Stop = ({ name, type, length }) =>
 	type ? (
 		<ListItem>
 			<StopIcon type={type} />
-			{name}
+			<strong>{name}</strong>
+			{length && (
+				<>
+					{' '}
+					{length}
+					{['green', 'blue', 'red', 'black'].includes(type) ? 'km' : ' mins'}
+				</>
+			)}
 		</ListItem>
 	) : null
 
