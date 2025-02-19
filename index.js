@@ -50,7 +50,7 @@ const Select = props => (
 		{Object.keys(data).map(key =>
 			data[key].type ? (
 				<option key={key} value={key}>
-					{key}
+					{getIcon(data[key].type)} {key}
 				</option>
 			) : null,
 		)}
@@ -79,18 +79,22 @@ const Icon = styled.span`
 	margin-right: 0.5em;
 `
 
-const StopIcon = ({ type }) => (
-	<Icon>
-		{{
-			green: '✅',
-			blue: '🔵',
-			red: '🔴',
-			black: '⚫️',
-			funitel: '🚡',
-			telesiege: '🛋',
-		}[type] || '⁉️'}
-	</Icon>
-)
+const getIcon = type =>
+	({
+		green: '🟢',
+		blue: '🔵',
+		red: '🔴',
+		black: '⚫️',
+		funitel: '🚡',
+		telecabine: '🚡',
+		telesiege: '🛋',
+		telepherique: '🚠',
+		teleski: '🏗️',
+		tapis: '🪄',
+		village: '🏘️',
+	}[type] || '⁉️')
+
+const StopIcon = ({ type }) => <Icon>{getIcon(type)}</Icon>
 
 const Stop = ({ name, type, length }) =>
 	type ? (
