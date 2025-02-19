@@ -54,6 +54,24 @@ export default {
 	},
 	'Fontfroide picnic area': {
 		type: 'picnic',
-		to: ['Louvets', 'Fontfroide', 'Alpauris (Auris)'],
+		to: ['Louvets', 'Fontfroide', 'Alpauris (Auris-Gua)'],
+	},
+	'Alpauris (Auris-Gua)': {
+		type: 'telesiege',
+		to: ['Alpauris (Gua-Huez)'],
+		length: 1,
+	},
+	'Alpauris (Gua-Huez)': {
+		type: 'telesiege',
+		to: ['Alpauris (Huez-Auris)', 'Bergers'],
+		length: 3,
+	},
+	'Alpauris (Huez-Auris)': {
+		type: 'telesiege',
+		to: ['Fontfroide picnic area'],
+		length: 4,
+	},
+	Bergers: {
+		type: 'village',
 	},
 }
