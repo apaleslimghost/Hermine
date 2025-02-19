@@ -7,8 +7,12 @@ import colours from '@quarterto/colours'
 
 const orInfinity = n => (typeof n === 'undefined' ? Infinity : n)
 
-function getPath(from, to) {
-	const unvisited = new Set(Object.keys(data))
+function getPath(from, to, exclude) {
+	const unvisited = new Set(
+		Object.entries(data).flatMap(([k, v]) =>
+			v.type && exclude.includes(v.type) ? [] : [k],
+		),
+	)
 	const distances = new Map([[from, 0]])
 	const previous = new Map()
 
@@ -31,20 +35,20 @@ function getPath(from, to) {
 			})
 	}
 
-	if (unvisited.has(to)) {
-		return [from]
-	}
-
 	const path = [to]
 
 	while (path[0] !== from) {
+		if (!previous.get(path[0])) {
+			return []
+		}
+
 		path.unshift(previous.get(path[0]))
 	}
 
 	return path
 }
 
-const Select = props => (
+const StopSelect = props => (
 	<select defaultValue='' {...props}>
 		<option disabled value='' />
 		{Object.keys(data).map(key =>
@@ -54,6 +58,25 @@ const Select = props => (
 				</option>
 			) : null,
 		)}
+	</select>
+)
+
+const Filter = ({ props, onChange, items }) => (
+	<select
+		multiple
+		onChange={event => {
+			if (onChange) {
+				onChange(Array.from(event.target.selectedOptions, o => o.value))
+			}
+		}}
+	>
+		<optgroup label='Exclude...'>
+			{items.map(item => (
+				<option key={item} value={item}>
+					{getIcon(item)} {item}
+				</option>
+			))}
+		</optgroup>
 	</select>
 )
 
@@ -92,6 +115,7 @@ const getIcon = type =>
 		teleski: '🏗️',
 		tapis: '🪄',
 		village: '🏘️',
+		picnic: '🍽️',
 	}[type] || '⁉️')
 
 const StopIcon = ({ type }) => <Icon>{getIcon(type)}</Icon>
@@ -104,14 +128,24 @@ const Stop = ({ name, type, length }) =>
 		</ListItem>
 	) : null
 
-const Path = ({ from, to }) => {
-	const path = useMemo(() => getPath(from, to), [from, to])
+const Path = ({ from, to, exclude }) => {
+	const path = useMemo(() => getPath(from, to, exclude), [from, to, exclude])
 
 	return (
 		<List>
-			{path.map(p => (
-				<Stop key={p} name={p} {...data[p]} />
-			))}
+			{path.length === 0 ? (
+				<ListItem>
+					⚠️ no path from <strong>{from}</strong> to <strong>{to}</strong>
+					{exclude.length > 0 && (
+						<>
+							{' '}
+							(excluding {exclude.map(x => `${getIcon(x)} ${x}`).join(', ')})
+						</>
+					)}
+				</ListItem>
+			) : (
+				path.map(p => <Stop key={p} name={p} {...data[p]} />)
+			)}
 		</List>
 	)
 }
@@ -119,15 +153,34 @@ const Path = ({ from, to }) => {
 const App = () => {
 	const [from, setFrom] = useState()
 	const [to, setTo] = useState()
+	const [runFilter, setRunFilter] = useState([])
+	const [liftFilter, setLiftFilter] = useState([])
 
 	return (
 		<>
 			<GlobalStyles />
 
-			<Select value={from} onChange={ev => setFrom(ev.target.value)} />
-			<Select value={to} onChange={ev => setTo(ev.target.value)} />
+			<StopSelect value={from} onChange={ev => setFrom(ev.target.value)} />
+			<StopSelect value={to} onChange={ev => setTo(ev.target.value)} />
+			<Filter
+				items={['green', 'blue', 'red', 'black']}
+				onChange={setRunFilter}
+			/>
+			<Filter
+				items={[
+					'funitel',
+					'telecabine',
+					'telesiege',
+					'telepherique',
+					'teleski',
+					'tapis',
+				]}
+				onChange={setLiftFilter}
+			/>
 
-			{from && to && <Path {...{ from, to }} />}
+			{from && to && (
+				<Path {...{ from, to }} exclude={[...runFilter, ...liftFilter]} />
+			)}
 		</>
 	)
 }
