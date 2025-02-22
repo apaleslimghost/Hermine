@@ -1,60 +1,64 @@
-import React, { useState, useMemo } from 'react'
+import React, { useState, useMemo, useRef, useLayoutEffect } from 'react'
 import { render } from 'react-dom'
-import data from './data'
+import elements from './data'
 import minBy from 'lodash.minby'
 import styled, { createGlobalStyle } from 'styled-components'
 import colours from '@quarterto/colours'
+import Cytoscape from 'cytoscape'
+import dagre from 'cytoscape-dagre';
 
-const orInfinity = n => (typeof n === 'undefined' ? Infinity : n)
+Cytoscape.use( dagre );
 
-function getPath(from, to, exclude) {
-	const unvisited = new Set(
-		Object.entries(data).flatMap(([k, v]) =>
-			v.type && exclude.includes(v.type) ? [] : [k],
-		),
-	)
-	const distances = new Map([[from, 0]])
-	const previous = new Map()
+const runTypes = ['green', 'blue', 'red', 'black']
 
-	while (unvisited.size) {
-		const u = minBy(Array.from(unvisited), key =>
-			orInfinity(distances.get(key)),
-		)
-		unvisited.delete(u)
-
-		if (u === to) break
-
-		data[u].to
-			.filter(v => unvisited.has(v))
-			.forEach(v => {
-				const alt = orInfinity(distances.get(u)) + (data[u].length ?? 0)
-				if (alt < orInfinity(distances.get(v))) {
-					distances.set(v, alt)
-					previous.set(v, u)
-				}
-			})
-	}
-
-	const path = [to]
-
-	while (path[0] !== from) {
-		if (!previous.get(path[0])) {
-			return []
-		}
-
-		path.unshift(previous.get(path[0]))
-	}
-
-	return path
-}
+const cy = new Cytoscape({
+	elements,
+	maxZoom: 1,
+	style: [
+		{
+			selector: 'node',
+			style: {
+				'label': 'data(label)',
+				width(node) {
+					return node.data('label') ? 8 : 4
+				},
+				height(node) {
+					return node.data('label') ? 8 : 4
+				},
+			}
+		},
+		{
+			selector: 'edge',
+			style: {
+				'label': 'data(label)',
+				'line-color': 'data(type)',
+				'source-endpoint': 'inside-to-node',
+				'target-endpoint': 'inside-to-node',
+				'text-rotation': 'autorotate',
+				'text-outline-width': 1,
+				'text-outline-color': 'white',
+				width(edge) {
+					return runTypes.includes(edge.data('type')) ? 4 : 2
+				},
+				'z-index'(edge) {
+					return runTypes.includes(edge.data('type')) ? 1 : 2
+				},
+				'curve-style'(edge) {
+					return runTypes.includes(edge.data('type')) ? 'round-taxi' : 'round-segments'
+				},
+				'control-point-step-size': 10
+			}
+		},
+	]
+})
 
 const StopSelect = props => (
 	<select defaultValue='' {...props}>
 		<option disabled value='' />
-		{Object.keys(data).map(key =>
-			data[key].type ? (
-				<option key={key} value={key}>
-					{getIcon(data[key].type)} {key}
+		{elements.map(node =>
+			['village', 'picnic'].includes(node.data.type) ? (
+				<option key={node.data.id} value={node.data.id}>
+					{getIcon(node.data.type)} {node.data.label}
 				</option>
 			) : null,
 		)}
@@ -135,8 +139,8 @@ const Stop = ({ name, type, length }) =>
 		</ListItem>
 	) : null
 
-const Path = ({ from, to, exclude }) => {
-	const path = useMemo(() => getPath(from, to, exclude), [from, to, exclude])
+const Path = ({ from, to, runFilter, liftFilter }) => {
+	const path = useMemo(() => getPath(from, to, runFilter, liftFilter), [from, to, runFilter, liftFilter])
 
 	return (
 		<List>
@@ -157,37 +161,70 @@ const Path = ({ from, to, exclude }) => {
 	)
 }
 
+const Panes = styled.div`
+	display: flex;
+	gap: 1rem;
+`
+
+const Graph = styled.section`
+	height: 100vh;
+	flex-basis: 50vw;
+`
+
 const App = () => {
 	const [from, setFrom] = useState()
 	const [to, setTo] = useState()
 	const [runFilter, setRunFilter] = useState([])
 	const [liftFilter, setLiftFilter] = useState([])
 
+	const cytoscapeContainer = useRef()
+
+	useLayoutEffect(() => {
+		cy.mount(cytoscapeContainer.current)
+		cy.elements('node,edge[type="green"],edge[type="blue"],edge[type="red"],edge[type="black"]').layout({
+			name: 'dagre',
+			edgeSep: 50,
+			nodeSep: 75,
+			rankSep: 75,
+			edgeWeight(edge) {
+				return edge.data('length') ?? 1
+			},
+			ready() {
+
+			}
+		}).run()
+	}, [cytoscapeContainer.current])
+
 	return (
 		<>
 			<GlobalStyles />
 
-			<StopSelect value={from} onChange={ev => setFrom(ev.target.value)} />
-			<StopSelect value={to} onChange={ev => setTo(ev.target.value)} />
-			<Filter
-				items={['green', 'blue', 'red', 'black']}
-				onChange={setRunFilter}
-			/>
-			<Filter
-				items={[
-					'funitel',
-					'telecabine',
-					'telesiege',
-					'telepherique',
-					'teleski',
-					'tapis',
-				]}
-				onChange={setLiftFilter}
-			/>
+			<Panes>
+				<section>
+					<StopSelect value={from} onChange={ev => setFrom(ev.target.value)} />
+					<StopSelect value={to} onChange={ev => setTo(ev.target.value)} />
+					<Filter
+						items={['green', 'blue', 'red', 'black']}
+						onChange={setRunFilter}
+					/>
+					<Filter
+						items={[
+							'funitel',
+							'telecabine',
+							'telesiege',
+							'telepherique',
+							'teleski',
+							'tapis',
+						]}
+						onChange={setLiftFilter}
+					/>
 
-			{from && to && (
-				<Path {...{ from, to }} exclude={[...runFilter, ...liftFilter]} />
-			)}
+					{/* {from && to && (
+						<Path {...{ from, to, runFilter, liftFilter}} />
+					)} */}
+				</section>
+				<Graph ref={cytoscapeContainer} />
+			</Panes>
 		</>
 	)
 }

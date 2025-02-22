@@ -1,77 +1,33 @@
-export default {
-	'Auris en Oisans': {
-		type: 'village',
-		to: ['Sures', 'Auris Express', 'Piegut'],
-	},
-	Sures: {
-		type: 'telesiege',
-		to: ['Gentianes', 'Rhodos (top)', 'Jacques le Bucheron'],
-		length: 2,
-	},
-	Gentianes: { type: 'blue', to: ['Col (bottom)'], length: 0.6 },
-	'Rhodos (top)': {
-		type: 'red',
-		to: ['La Fuma', 'Rhodos (bottom)'],
-		length: 1,
-	},
-	'Col (bottom)': { type: 'blue', to: ['Auris en Oisans'] },
-	'Rhodos (bottom)': {
-		type: 'red',
-		to: ['Farcis', 'Col (bottom)'],
-		length: 0.4,
-	},
-	'La Fuma': { type: 'black', to: ['Farcis'], length: 0.7 },
-	Farcis: { type: 'blue', to: ['Maronne'], length: 1.4 },
-	Maronne: { type: 'telesiege', to: ['Rhodos (top)', 'Gentianes'], length: 4 },
-	'Auris Express': {
-		type: 'telesiege',
-		to: ['Col (top)', 'Éterlous', 'Demoiselles', 'Pre-rond (middle)'],
-		length: 6,
-	},
-	'Col (top)': { type: 'blue', to: ['Rosai (bottom)', 'Col (middle)'] },
-	'Col (middle)': { type: 'blue', to: ['Farcis', 'Col (bottom)'] },
-	'Rosai (bottom)': { type: 'red', to: ['Farcis'] },
-	'Jacques le Bucheron': { type: 'green', to: ['Crocus'], length: 1.4 },
-	Crocus: { type: 'green', to: ['Auris en Oisans'] },
-	Piegut: { type: 'teleski', to: ['Crocus', 'Foret'] },
-	Foret: { type: 'teleski', to: ['Epicea'] },
-	Epicea: { type: 'green', to: ['Foret'] },
-	Éterlous: { type: 'blue', to: ['Fontfroide picnic area'], length: 1 },
-	Demoiselles: {
-		type: 'green',
-		to: ['Fontfroide picnic area'],
-		length: 0.9,
-	},
-	'Pre-rond (middle)': {
-		type: 'blue',
-		to: ['Fontfroide (bottom)', 'Pre-rond (bottom)', 'Lys', 'Gua'],
-		length: 1,
-	},
-	'Pre-rond (bottom)': {
-		type: 'blue',
-		to: ['Fontfroide picnic area'],
-		length: 0.7,
-	},
-	'Fontfroide picnic area': {
-		type: 'picnic',
-		to: ['Louvets', 'Fontfroide', 'Alpauris (Auris-Gua)'],
-	},
-	'Alpauris (Auris-Gua)': {
-		type: 'telesiege',
-		to: ['Alpauris (Gua-Huez)'],
-		length: 1,
-	},
-	'Alpauris (Gua-Huez)': {
-		type: 'telesiege',
-		to: ['Alpauris (Huez-Auris)', 'Bergers'],
-		length: 3,
-	},
-	'Alpauris (Huez-Auris)': {
-		type: 'telesiege',
-		to: ['Fontfroide picnic area'],
-		length: 4,
-	},
-	Bergers: {
-		type: 'village',
-	},
-}
+export default [
+	/// locations
+	{ data: { id: 'auris', label: 'Auris en Oisans', type: 'village' } },
+		// to: ['Auris Express', 'Piegut'],
+	{ data: { id: 'bergers', label: 'Bergers', type: 'village' } },
+		// to: ['Alpauris (Huez-Auris)'],
+	{ data: { id: 'maronne-village', label: 'Maronne', type: 'village' } },
+	{ data: { id: 'fontfroide-picnic', label: 'Fontfroide picnic area', type: 'picnic'} },
+		// to: ['Louvets', 'Fontfroide', 'Alpauris (Auris-Gua)'],
+
+	/// junction nodes
+	{ data: { id: 'sures-top' }},
+		// to: ['Rhodos (top)', 'Jacques le Bucheron'],
+	{ data: { id: 'gentianes-col-junction' }},
+	{ data: { id: 'maronne-top' }},
+	{ data: { id: 'rhodos-farcis-col-junction'}},
+		// to: ['Farcis', 'Col (bottom)']
+	{ data: { id: 'farcis-fuma-junction'}},
+
+	/// lifts
+	{ data: { id: 'sures', label: 'Sures', type: 'telesiege', source: 'auris', target: 'sures-top', length: 2 } },
+	{ data: { id: 'maronne', label: 'Maronne', type: 'telesiege', source: 'maronne-village', target: 'maronne-top', length: 2 } },
+
+	/// runs
+	{ data: { id: 'gentianes', label: 'Gentianes', type: 'blue', source: 'sures-top', target: 'gentianes-col-junction', length: 0.6 }},
+	{ data: { id: 'rhodos-top', label: 'Rhodos', type: 'red', source: 'sures-top', target: 'maronne-top', length: 1 }},
+	{ data: { id: 'col-bottom', label: 'Col', type: 'blue', source: 'gentianes-col-junction', target: 'auris'} },
+	{ data: { id: 'rhodos-middle', label: 'Rhodos', type: 'red', source: 'maronne-top', target: 'rhodos-farcis-col-junction', length: 0.4,}},
+	{ data: { id: 'rhodos-bottom', label: 'Rhodos', type: 'red', source: 'rhodos-farcis-col-junction', target: 'gentianes-col-junction' } },
+	{ data: { id: 'fuma', label: 'La Fuma', type: 'black', source: 'maronne-top', target: 'farcis-fuma-junction', length: 0.7 }},
+	{ data: { id: 'farcis-top', label: 'Farcis', type: 'blue', source: 'rhodos-farcis-col-junction', target: 'farcis-fuma-junction', length: 0.7 }},
+	{ data: { id: 'farcis-bottom', label: 'Farcis', type: 'blue', source: 'farcis-fuma-junction', target: 'maronne-village', length: 0.7 }},
+]

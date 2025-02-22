@@ -19,35 +19,16 @@
 	},
 	"homepage": "https://github.com/apaleslimghost/Hermine#readme",
 	"devDependencies": {
-		"parcel-bundler": "^1.12.0",
 		"husky": "^2.3.0",
-		"prettier": "^1.17.0",
-		"eslint": "^5.16.0",
-		"@quarterto/eslint-config": "^1.4.0",
-		"@quarterto/prettier": "^1.1.0",
-		"lint-staged": "^8.1.7"
-	},
-	"eslintConfig": {
-		"extends": [
-			"@quarterto"
-		]
-	},
-	"prettier": "@quarterto/prettier",
-	"lint-staged": {
-		"*.{js,json}": [
-			"prettier --write",
-			"git add"
-		]
-	},
-	"husky": {
-		"hooks": {
-			"pre-commit": "lint-staged"
-		}
+		"parcel-bundler": "^1.12.0"
 	},
 	"dependencies": {
 		"@quarterto/colours": "^1.5.0",
+		"cytoscape": "^3.31.0",
+		"cytoscape-dagre": "^2.5.0",
 		"lodash.minby": "^4.6.0",
 		"react": "^16.12.0",
+		"react-cytoscapejs": "^2.0.0",
 		"react-dom": "^16.12.0",
 		"styled-components": "^5.0.0"
 	}
