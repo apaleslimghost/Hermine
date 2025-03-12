@@ -75,3 +75,17 @@ export default [
 	{ data: { id: 'rosai-middle', label: 'Rosai', type: 'red', source: 'rosai-pre-rond-junction', target: 'rosai-col-junction',}},
 	{ data: { id: 'rosai-bottom', label: 'Rosai', type: 'red', source: 'rosai-col-junction', target: 'rhodos-farcis-col-junction',}},
 ]
+
+// export default [
+// 	{ data: { id: 'a', label: 'A' } },
+// 	{ data: { id: 'b', label: 'B' } },
+// 	{ data: { id: 'c', label: 'C' } },
+// 	{ data: { id: 'd', label: 'D' } },
+
+// 	// { data: {id: 'α', source: 'c', target: 'a', type: 'funitel'}},
+
+// 	{ data: {id: '1', source: 'a', target: 'b', type: 'green'}},
+// 	{ data: {id: '2', source: 'a', target: 'b', type: 'blue'}},
+// 	{ data: {id: '3', source: 'a', target: 'c', type: 'red'}},
+// 	{ data: {id: '4', source: 'd', target: 'c', type: 'black'}},
+// ]

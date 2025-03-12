@@ -5,26 +5,34 @@ import minBy from 'lodash.minby'
 import styled, { createGlobalStyle } from 'styled-components'
 import colours from '@quarterto/colours'
 import Cytoscape from 'cytoscape'
-import dagre from 'cytoscape-dagre';
+import klay from 'cytoscape-klay';
 
-Cytoscape.use( dagre );
+Cytoscape.use( klay );
 
 const runTypes = ['green', 'blue', 'red', 'black']
 
 const cy = new Cytoscape({
 	elements,
-	maxZoom: 1,
+	// maxZoom: 1,
+	autoungrabify: true,
+	autounselectify: true,
 	style: [
 		{
 			selector: 'node',
 			style: {
 				'label': 'data(label)',
-				width(node) {
-					return node.data('label') ? 8 : 4
+				shape: 'square',
+				width: 4,
+				height: 4,
+				'background-color'(node) {
+					return Array.from(node.connectedEdges()).reduce(
+						(colour, edge) => runTypes.includes(edge.data('type'))
+							? runTypes[Math.min(runTypes.indexOf(colour), runTypes.indexOf(edge.data('type')))]
+							: colour,
+						'black'
+					)
 				},
-				height(node) {
-					return node.data('label') ? 8 : 4
-				},
+				'corner-radius': 2,
 			}
 		},
 		{
@@ -32,8 +40,6 @@ const cy = new Cytoscape({
 			style: {
 				'label': 'data(label)',
 				'line-color': 'data(type)',
-				'source-endpoint': 'inside-to-node',
-				'target-endpoint': 'inside-to-node',
 				'text-rotation': 'autorotate',
 				'text-outline-width': 1,
 				'text-outline-color': 'white',
@@ -41,12 +47,18 @@ const cy = new Cytoscape({
 					return runTypes.includes(edge.data('type')) ? 4 : 2
 				},
 				'z-index'(edge) {
-					return runTypes.includes(edge.data('type')) ? 1 : 2
+					return 5 - runTypes.indexOf(edge.data('type'))
 				},
 				'curve-style'(edge) {
 					return runTypes.includes(edge.data('type')) ? 'round-taxi' : 'round-segments'
 				},
-				'control-point-step-size': 10
+				'source-arrow-shape'(edge) {
+					return runTypes.includes(edge.data('type')) ? 'none' : 'circle'
+				},
+				'target-arrow-shape'(edge) {
+					return runTypes.includes(edge.data('type')) ? 'none' : 'circle'
+				},
+				'arrow-scale': 0.5
 			}
 		},
 	]
@@ -182,15 +194,14 @@ const App = () => {
 	useLayoutEffect(() => {
 		cy.mount(cytoscapeContainer.current)
 		cy.elements('node,edge[type="green"],edge[type="blue"],edge[type="red"],edge[type="black"]').layout({
-			name: 'dagre',
-			edgeSep: 50,
-			nodeSep: 75,
-			rankSep: 75,
-			edgeWeight(edge) {
-				return edge.data('length') ?? 1
-			},
-			ready() {
-
+			name: 'klay',
+			klay: {
+				aspectRatio: 1.3,
+				direction: 'DOWN',
+				nodeLayering: 'LONGEST_PATH',
+				spacing: 40,
+				layoutHierarchy: true,
+				thoroughness: 30
 			}
 		}).run()
 	}, [cytoscapeContainer.current])
