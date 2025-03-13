@@ -5,9 +5,9 @@ import minBy from 'lodash.minby'
 import styled, { createGlobalStyle } from 'styled-components'
 import colours from '@quarterto/colours'
 import Cytoscape from 'cytoscape'
-import coseBilkent from 'cytoscape-cose-bilkent';
+import fcose from 'cytoscape-fcose';
 
-Cytoscape.use( coseBilkent );
+Cytoscape.use( fcose );
 
 const runTypes = ['green', 'blue', 'red', 'black']
 
@@ -203,24 +203,30 @@ const App = () => {
 	const [runFilter, setRunFilter] = useState([])
 	const [liftFilter, setLiftFilter] = useState([])
 
-	const [model, setModel] = useState(elements)
-
 	const cytoscapeContainer = useRef()
 
 	useLayoutEffect(() => {
 		cy.add(elements)
 		cy.mount(cytoscapeContainer.current)
 
-		cy.on('layoutstop', () => {
-			setModel(
-				cy.elements().jsons()
-			)
-		})
+		cy.fit()
+
+		cy.nodes().forEach(
+			(node) => node.scratch('_originalPosition', node.position())
+		)
 
 		cy.elements('node,edge[type="green"],edge[type="blue"],edge[type="red"],edge[type="black"]').layout({
-			name: 'cose-bilkent',
+			name: 'fcose',
 			randomize: false,
-			idealEdgeLength: 100,
+			idealEdgeLength(edge) {
+				const { x: tx, y: ty } = edge.target().scratch('_originalPosition')
+				const { x: sx, y: sy } = edge.source().scratch('_originalPosition')
+
+				return Math.sqrt(
+					Math.pow(sx - tx, 2) +
+					Math.pow(sy - ty, 2)
+				)
+			},
 			nodeRepulsion: 60000,
 		}).run()
 
@@ -231,38 +237,7 @@ const App = () => {
 			<GlobalStyles />
 
 			<Fullscreen>
-				<Flex>
-					<Flex vertical>
-						{/* <Flex style={{ flex: 0 }}>
-							<StopSelect value={from} onChange={ev => setFrom(ev.target.value)} />
-							<StopSelect value={to} onChange={ev => setTo(ev.target.value)} />
-							<Filter
-								items={['green', 'blue', 'red', 'black']}
-								onChange={setRunFilter}
-							/>
-							<Filter
-								items={[
-									'funitel',
-									'telecabine',
-									'telesiege',
-									'telepherique',
-									'teleski',
-									'tapis',
-								]}
-								onChange={setLiftFilter}
-							/>
-						</Flex> */}
-
-
-						{/* {from && to && (
-							<Path {...{ from, to, runFilter, liftFilter}} />
-						)} */}
-
-						<textarea style={{ flex: 3, overflowY: 'scroll' }} value={JSON.stringify(model, null, 2)} readOnly />
-					</Flex>
-
-					<Graph ref={cytoscapeContainer} />
-				</Flex>
+				<Graph ref={cytoscapeContainer} />
 			</Fullscreen>
 		</>
 	)

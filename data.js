@@ -85,9 +85,9 @@ export default [
 	/// runs
 	{ data: { id: 'gentianes', label: 'Gentianes', type: 'blue', source: 'sures-top', target: 'gentianes-col-junction'}},
 	{ data: { id: 'rhodos-top', label: 'Rhodos', type: 'red', source: 'sures-top', target: 'maronne-top',}},
-	{ data: { id: 'col-top', label: 'Col', type: 'blue', source: 'auris-express-top', target: 'gentianes-col-junction'} },
-	{ data: { id: 'col-middle', label: 'Col', type: 'blue', source: 'gentianes-col-junction', target: 'rosai-col-junction'} },
-	{ data: { id: 'col-bottom', label: 'Col', type: 'blue', source: 'rosai-col-junction', target: 'auris'} },
+	{ data: { id: 'col-top', label: 'Col', type: 'blue', source: 'auris-express-top', target: 'rosai-col-junction'} },
+	{ data: { id: 'col-middle', label: 'Col', type: 'blue', source: 'rosai-col-junction', target: 'gentianes-col-junction'} },
+	{ data: { id: 'col-bottom', label: 'Col', type: 'blue', source: 'gentianes-col-junction', target: 'auris'} },
 	{ data: { id: 'rhodos-middle', label: 'Rhodos', type: 'red', source: 'maronne-top', target: 'rhodos-farcis-col-junction',}},
 	{ data: { id: 'rhodos-bottom', label: 'Rhodos', type: 'red', source: 'rhodos-farcis-col-junction', target: 'gentianes-col-junction' } },
 	{ data: { id: 'fuma', label: 'La Fuma', type: 'black', source: 'maronne-top', target: 'farcis-fuma-junction',}},
