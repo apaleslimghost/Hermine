@@ -5,22 +5,20 @@ import minBy from 'lodash.minby'
 import styled, { createGlobalStyle } from 'styled-components'
 import colours from '@quarterto/colours'
 import Cytoscape from 'cytoscape'
-import klay from 'cytoscape-klay';
+import coseBilkent from 'cytoscape-cose-bilkent';
 
-Cytoscape.use( klay );
+Cytoscape.use( coseBilkent );
 
 const runTypes = ['green', 'blue', 'red', 'black']
 
 const cy = new Cytoscape({
-	elements,
 	// maxZoom: 1,
 	autoungrabify: true,
 	autounselectify: true,
 	style: [
 		{
-			selector: 'node',
+			selector: 'node:childless',
 			style: {
-				'label': 'data(label)',
 				shape: 'square',
 				width: 4,
 				height: 4,
@@ -36,10 +34,20 @@ const cy = new Cytoscape({
 			}
 		},
 		{
-			selector: 'edge',
+			selector: '[label]',
 			style: {
 				'label': 'data(label)',
+			}
+		},
+		{
+			selector: 'edge[type="green"],edge[type="blue"],edge[type="red"],edge[type="black"]',
+			style: {
 				'line-color': 'data(type)',
+			}
+		},
+		{
+			selector: 'edge',
+			style: {
 				'text-rotation': 'autorotate',
 				'text-outline-width': 1,
 				'text-outline-color': 'white',
@@ -173,9 +181,15 @@ const Path = ({ from, to, runFilter, liftFilter }) => {
 	)
 }
 
-const Panes = styled.div`
+const Fullscreen = styled.div`
+	width: 100vw;
+	height: 100vh;
+`
+
+const Flex = styled.div`
 	display: flex;
 	gap: 1rem;
+	flex-direction: ${({ vertical }) => vertical ? 'column' : 'row'};
 `
 
 const Graph = styled.section`
@@ -189,53 +203,67 @@ const App = () => {
 	const [runFilter, setRunFilter] = useState([])
 	const [liftFilter, setLiftFilter] = useState([])
 
+	const [model, setModel] = useState(elements)
+
 	const cytoscapeContainer = useRef()
 
 	useLayoutEffect(() => {
+		cy.add(elements)
 		cy.mount(cytoscapeContainer.current)
+
+		cy.on('layoutstop', () => {
+			setModel(
+				cy.elements().jsons()
+			)
+		})
+
 		cy.elements('node,edge[type="green"],edge[type="blue"],edge[type="red"],edge[type="black"]').layout({
-			name: 'klay',
-			klay: {
-				aspectRatio: 1.3,
-				direction: 'DOWN',
-				nodeLayering: 'LONGEST_PATH',
-				spacing: 40,
-				layoutHierarchy: true,
-				thoroughness: 30
-			}
+			name: 'cose-bilkent',
+			randomize: false,
+			idealEdgeLength: 100,
+			nodeRepulsion: 60000,
 		}).run()
+
 	}, [cytoscapeContainer.current])
 
 	return (
 		<>
 			<GlobalStyles />
 
-			<Panes>
-				<section>
-					<StopSelect value={from} onChange={ev => setFrom(ev.target.value)} />
-					<StopSelect value={to} onChange={ev => setTo(ev.target.value)} />
-					<Filter
-						items={['green', 'blue', 'red', 'black']}
-						onChange={setRunFilter}
-					/>
-					<Filter
-						items={[
-							'funitel',
-							'telecabine',
-							'telesiege',
-							'telepherique',
-							'teleski',
-							'tapis',
-						]}
-						onChange={setLiftFilter}
-					/>
+			<Fullscreen>
+				<Flex>
+					<Flex vertical>
+						{/* <Flex style={{ flex: 0 }}>
+							<StopSelect value={from} onChange={ev => setFrom(ev.target.value)} />
+							<StopSelect value={to} onChange={ev => setTo(ev.target.value)} />
+							<Filter
+								items={['green', 'blue', 'red', 'black']}
+								onChange={setRunFilter}
+							/>
+							<Filter
+								items={[
+									'funitel',
+									'telecabine',
+									'telesiege',
+									'telepherique',
+									'teleski',
+									'tapis',
+								]}
+								onChange={setLiftFilter}
+							/>
+						</Flex> */}
 
-					{/* {from && to && (
-						<Path {...{ from, to, runFilter, liftFilter}} />
-					)} */}
-				</section>
-				<Graph ref={cytoscapeContainer} />
-			</Panes>
+
+						{/* {from && to && (
+							<Path {...{ from, to, runFilter, liftFilter}} />
+						)} */}
+
+						<textarea style={{ flex: 3, overflowY: 'scroll' }} value={JSON.stringify(model, null, 2)} readOnly />
+					</Flex>
+
+					<Graph ref={cytoscapeContainer} />
+				</Flex>
+			</Fullscreen>
 		</>
 	)
 }

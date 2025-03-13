@@ -1,33 +1,75 @@
 export default [
 	/// locations
-	{ data: { id: 'auris', label: 'Auris en Oisans', type: 'village' } },
+	{ data: { id: 'auris', label: 'Auris en Oisans', type: 'village' }, position: {
+		y: -565.9, x: 764.2
+	} },
 		// to: ['Auris Express', 'Piegut'],
-	{ data: { id: 'bergers', label: 'Bergers', type: 'village' } },
+	{ data: { id: 'bergers', label: 'Bergers', type: 'village' }, position: {
+		y: -908.5, x: 762.9
+	} },
 		// to: ['Alpauris (Huez-Auris)'],
-	{ data: { id: 'maronne-village', label: 'Maronne', type: 'village' } },
-	{ data: { id: 'fontfroide-picnic', label: 'Fontfroide picnic area', type: 'picnic'} },
+	{ data: { id: 'maronne-village', label: 'Maronne', type: 'village' }, position: {
+		y: -670.0, x: 612.2
+	} },
+	{ data: { id: 'fontfroide-picnic', label: 'Fontfroide picnic area', type: 'picnic'}, position: {
+		y: -788.4, x: 848.2
+	} },
 		// to: ['Louvets', 'Fontfroide', 'Alpauris (Auris-Gua)'],
-	{ data: { id: 'signal-de-lhomme', label: 'Signal de l\'Homme', type: 'viewpoint'} },
+	{ data: { id: 'signal-de-lhomme', label: 'Signal de l\'Homme', type: 'viewpoint'}, position: {
+		y: -677.3, x: 858.0
+	} },
 
 	/// junction nodes
-	{ data: { id: 'sures-top' }},
+	{ data: { id: 'sures-top' }, position: {
+		y: -563.1, x: 676.3
+	}},
 		// to: ['Rhodos (top)', 'Jacques le Bucheron'],
-	{ data: { id: 'gentianes-col-junction' }},
-	{ data: { id: 'maronne-top' }},
-	{ data: { id: 'rhodos-farcis-col-junction'}},
+	{ data: { id: 'gentianes-col-junction' }, position: {
+		y: -604.3, x: 747.7
+	}},
+	{ data: { id: 'maronne-top' }, position: {
+		y: -615.9, x: 695.8
+	}},
+	{ data: { id: 'rhodos-farcis-col-junction'}, position: {
+		y: -633.7, x: 726.1
+	}},
 		// to: ['Farcis', 'Col (bottom)']
-	{ data: { id: 'farcis-fuma-junction'}},
-	{ data: { id: 'auris-express-top'}},
-	{ data: { id: 'pre-rond-fontfroide-junction'}},
-	{ data: { id: 'lys-gua-junction'}},
-	{ data: { id: 'gua-sarenne-junction'}},
-	{ data: { id: 'lombards-bottom'}},
-	{ data: { id: 'lombards-top'}},
-	{ data: { id: 'alpauris-bottom'}},
-	{ data: { id: 'chalvets-bottom'}},
-	{ data: { id: 'charbonniere-campanules-junction'}},
-	{ data: { id: 'rosai-pre-rond-junction'}},
-	{ data: { id: 'rosai-col-junction'}},
+	{ data: { id: 'farcis-fuma-junction'}, position: {
+		y: -653.8, x: 675.3
+	}},
+	{ data: { id: 'auris-express-top'}, position: {
+		y: -722.2, x: 787.1
+	}},
+	{ data: { id: 'pre-rond-fontfroide-junction'}, position: {
+		y: -751.2, x: 850.1
+	}},
+	{ data: { id: 'lys-gua-junction'}, position: {
+		y: -760.1, x: 904.0
+	}},
+	{ data: { id: 'gua-sarenne-junction'}, position: {
+		y: -788.3, x: 1046.4
+	}},
+	{ data: { id: 'lombards-bottom'}, position: {
+		y: -805.5, x: 916.2
+	}},
+	{ data: { id: 'lombards-top'}, position: {
+		y: -752.3, x: 896.3
+	}},
+	{ data: { id: 'alpauris-bottom'}, position: {
+		y: -810.7, x: 831.5
+	}},
+	{ data: { id: 'chalvets-bottom'}, position: {
+		y: -806.6, x: 1023.0
+	}},
+	{ data: { id: 'charbonniere-campanules-junction'}, position: {
+		y: -939.3, x: 1030.6
+	}},
+	{ data: { id: 'rosai-pre-rond-junction'}, position: {
+		y: -700.8, x: 779.5
+	}},
+	{ data: { id: 'rosai-col-junction'}, position: {
+		y: -702.1, x: 737.4
+	}},
 
 	/// lifts
 	{ data: { id: 'sures', label: 'Sures', type: 'telesiege', source: 'auris', target: 'sures-top',} },
@@ -41,7 +83,7 @@ export default [
 	{ data: { id: 'chalvets', label: 'Chalvets', type: 'telesiege', source: 'chalvets-bottom', target: 'charbonniere-campanules-junction',} },
 
 	/// runs
-	{ data: { id: 'gentianes', label: 'Gentianes', type: 'blue', source: 'sures-top', target: 'gentianes-col-junction',}},
+	{ data: { id: 'gentianes', label: 'Gentianes', type: 'blue', source: 'sures-top', target: 'gentianes-col-junction'}},
 	{ data: { id: 'rhodos-top', label: 'Rhodos', type: 'red', source: 'sures-top', target: 'maronne-top',}},
 	{ data: { id: 'col-top', label: 'Col', type: 'blue', source: 'auris-express-top', target: 'gentianes-col-junction'} },
 	{ data: { id: 'col-middle', label: 'Col', type: 'blue', source: 'gentianes-col-junction', target: 'rosai-col-junction'} },
@@ -75,17 +117,3 @@ export default [
 	{ data: { id: 'rosai-middle', label: 'Rosai', type: 'red', source: 'rosai-pre-rond-junction', target: 'rosai-col-junction',}},
 	{ data: { id: 'rosai-bottom', label: 'Rosai', type: 'red', source: 'rosai-col-junction', target: 'rhodos-farcis-col-junction',}},
 ]
-
-// export default [
-// 	{ data: { id: 'a', label: 'A' } },
-// 	{ data: { id: 'b', label: 'B' } },
-// 	{ data: { id: 'c', label: 'C' } },
-// 	{ data: { id: 'd', label: 'D' } },
-
-// 	// { data: {id: 'α', source: 'c', target: 'a', type: 'funitel'}},
-
-// 	{ data: {id: '1', source: 'a', target: 'b', type: 'green'}},
-// 	{ data: {id: '2', source: 'a', target: 'b', type: 'blue'}},
-// 	{ data: {id: '3', source: 'a', target: 'c', type: 'red'}},
-// 	{ data: {id: '4', source: 'd', target: 'c', type: 'black'}},
-// ]
