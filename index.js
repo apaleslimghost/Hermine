@@ -1,6 +1,6 @@
 import React, { useState, useMemo, useRef, useLayoutEffect } from 'react'
 import { render } from 'react-dom'
-import elements from './data'
+import { elements, constraints } from './data'
 import minBy from 'lodash.minby'
 import styled, { createGlobalStyle } from 'styled-components'
 import colours from '@quarterto/colours'
@@ -36,21 +36,24 @@ const cy = new Cytoscape({
 		{
 			selector: '[label]',
 			style: {
-				'label': 'data(label)',
+				'source-label': 'data(label)',
+				'source-text-offset': '50%',
+				'font-size': '6px'
 			}
 		},
 		{
 			selector: 'edge[type="green"],edge[type="blue"],edge[type="red"],edge[type="black"]',
 			style: {
 				'line-color': 'data(type)',
+				'text-outline-width': 1,
+				'text-outline-color': 'data(type)',
+				color: 'white',
 			}
 		},
 		{
 			selector: 'edge',
 			style: {
 				'text-rotation': 'autorotate',
-				'text-outline-width': 1,
-				'text-outline-color': 'white',
 				width(edge) {
 					return runTypes.includes(edge.data('type')) ? 4 : 2
 				},
@@ -66,9 +69,21 @@ const cy = new Cytoscape({
 				'target-arrow-shape'(edge) {
 					return runTypes.includes(edge.data('type')) ? 'none' : 'circle'
 				},
-				'arrow-scale': 0.5
+				'arrow-scale': 0.5,
 			}
 		},
+		{
+			selector: '[direction]',
+			style: {
+				'taxi-direction': 'data(direction)'
+			}
+		},
+		{
+			selector: '[turnDistance]',
+			style: {
+				'taxi-turn': 'data(turnDistance)'
+			}
+		}
 	]
 })
 
@@ -215,6 +230,8 @@ const App = () => {
 			(node) => node.scratch('_originalPosition', node.position())
 		)
 
+		cy.elements().on('click', evt => console.log(evt.target.data('id')))
+
 		cy.elements('node,edge[type="green"],edge[type="blue"],edge[type="red"],edge[type="black"]').layout({
 			name: 'fcose',
 			randomize: false,
@@ -228,6 +245,7 @@ const App = () => {
 				)
 			},
 			nodeRepulsion: 60000,
+			...constraints
 		}).run()
 
 	}, [cytoscapeContainer.current])
