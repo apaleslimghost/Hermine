@@ -36,9 +36,22 @@ const cy = new Cytoscape({
 		{
 			selector: '[label]',
 			style: {
-				'source-label': 'data(label)',
-				'source-text-offset': '50%',
+				'label': 'data(label)',
 				'font-size': '6px'
+			}
+		},
+		{
+			selector: 'edge',
+			style: {
+				'text-rotation': 'autorotate',
+				width: 2,
+				'z-index'(edge) {
+					return 5 - runTypes.indexOf(edge.data('type'))
+				},
+				'curve-style': 'round-segments',
+				'source-arrow-shape': 'circle',
+				'target-arrow-shape': 'circle',
+				'arrow-scale': 0.5,
 			}
 		},
 		{
@@ -48,28 +61,13 @@ const cy = new Cytoscape({
 				'text-outline-width': 1,
 				'text-outline-color': 'data(type)',
 				color: 'white',
-			}
-		},
-		{
-			selector: 'edge',
-			style: {
-				'text-rotation': 'autorotate',
-				width(edge) {
-					return runTypes.includes(edge.data('type')) ? 4 : 2
-				},
-				'z-index'(edge) {
-					return 5 - runTypes.indexOf(edge.data('type'))
-				},
-				'curve-style'(edge) {
-					return runTypes.includes(edge.data('type')) ? 'round-taxi' : 'round-segments'
-				},
-				'source-arrow-shape'(edge) {
-					return runTypes.includes(edge.data('type')) ? 'none' : 'circle'
-				},
-				'target-arrow-shape'(edge) {
-					return runTypes.includes(edge.data('type')) ? 'none' : 'circle'
-				},
-				'arrow-scale': 0.5,
+				'mid-target-arrow-shape': 'chevron',
+				'mid-target-arrow-color': 'data(type)',
+				'arrow-scale': 1,
+				width: 4,
+				'curve-style': 'round-taxi',
+				"target-arrow-shape": 'none',
+				'source-arrow-shape': 'none'
 			}
 		},
 		{

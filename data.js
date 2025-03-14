@@ -99,7 +99,7 @@ export const elements = [
 	{ data: { id: 'pre-rond-middle', label: 'Pre-Rond', type: 'blue', source: 'auris-express-top', target: 'pre-rond-fontfroide-junction',}},
 	{ data: { id: 'fontfroide-bottom', label: 'Fontfroide', type: 'red', source: 'pre-rond-fontfroide-junction', target: 'fontfroide-picnic',}},
 	{ data: { id: 'fontfroide-top', label: 'Fontfroide', type: 'red', source: 'signal-de-lhomme', target: 'pre-rond-fontfroide-junction',}},
-	{ data: { id: 'pre-rond-top', label: 'Pre-rond', type: 'blue', source: 'signal-de-lhomme', target: 'rosai-pre-rond-junction',}},
+	{ data: { id: 'pre-rond-top', label: 'Pre-rond', type: 'blue', source: 'signal-de-lhomme', target: 'rosai-pre-rond-junction', turnDistance: '100%'}},
 	{ data: { id: 'pre-rond-top-2', label: 'Pre-rond', type: 'blue', source: 'rosai-pre-rond-junction', target: 'auris-express-top',}},
 	{ data: { id: 'pre-rond-bottom-1', label: 'Pre-rond', type: 'blue', source: 'pre-rond-fontfroide-junction', target: 'lys-gua-junction', turnDistance: '100%'}},
 	{ data: { id: 'pre-rond-bottom-2', label: 'Pre-rond', type: 'blue', source: 'lys-gua-junction', target: 'fontfroide-picnic', direction: 'upward', turnDistance: '0%'}},
@@ -113,7 +113,7 @@ export const elements = [
 	{ data: { id: 'col-de-cluy', label: 'Col de Cluy', type: 'black', source: 'signal-de-lhomme', target: 'gua-sarenne-junction', turnDistance: '100%'}},
 	{ data: { id: 'la-mine', label: 'La Mine', type: 'red', source: 'charbonniere-campanules-junction', target: 'chalvets-bottom',}},
 	{ data: { id: 'campanules', label: 'Campanules', type: 'red', source: 'charbonniere-campanules-junction', target: 'bergers',}},
-	{ data: { id: 'rosai-top', label: 'Rosai', type: 'red', source: 'signal-de-lhomme', target: 'rosai-pre-rond-junction',}},
+	{ data: { id: 'rosai-top', label: 'Rosai', type: 'red', source: 'signal-de-lhomme', target: 'rosai-pre-rond-junction', turnDistance: '0%', direction: 'upward'}},
 	{ data: { id: 'rosai-middle', label: 'Rosai', type: 'red', source: 'rosai-pre-rond-junction', target: 'rosai-col-junction',}},
 	{ data: { id: 'rosai-bottom', label: 'Rosai', type: 'red', source: 'rosai-col-junction', target: 'rhodos-farcis-col-junction',}},
 ]
