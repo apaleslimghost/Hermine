@@ -228,8 +228,18 @@ const App = () => {
 
 		cy.fit()
 
-		cy.nodes().forEach(
-			(node) => node.scratch('_originalPosition', node.position())
+		cy.edges().forEach(
+			(edge) => {
+				const { x: tx, y: ty } = edge.target().position()
+				const { x: sx, y: sy } = edge.source().position()
+
+				const d = Math.sqrt(
+					Math.pow(sx - tx, 2) +
+					Math.pow(sy - ty, 2)
+				)
+
+				edge.scratch('_irlCrowFliesDistance', d)
+			}
 		)
 
 		cy.elements().on('click', evt => console.log(evt.target.data('id')))
@@ -239,13 +249,7 @@ const App = () => {
 			randomize: false,
 			animate: false,
 			idealEdgeLength(edge) {
-				const { x: tx, y: ty } = edge.target().scratch('_originalPosition')
-				const { x: sx, y: sy } = edge.source().scratch('_originalPosition')
-
-				return Math.sqrt(
-					Math.pow(sx - tx, 2) +
-					Math.pow(sy - ty, 2)
-				)
+				return edge.scratch('_irlCrowFliesDistance')
 			},
 			nodeRepulsion: 60000,
 			...constraints,
