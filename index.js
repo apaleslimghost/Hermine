@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useRef, useLayoutEffect } from 'react'
+import React, { useState, useMemo, useRef, useLayoutEffect, useEffect } from 'react'
 import { render } from 'react-dom'
 import { elements, constraints } from './data'
 import minBy from 'lodash.minby'
@@ -17,7 +17,7 @@ const cy = new Cytoscape({
 	autounselectify: true,
 	style: [
 		{
-			selector: 'node:childless',
+			selector: 'node',
 			style: {
 				shape: 'square',
 				width: 4,
@@ -37,7 +37,8 @@ const cy = new Cytoscape({
 			selector: '[label]',
 			style: {
 				'label': 'data(label)',
-				'font-size': '6px'
+				"font-size": '8px',
+				'min-zoomed-font-size': '3px'
 			}
 		},
 		{
@@ -59,15 +60,16 @@ const cy = new Cytoscape({
 			style: {
 				'line-color': 'data(type)',
 				'text-outline-width': 1,
-				'text-outline-color': 'data(type)',
-				color: 'white',
+				'text-outline-color': 'white',
 				'mid-target-arrow-shape': 'chevron',
 				'mid-target-arrow-color': 'data(type)',
 				'arrow-scale': 1,
 				width: 4,
-				'curve-style': 'round-taxi',
 				"target-arrow-shape": 'none',
-				'source-arrow-shape': 'none'
+				'source-arrow-shape': 'none',
+				'curve-style': 'round-segments',
+				'radius-type': 'influence-radius',
+				'segment-weights': [0.25, 0.75]
 			}
 		},
 		{
@@ -210,6 +212,8 @@ const Graph = styled.section`
 	flex-basis: 50vw;
 `
 
+window.cy = cy
+
 const App = () => {
 	const [from, setFrom] = useState()
 	const [to, setTo] = useState()
@@ -233,6 +237,7 @@ const App = () => {
 		cy.elements('node,edge[type="green"],edge[type="blue"],edge[type="red"],edge[type="black"]').layout({
 			name: 'fcose',
 			randomize: false,
+			animate: false,
 			idealEdgeLength(edge) {
 				const { x: tx, y: ty } = edge.target().scratch('_originalPosition')
 				const { x: sx, y: sy } = edge.source().scratch('_originalPosition')
@@ -243,7 +248,31 @@ const App = () => {
 				)
 			},
 			nodeRepulsion: 60000,
-			...constraints
+			...constraints,
+			stop() {
+				cy.elements('edge[type="green"],edge[type="blue"],edge[type="red"],edge[type="black"]').style({
+					'segment-distances'(edge) {
+						const { x: sx, y: sy } = edge._private.source._private.position
+						const { x: tx, y: ty } = edge._private.target._private.position
+
+						const dx = tx - sx
+						const dy = ty - sy
+
+						const d = Math.sqrt(dx * dx + dy * dy)
+
+						const h = Math.abs(dx) > Math.abs(dy)
+						const d1 = h ? dx : dy
+						const d2 = h ? dy : -dx
+
+						const sd = 0.25 * d * d2/d1
+
+						return [
+							-sd,
+							sd
+						]
+					}
+				})
+			}
 		}).run()
 
 	}, [cytoscapeContainer.current])
