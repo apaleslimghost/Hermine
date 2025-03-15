@@ -68,8 +68,6 @@ const cy = new Cytoscape({
 				"target-arrow-shape": 'none',
 				'source-arrow-shape': 'none',
 				'curve-style': 'round-segments',
-				'radius-type': 'influence-radius',
-				'segment-weights': [0.25, 0.75]
 			}
 		},
 		{
@@ -254,26 +252,82 @@ const App = () => {
 			nodeRepulsion: 60000,
 			...constraints,
 			stop() {
+				cy.elements('edge[type="green"],edge[type="blue"],edge[type="red"],edge[type="black"]').forEach(edge => {
+					const label = edge.data('label')
+					const prev = edge.source().incomers(`edge[label="${label}"]`)
+					const next = edge.target().outgoers(`edge[label="${label}"]`)
+
+					const { x: sx, y: sy } = edge._private.source._private.position
+					const { x: tx, y: ty } = edge._private.target._private.position
+
+					const dx = tx - sx
+					const dy = ty - sy
+
+					const d = Math.sqrt(dx * dx + dy * dy)
+
+					edge.scratch('_dx', dx)
+					edge.scratch('_dy', dy)
+					edge.scratch('_edgeLength', d)
+
+					if(next.length) {
+						const { x: nx, y: ny } = next[0]._private.target._private.position
+
+						edge.scratch(
+							'_targetDirection',
+							Math.abs(sx - nx) > Math.abs(sy - ny) ? 'horizontal' : 'vertical'
+						)
+					} else {
+						edge.scratch(
+							'_targetDirection',
+							Math.abs(dx) > Math.abs(dy) ? 'horizontal' : 'vertical'
+						)
+					}
+
+					if(prev.length) {
+						const { x: px, y: py } = prev[0]._private.source._private.position
+						edge.scratch(
+							'_sourceDirection',
+							Math.abs(tx - px) > Math.abs(ty - py) ? 'horizontal' : 'vertical'
+						)
+					} else {
+						edge.scratch(
+							'_sourceDirection',
+							Math.abs(dx) > Math.abs(dy) ? 'horizontal' : 'vertical'
+						)
+					}
+				})
+
+				const bendOffset = 0.2
+
 				cy.elements('edge[type="green"],edge[type="blue"],edge[type="red"],edge[type="black"]').style({
+					'segment-weights'(edge) {
+						if(edge.scratch('_targetDirection') === edge.scratch('_sourceDirection')) {
+							return [bendOffset, 1 - bendOffset]
+						} else {
+							const { _dy: dy, _edgeLength: d, _sourceDirection } = edge.scratch()
+							const w = (dy * dy) / (d * d)
+							return [_sourceDirection === 'horizontal' ? 1 - w : w]
+						}
+					},
 					'segment-distances'(edge) {
-						const { x: sx, y: sy } = edge._private.source._private.position
-						const { x: tx, y: ty } = edge._private.target._private.position
+						const { _dx: dx, _dy: dy, _edgeLength: d, _targetDirection } = edge.scratch()
 
-						const dx = tx - sx
-						const dy = ty - sy
+						if(edge.scratch('_targetDirection') === edge.scratch('_sourceDirection')) {
+							const h = _targetDirection === 'horizontal'
+							const d1 = h ? dx : dy
+							const d2 = h ? dy : -dx
 
-						const d = Math.sqrt(dx * dx + dy * dy)
+							const sd = bendOffset * d * d2/d1
 
-						const h = Math.abs(dx) > Math.abs(dy)
-						const d1 = h ? dx : dy
-						const d2 = h ? dy : -dx
-
-						const sd = 0.25 * d * d2/d1
-
-						return [
-							-sd,
-							sd
-						]
+							return [
+								-sd,
+								sd
+							]
+						} else {
+							const { _dx: dx, _dy: dy, _edgeLength: d, _sourceDirection } = edge.scratch()
+							const sd = (dx * dy) / d
+							return [ _sourceDirection === 'horizontal' ? -sd : sd ]
+						}
 					}
 				})
 			}

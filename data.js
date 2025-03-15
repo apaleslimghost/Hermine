@@ -98,6 +98,21 @@ export const elements = [
 	{ data: {id: 'romains-top'}, position: {
 		x: -1016.3, y: -904.0
 	}},
+	{ data: {id: 'poutat-ancolies-junction'}, position: {
+		x: -1048.3, y: -929.6
+	}},
+	{ data: {id: 'poutat-couloir-junction'}, position: {
+		x: -1048.3, y: -929.6
+	}},
+	{ data: {id: 'dahut-couloir-junction'}, position: {
+		x: -1068.9, y: -931.2
+	}},
+	{ data: {id: 'couloir-lievre-junction'}, position: {
+		x: -1094.7, y: -978.2
+	}},
+	{ data: {id: 'couloir-chamois-junction'}, position: {
+		x: -1131.7, y: -985.6
+	}},
 
 	/// lifts
 	{ data: { id: 'sures', label: 'Sures', type: 'telesiege', source: 'auris', target: 'sures-top',} },
@@ -166,6 +181,16 @@ export const elements = [
 	{ data: { id: 'bergers-middle', label: 'Bergers', type: 'blue', source: 'bergers-agneaux-junction', target: 'bergers-lac-blanc-junction',}},
 	{ data: { id: 'bergers-top', label: 'Bergers', type: 'blue', source: 'marmottes-1-top', target: 'bergers-agneaux-junction',}},
 	{ data: { id: 'agneaux-top', label: 'Agneaux', type: 'blue', source: 'romains-top', target: 'bergers-agneaux-junction',}},
+	{ data: { id: 'dahut', label: 'Dahut', type: 'red', source: 'marmottes-1-top', target: 'dahut-couloir-junction',}},
+	{ data: { id: 'poutat-top', label: 'Poutat', type: 'red', source: 'marmottes-1-top', target: 'poutat-ancolies-junction',}},
+	{ data: { id: 'poutat-bottom', label: 'Poutat', type: 'red', source: 'poutat-ancolies-junction', target: 'poutat-couloir-junction',}},
+	{ data: { id: 'ancolies-top', label: 'Ancolies', type: 'blue', source: 'marmottes-1-top', target: 'poutat-ancolies-junction',}},
+	{ data: { id: 'ancolies-bottom', label: 'Ancolies', type: 'blue', source: 'poutat-ancolies-junction', target: 'poutat-couloir-junction',}},
+	{ data: { id: 'bd-des-marmottes', label: 'Boulevard des Marmottes', type: 'blue', source: 'couloir-lievre-junction', target: 'marmottes-1-top',}},
+	{ data: { id: 'couloir-middle-1', label: 'Couloir', type: 'blue', source: 'couloir-chamois-junction', target: 'couloir-lievre-junction',}},
+	{ data: { id: 'couloir-middle-2', label: 'Couloir', type: 'blue', source: 'couloir-lievre-junction', target: 'dahut-couloir-junction',}},
+	{ data: { id: 'couloir-middle-3', label: 'Couloir', type: 'blue', source: 'dahut-couloir-junction', target: 'poutat-couloir-junction',}},
+
 
 ]
 
