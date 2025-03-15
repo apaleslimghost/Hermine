@@ -250,6 +250,7 @@ const App = () => {
 				return edge.scratch('_irlCrowFliesDistance')
 			},
 			nodeRepulsion: 60000,
+			uniformNodeDimensions: true,
 			...constraints,
 			stop() {
 				cy.elements('edge[type="green"],edge[type="blue"],edge[type="red"],edge[type="black"]').forEach(edge => {

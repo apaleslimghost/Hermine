@@ -15,6 +15,9 @@ export const elements = [
 	{ data: { id: 'signal-de-lhomme', label: 'Signal de l\'Homme', type: 'viewpoint'}, position: {
 		x: -677.3, y: -858.0
 	} },
+	{ data: { id: 'les-jeux', label: 'Les Jeux 2100', type: 'restaurant'}, position: {
+		x: -1058.0, y: -853.3
+	} },
 
 	/// junction nodes
 	{ data: { id: 'sures-top' }, position: {
@@ -40,9 +43,6 @@ export const elements = [
 	}},
 	{ data: { id: 'lys-gua-junction'}, position: {
 		x: -760.1, y: -904.0
-	}},
-	{ data: { id: 'gua-sarenne-junction'}, position: {
-		x: -788.3, y: -1046.4
 	}},
 	{ data: { id: 'lombards-bottom'}, position: {
 		x: -805.5, y: -916.2
@@ -104,6 +104,9 @@ export const elements = [
 	{ data: {id: 'poutat-couloir-junction'}, position: {
 		x: -1048.3, y: -929.6
 	}},
+	{ data: {id: 'ancolies-couloir-junction'}, position: {
+		x: -1048.7, y: -896.8
+	}},
 	{ data: {id: 'dahut-couloir-junction'}, position: {
 		x: -1068.9, y: -931.2
 	}},
@@ -113,13 +116,44 @@ export const elements = [
 	{ data: {id: 'couloir-chamois-junction'}, position: {
 		x: -1131.7, y: -985.6
 	}},
+	{ data: {id: 'lievre-blanc-top'}, position: {
+		x: -1082.4, y: -1027.0
+	}},
+	{ data: {id: 'deversoir-balme-junction'}, position: {
+		x: -1050.4, y: -1020.3
+	}},
+	{ data: {id: 'marmottes-2-top'}, position: {
+		x: -1109.8, y: -1120.4
+	}},
+	{ data: {id: 'balcons-breche-junction'}, position: {
+		x: -1128.7, y: -1087.4
+	}},
+	{ data: {id: 'cluy-turning'}, position: {
+		x: -713.3, y: -1030.8
+	}},
+	{ data: {id: 'pic-blanc-2-top'}, position: {
+		x: -1185.4, y: -1039.9
+	}},
+	{ data: {id: 'chamois-lacs-junction'}, position: {
+		x: -1088.2, y: -903.7
+	}},
+	{ data: {id: 'chamois-chavanus-junction'}, position: {
+		x: -1084.1, y: -821.0
+	}},
+	{ data: {id: 'lacs-turn'}, position: {
+		x: -1152.7, y: -871.0
+	}},
+	{ data: {id: 'poutran-chavanus-junction'}, position: {
+		x: -1081.9, y: -797.0
+	}},
+
 
 	/// lifts
 	{ data: { id: 'sures', label: 'Sures', type: 'telesiege', source: 'auris', target: 'sures-top',} },
 	{ data: { id: 'maronne', label: 'Maronne', type: 'telesiege', source: 'maronne-village', target: 'maronne-top',} },
 	{ data: { id: 'auris-express', label: 'Auris Express', type: 'telesiege', source: 'auris', target: 'auris-express-top',} },
 	{ data: { id: 'louvets', label: 'Lovets', type: 'telesiege', source: 'fontfroide-picnic', target: 'auris-express-top',} },
-	{ data: { id: 'lombards', label: 'Lovets', type: 'telesiege', source: 'lombards-bottom', target: 'lombards-top',} },
+	{ data: { id: 'lombards', label: 'Lombards', type: 'telesiege', source: 'lombards-bottom', target: 'lombards-top',} },
 	{ data: { id: 'alpauris-auris-gua', label: 'Alpauris', type: 'telesiege', source: 'fontfroide-picnic', target: 'alpauris-bottom',} },
 	{ data: { id: 'alpauris-gua-bergers', label: 'Alpauris', type: 'telesiege', source: 'alpauris-bottom', target: 'bergers',} },
 	{ data: { id: 'alpauris-bergers-auris', label: 'Alpauris', type: 'telesiege', source: 'bergers', target: 'fontfroide-picnic',} },
@@ -127,8 +161,11 @@ export const elements = [
 	{ data: { id: 'fontfroide', label: 'Fontfroide', type: 'telesiege', source: 'fontfroide-picnic', target: 'signal-de-lhomme'}},
 	{ data: {id: 'piegut', label: 'Piegut', type: 'tapis', source: 'auris', target: 'piegut-top'}},
 	{ data: {id: 'foret', label: 'Foret', type: 'tapis', source: 'foret-bottom', target: 'foret-top'}},
-	{ data: {id: 'marmotte-1', label: 'Marmottes 1', type: 'telesiege', source: 'bergers', target: 'marmottes-1-top'}},
+	{ data: {id: 'marmottes-1', label: 'Marmottes 1', type: 'telesiege', source: 'bergers', target: 'marmottes-1-top'}},
+	{ data: {id: 'marmottes-2', label: 'Marmottes 2', type: 'telecabine', source: 'marmottes-1-top', target: 'marmottes-2-top'}},
 	{ data: {id: 'romains', label: 'Romains', type: 'telesiege', source: 'bergers', target: 'romains-top'}},
+	{ data: {id: 'lievre-blanc-lift', label: 'Lievre Blanc', type: 'telesiege', source: 'les-jeux', target: 'lievre-blanc-top'}},
+	{ data: {id: 'pic-blanc-2', label: 'Pic Blanc 2', type: 'telecabine', source: 'les-jeux', target: 'pic-blanc-2-top'}},
 
 	/// runs
 	{ data: { id: 'gentianes', label: 'Gentianes', type: 'blue', source: 'sures-top', target: 'gentianes-col-junction'}},
@@ -137,8 +174,8 @@ export const elements = [
 	{ data: { id: 'col-middle', label: 'Col', type: 'blue', source: 'rosai-col-junction', target: 'gentianes-col-junction'} },
 	{ data: { id: 'col-bottom', label: 'Col', type: 'blue', source: 'gentianes-col-junction', target: 'auris'} },
 	{ data: { id: 'rhodos-middle', label: 'Rhodos', type: 'red', source: 'maronne-top', target: 'rhodos-split',}},
-	{ data: { id: 'rhodos-bottom-1', label: 'Rhodos', type: 'red', source: 'rhodos-split', target: 'rhodos-farcis-col-junction' } },
-	{ data: { id: 'rhodos-bottom-2', label: 'Rhodos', type: 'red', source: 'rhodos-split', target: 'gentianes-col-junction' } },
+	{ data: { id: 'rhodos-bottom-1', label: 'Rhodos', type: 'red', source: 'rhodos-split', target: 'gentianes-col-junction' } },
+	{ data: { id: 'rhodos-bottom-2', label: 'Rhodos', type: 'red', source: 'rhodos-split', target: 'rhodos-farcis-col-junction' } },
 	{ data: { id: 'fuma', label: 'La Fuma', type: 'black', source: 'maronne-top', target: 'farcis-fuma-junction'}},
 	{ data: { id: 'farcis-top', label: 'Farcis', type: 'blue', source: 'gentianes-col-junction', target: 'rhodos-farcis-col-junction',}},
 	{ data: { id: 'farcis-middle', label: 'Farcis', type: 'blue', source: 'rhodos-farcis-col-junction', target: 'farcis-fuma-junction',}},
@@ -153,13 +190,13 @@ export const elements = [
 	{ data: { id: 'pre-rond-bottom-1', label: 'Pre-rond', type: 'blue', source: 'pre-rond-fontfroide-junction', target: 'lys-gua-junction'}},
 	{ data: { id: 'pre-rond-bottom-2', label: 'Pre-rond', type: 'blue', source: 'lys-gua-junction', target: 'fontfroide-picnic'}},
 	{ data: { id: 'bergerie', label: 'Bergerie', type: 'black', source: 'signal-de-lhomme', target: 'lys-gua-junction'}},
-	{ data: { id: 'gua-top', label: 'Gua', type: 'blue', source: 'lys-gua-junction', target: 'gua-sarenne-junction'}},
-	{ data: { id: 'gua-middle-2', label: 'Gua', type: 'blue', source: 'gua-sarenne-junction', target: 'chalvets-bottom'}},
+	{ data: { id: 'gua-top', label: 'Gua', type: 'blue', source: 'lys-gua-junction', target: 'chalvets-bottom'}},
 	{ data: { id: 'gua-middle-3', label: 'Gua', type: 'blue', source: 'chalvets-bottom', target: 'lombards-bottom',}},
 	{ data: { id: 'gua-bottom', label: 'Gua', type: 'blue', source: 'lombards-bottom', target: 'alpauris-bottom',}},
 	{ data: { id: 'lys-top', label: 'Lys', type: 'blue', source: 'lombards-top', target: 'lys-gua-junction',}},
 	{ data: { id: 'lys-bottom', label: 'Lys', type: 'blue', source: 'lys-gua-junction', target: 'lombards-bottom',}},
-	{ data: { id: 'col-de-cluy', label: 'Col de Cluy', type: 'black', source: 'signal-de-lhomme', target: 'gua-sarenne-junction'}},
+	{ data: { id: 'col-de-cluy-top', label: 'Col de Cluy', type: 'black', source: 'signal-de-lhomme', target: 'cluy-turning'}},
+	{ data: { id: 'col-de-cluy-bottom', label: 'Col de Cluy', type: 'black', source: 'cluy-turning', target: 'chalvets-bottom'}},
 	{ data: { id: 'la-mine', label: 'La Mine', type: 'red', source: 'charbonniere-campanules-junction', target: 'chalvets-bottom',}},
 	{ data: { id: 'campanules', label: 'Campanules', type: 'red', source: 'charbonniere-campanules-junction', target: 'campagnules-loup-blanc-junction',}},
 	{ data: { id: 'rosai-top', label: 'Rosai', type: 'red', source: 'signal-de-lhomme', target: 'rosai-pre-rond-junction'}},
@@ -185,13 +222,33 @@ export const elements = [
 	{ data: { id: 'poutat-top', label: 'Poutat', type: 'red', source: 'marmottes-1-top', target: 'poutat-ancolies-junction',}},
 	{ data: { id: 'poutat-bottom', label: 'Poutat', type: 'red', source: 'poutat-ancolies-junction', target: 'poutat-couloir-junction',}},
 	{ data: { id: 'ancolies-top', label: 'Ancolies', type: 'blue', source: 'marmottes-1-top', target: 'poutat-ancolies-junction',}},
-	{ data: { id: 'ancolies-bottom', label: 'Ancolies', type: 'blue', source: 'poutat-ancolies-junction', target: 'poutat-couloir-junction',}},
-	{ data: { id: 'bd-des-marmottes', label: 'Boulevard des Marmottes', type: 'blue', source: 'couloir-lievre-junction', target: 'marmottes-1-top',}},
+	{ data: { id: 'ancolies-bottom', label: 'Ancolies', type: 'blue', source: 'poutat-ancolies-junction', target: 'ancolies-couloir-junction',}},
+	{ data: { id: 'bd-des-marmottes', label: 'bd. des Marmottes', type: 'blue', source: 'couloir-lievre-junction', target: 'marmottes-1-top',}},
+	{ data: { id: 'couloir-top', label: 'Couloir', type: 'blue', source: 'pic-blanc-2-top', target: 'couloir-chamois-junction',}},
 	{ data: { id: 'couloir-middle-1', label: 'Couloir', type: 'blue', source: 'couloir-chamois-junction', target: 'couloir-lievre-junction',}},
 	{ data: { id: 'couloir-middle-2', label: 'Couloir', type: 'blue', source: 'couloir-lievre-junction', target: 'dahut-couloir-junction',}},
 	{ data: { id: 'couloir-middle-3', label: 'Couloir', type: 'blue', source: 'dahut-couloir-junction', target: 'poutat-couloir-junction',}},
-
-
+	{ data: { id: 'couloir-middle-4', label: 'Couloir', type: 'blue', source: 'poutat-couloir-junction', target: 'ancolies-couloir-junction',}},
+	{ data: { id: 'couloir-bottom', label: 'Couloir', type: 'blue', source: 'ancolies-couloir-junction', target: 'les-jeux',}},
+	{ data: { id: 'chez-roger-top', label: 'Chez Roger', type: 'green', source: 'romains-top', target: 'les-jeux',}},
+	{ data: { id: 'lievre-blanc', label: 'Lievre Blanc', type: 'red', source: 'lievre-blanc-top', target: 'couloir-lievre-junction',}},
+	{ data: { id: 'deversoir-top', label: 'Deversoir', type: 'red', source: 'marmottes-2-top', target: 'lievre-blanc-top',}},
+	{ data: { id: 'deversoir-middle', label: 'Deversoir', type: 'red', source: 'lievre-blanc-top', target: 'deversoir-balme-junction',}},
+	{ data: { id: 'deversoir-bottom', label: 'Deversoir', type: 'red', source: 'deversoir-balme-junction', target: 'marmottes-1-top',}},
+	{ data: { id: 'la-balme', label: 'La Balme', type: 'black', source: 'deversoir-balme-junction', target: 'campagnules-loup-blanc-junction',}},
+	{ data: { id: 'combe-charbonniere', label: 'Combe Charbonniere', type: 'black', source: 'marmottes-2-top', target: 'charbonniere-campanules-junction',}},
+	{ data: { id: 'clocher-de-macle', label: 'Clocher de Macle', type: 'black', source: 'marmottes-2-top', target: 'lievre-blanc-top',}},
+	{ data: { id: 'balcons-top', label: 'Balcons', type: 'black', source: 'marmottes-2-top', target: 'balcons-breche-junction',}},
+	{ data: { id: 'balcons-bottom', label: 'Balcons', type: 'black', source: 'balcons-breche-junction', target: 'lievre-blanc-top',}},
+	{ data: { id: 'chamois-top', label: 'Chamois', type: 'red', source: 'pic-blanc-2-top', target: 'couloir-chamois-junction',}},
+	{ data: { id: 'chamois-middle', label: 'Chamois', type: 'red', source: 'couloir-chamois-junction', target: 'chamois-lacs-junction',}},
+	{ data: { id: 'chamois-bottom-1', label: 'Chamois', type: 'red', source: 'chamois-lacs-junction', target: 'les-jeux',}},
+	{ data: { id: 'chamois-bottom-2', label: 'Chamois', type: 'red', source: 'chamois-lacs-junction', target: 'chamois-chavanus-junction',}},
+	{ data: { id: 'bd-des-lacs-top', label: 'bd. des Lacs', type: 'blue', source: 'chamois-lacs-junction', target: 'lacs-turn',}},
+	{ data: { id: 'bd-des-lacs-bottom', label: 'bd. des Lacs', type: 'blue', source: 'lacs-turn', target: 'chamois-chavanus-junction',}},
+	{ data: { id: 'chavanus-top', label: 'Chavanus', type: 'red', source: 'les-jeux', target: 'chamois-chavanus-junction',}},
+	{ data: { id: 'chavanus-bottom', label: 'Chavanus', type: 'red', source: 'chamois-chavanus-junction', target: 'poutran-chavanus-junction',}},
+	{ data: { id: 'poutrans', label: 'Poutrans', type: 'red', source: 'les-jeux', target: 'poutran-chavanus-junction',}},
 ]
 
 export const constraints = {
