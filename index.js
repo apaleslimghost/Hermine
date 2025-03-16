@@ -81,6 +81,12 @@ const cy = new Cytoscape({
 			style: {
 				'taxi-turn': 'data(turnDistance)'
 			}
+		},
+		{
+			selector: 'edge.tunnel',
+			style: {
+				'line-style': 'dashed'
+			}
 		}
 	]
 })
@@ -249,7 +255,7 @@ const App = () => {
 			idealEdgeLength(edge) {
 				return edge.scratch('_irlCrowFliesDistance')
 			},
-			nodeRepulsion: 60000,
+			nodeRepulsion: 80000,
 			uniformNodeDimensions: true,
 			...constraints,
 			stop() {

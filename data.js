@@ -1,22 +1,28 @@
 export const elements = [
 	/// locations
-	{ data: { id: 'auris', label: 'Auris en Oisans', type: 'village' }, position: {
+	{ data: { id: 'auris', label: 'Auris en Oisans' }, position: {
 		x: -565.9, y: -764.2
 	} },
-	{ data: { id: 'bergers', label: 'Bergers', type: 'village' }, position: {
+	{ data: { id: 'bergers', label: 'Bergers' }, position: {
 		x: -908.5, y: -762.9
 	} },
-	{ data: { id: 'maronne-village', label: 'Maronne', type: 'village' }, position: {
+	{ data: { id: 'maronne-village', label: 'Maronne' }, position: {
 		x: -670.0, y: -612.2
 	} },
-	{ data: { id: 'fontfroide-picnic', label: 'Fontfroide picnic area', type: 'picnic'}, position: {
+	{ data: { id: 'fontfroide-picnic', label: 'Fontfroide picnic area' }, position: {
 		x: -788.4, y: -848.2
 	} },
-	{ data: { id: 'signal-de-lhomme', label: 'Signal de l\'Homme', type: 'viewpoint'}, position: {
+	{ data: { id: 'signal-de-lhomme', label: 'Signal de l\'Homme' }, position: {
 		x: -677.3, y: -858.0
 	} },
-	{ data: { id: 'les-jeux', label: 'Les Jeux 2100', type: 'restaurant'}, position: {
+	{ data: { id: 'les-jeux', label: 'Les Jeux 2100' }, position: {
 		x: -1058.0, y: -853.3
+	} },
+	{ data: { id: 'grandes-rousses', label: 'Grandes Rousses 1800'}, position: {
+		x: -977.7, y: -702.0
+	} },
+	{ data: { id: 'dome-des-rousses', label: 'Dome des Rousses 2200' }, position: {
+		x: -1283.4, y: -1056.2
 	} },
 
 	/// junction nodes
@@ -122,6 +128,9 @@ export const elements = [
 	{ data: {id: 'deversoir-balme-junction'}, position: {
 		x: -1050.4, y: -1020.3
 	}},
+	{ data: {id: 'deversoir-turn'}, position: {
+		x: -1077.8, y: -1077.5
+	}},
 	{ data: {id: 'marmottes-2-top'}, position: {
 		x: -1109.8, y: -1120.4
 	}},
@@ -146,26 +155,89 @@ export const elements = [
 	{ data: {id: 'poutran-chavanus-junction'}, position: {
 		x: -1081.9, y: -797.0
 	}},
-
+	{ data: {id: 'rif-nel-express-top'}, position: {
+		x: -974.4, y: -772.5
+	}},
+	{ data: {id: 'marmottes-3-top'}, position: {
+		x: -1143.6, y: -1201.1
+	}},
+	{ data: {id: 'herpie-bottom'}, position: {
+		x: -1069.1, y: -1259.8
+	}},
+	{ data: {id: 'sarenne-cristaux-junction'}, position: {
+		x: -1037.9, y: -1259.5
+	}},
+	{ data: {id: 'pic-blanc-3-top'}, position: {
+		x: -1250.2, y: -1275.0
+	}},
+	{ data: {id: 'sarenne-glacier-junction'}, position: {
+		x: -1232.8, y: -1304.9
+	}},
+	{ data: {id: 'sarenne-glacier-bottom-junction'}, position: {
+		x: -1177.1, y: -1298.3
+	}},
+	{ data: {id: 'sarenne-cassini-top-junction'}, position: {
+		x: -1228.3, y: -1313.7
+	}},
+	{ data: {id: 'sarenne-cassini-bottom-junction'}, position: {
+		x: -1156.7, y: -1299.6
+	}},
+	{ data: {id: 'cassini-bend'}, position: {
+		x: -1170.9, y: -1338.0
+	}},
+	{ data: {id: 'eterlous-bend'}, position: {
+		x: -772.8, y: -791.9
+	}},
+	{ data: {id: 'tunnel-glacier-junction'}, position: {
+		x: -1226.4, y: -1280.4
+	}},
+	{ data: {id: 'tunnel-tunnel-exit'}, position: {
+		x: -1232.6, y: -1251.5
+	}},
+	{ data: {id: 'tunnel-split'}, position: {
+		x: -1227.8, y: -1120.6
+	}},
+	{ data: {id: 'tunnel-dome-junction'}, position: {
+		x: -1225.8, y: -1072.8
+	}},
+	{ data: {id: 'lac-blanc-bottom'}, position: {
+		x: -1181.3, y: -1070.7
+	}},
+	{ data: {id: 'la-breche-split'}, position: {
+		x: -1155.9, y: -1112.9
+	}},
+	{ data: {id: 'belvedere-bartavelles-junction'}, position: {
+		x: -1210.4, y: -1050.7
+	}},
+	{ data: {id: 'chamois-rousses-junction'}, position: {
+		x: -1166.6, y: -1006.1
+	}},
 
 	/// lifts
-	{ data: { id: 'sures', label: 'Sures', type: 'telesiege', source: 'auris', target: 'sures-top',} },
-	{ data: { id: 'maronne', label: 'Maronne', type: 'telesiege', source: 'maronne-village', target: 'maronne-top',} },
-	{ data: { id: 'auris-express', label: 'Auris Express', type: 'telesiege', source: 'auris', target: 'auris-express-top',} },
-	{ data: { id: 'louvets', label: 'Lovets', type: 'telesiege', source: 'fontfroide-picnic', target: 'auris-express-top',} },
-	{ data: { id: 'lombards', label: 'Lombards', type: 'telesiege', source: 'lombards-bottom', target: 'lombards-top',} },
-	{ data: { id: 'alpauris-auris-gua', label: 'Alpauris', type: 'telesiege', source: 'fontfroide-picnic', target: 'alpauris-bottom',} },
-	{ data: { id: 'alpauris-gua-bergers', label: 'Alpauris', type: 'telesiege', source: 'alpauris-bottom', target: 'bergers',} },
-	{ data: { id: 'alpauris-bergers-auris', label: 'Alpauris', type: 'telesiege', source: 'bergers', target: 'fontfroide-picnic',} },
-	{ data: { id: 'chalvets', label: 'Chalvets', type: 'telesiege', source: 'chalvets-bottom', target: 'charbonniere-campanules-junction',} },
-	{ data: { id: 'fontfroide', label: 'Fontfroide', type: 'telesiege', source: 'fontfroide-picnic', target: 'signal-de-lhomme'}},
-	{ data: {id: 'piegut', label: 'Piegut', type: 'tapis', source: 'auris', target: 'piegut-top'}},
-	{ data: {id: 'foret', label: 'Foret', type: 'tapis', source: 'foret-bottom', target: 'foret-top'}},
-	{ data: {id: 'marmottes-1', label: 'Marmottes 1', type: 'telesiege', source: 'bergers', target: 'marmottes-1-top'}},
-	{ data: {id: 'marmottes-2', label: 'Marmottes 2', type: 'telecabine', source: 'marmottes-1-top', target: 'marmottes-2-top'}},
-	{ data: {id: 'romains', label: 'Romains', type: 'telesiege', source: 'bergers', target: 'romains-top'}},
-	{ data: {id: 'lievre-blanc-lift', label: 'Lievre Blanc', type: 'telesiege', source: 'les-jeux', target: 'lievre-blanc-top'}},
-	{ data: {id: 'pic-blanc-2', label: 'Pic Blanc 2', type: 'telecabine', source: 'les-jeux', target: 'pic-blanc-2-top'}},
+	{ data: { id: 'sures', label: 'Sures', source: 'auris', target: 'sures-top',} },
+	{ data: { id: 'maronne', label: 'Maronne', source: 'maronne-village', target: 'maronne-top',} },
+	{ data: { id: 'auris-express', label: 'Auris Express', source: 'auris', target: 'auris-express-top',} },
+	{ data: { id: 'louvets', label: 'Lovets', source: 'fontfroide-picnic', target: 'auris-express-top',} },
+	{ data: { id: 'lombards', label: 'Lombards', source: 'lombards-bottom', target: 'lombards-top',} },
+	{ data: { id: 'alpauris-auris-gua', label: 'Alpauris', source: 'fontfroide-picnic', target: 'alpauris-bottom',} },
+	{ data: { id: 'alpauris-gua-bergers', label: 'Alpauris', source: 'alpauris-bottom', target: 'bergers',} },
+	{ data: { id: 'alpauris-bergers-auris', label: 'Alpauris', source: 'bergers', target: 'fontfroide-picnic',} },
+	{ data: { id: 'chalvets', label: 'Chalvets', source: 'chalvets-bottom', target: 'charbonniere-campanules-junction',} },
+	{ data: { id: 'fontfroide', label: 'Fontfroide', source: 'fontfroide-picnic', target: 'signal-de-lhomme'}},
+	{ data: {id: 'piegut', label: 'Piegut', source: 'auris', target: 'piegut-top'}},
+	{ data: {id: 'foret', label: 'Foret', source: 'foret-bottom', target: 'foret-top'}},
+	{ data: {id: 'marmottes-1', label: 'Marmottes 1', source: 'bergers', target: 'marmottes-1-top'}},
+	{ data: {id: 'marmottes-2', label: 'Marmottes 2', source: 'marmottes-1-top', target: 'marmottes-2-top'}},
+	{ data: {id: 'marmottes-3', label: 'Marmottes 3', source: 'marmottes-2-top', target: 'marmottes-3-top'}},
+	{ data: {id: 'romains', label: 'Romains', source: 'bergers', target: 'romains-top'}},
+	{ data: {id: 'lievre-blanc-lift', label: 'Lievre Blanc', source: 'les-jeux', target: 'lievre-blanc-top'}},
+	{ data: {id: 'les-jeux-lift', label: 'Les Jeux', source: 'grandes-rousses', target: 'les-jeux'}},
+	{ data: {id: 'pic-blanc-1', label: 'Pic Blanc 1', source: 'grandes-rousses', target: 'les-jeux'}},
+	{ data: {id: 'pic-blanc-2', label: 'Pic Blanc 2', source: 'les-jeux', target: 'pic-blanc-2-top'}},
+	{ data: {id: 'pic-blanc-3', label: 'Pic Blanc 3', source: 'pic-blanc-2-top', target: 'pic-blanc-3-top'}},
+	{ data: {id: 'rif-nel-express', label: 'Rif Nel Express', source: 'bergers', target: 'rif-nel-express-top'}},
+	{ data: {id: 'herpie', label: 'Herpie', source: 'herpie-bottom', target: 'marmottes-3-top'}},
+	{ data: {id: 'lac-blanc-lift', label: 'Lac Blanc', source: 'lac-blanc-bottom', target: 'pic-blanc-2-top'}},
 
 	/// runs
 	{ data: { id: 'gentianes', label: 'Gentianes', type: 'blue', source: 'sures-top', target: 'gentianes-col-junction'}},
@@ -180,7 +252,8 @@ export const elements = [
 	{ data: { id: 'farcis-top', label: 'Farcis', type: 'blue', source: 'gentianes-col-junction', target: 'rhodos-farcis-col-junction',}},
 	{ data: { id: 'farcis-middle', label: 'Farcis', type: 'blue', source: 'rhodos-farcis-col-junction', target: 'farcis-fuma-junction',}},
 	{ data: { id: 'farcis-bottom', label: 'Farcis', type: 'blue', source: 'farcis-fuma-junction', target: 'maronne-village'}},
-	{ data: { id: 'eterlous', label: 'Eterlous', type: 'blue', source: 'auris-express-top', target: 'fontfroide-picnic'}},
+	{ data: { id: 'eterlous-1', label: 'Eterlous', type: 'blue', source: 'auris-express-top', target: 'eterlous-bend'}},
+	{ data: { id: 'eterlous-2', label: 'Eterlous', type: 'blue', source: 'eterlous-bend', target: 'fontfroide-picnic'}},
 	{ data: { id: 'demoiselles', label: 'Demoiselles', type: 'green', source: 'auris-express-top', target: 'fontfroide-picnic', length: 2}},
 	{ data: { id: 'pre-rond-middle', label: 'Pre-Rond', type: 'blue', source: 'auris-express-top', target: 'pre-rond-fontfroide-junction',}},
 	{ data: { id: 'fontfroide-bottom', label: 'Fontfroide', type: 'red', source: 'pre-rond-fontfroide-junction', target: 'fontfroide-picnic',}},
@@ -231,8 +304,12 @@ export const elements = [
 	{ data: { id: 'couloir-middle-4', label: 'Couloir', type: 'blue', source: 'poutat-couloir-junction', target: 'ancolies-couloir-junction',}},
 	{ data: { id: 'couloir-bottom', label: 'Couloir', type: 'blue', source: 'ancolies-couloir-junction', target: 'les-jeux',}},
 	{ data: { id: 'chez-roger-top', label: 'Chez Roger', type: 'green', source: 'romains-top', target: 'les-jeux',}},
+	{ data: { id: 'chez-roger-middle-1', label: 'Chez Roger', type: 'green', source: 'les-jeux', target: 'bergers-lac-blanc-junction',}},
+	{ data: { id: 'chez-roger-middle-2', label: 'Chez Roger', type: 'green', source: 'bergers-lac-blanc-junction', target: 'rif-nel-express-top',}},
+	{ data: { id: 'chez-roger-bottom', label: 'Chez Roger', type: 'green', source: 'rif-nel-express-top', target: 'bergers',}},
 	{ data: { id: 'lievre-blanc', label: 'Lievre Blanc', type: 'red', source: 'lievre-blanc-top', target: 'couloir-lievre-junction',}},
-	{ data: { id: 'deversoir-top', label: 'Deversoir', type: 'red', source: 'marmottes-2-top', target: 'lievre-blanc-top',}},
+	{ data: { id: 'deversoir-top-1', label: 'Deversoir', type: 'red', source: 'marmottes-2-top', target: 'deversoir-turn',}},
+	{ data: { id: 'deversoir-top-2', label: 'Deversoir', type: 'red', source: 'deversoir-turn', target: 'lievre-blanc-top',}},
 	{ data: { id: 'deversoir-middle', label: 'Deversoir', type: 'red', source: 'lievre-blanc-top', target: 'deversoir-balme-junction',}},
 	{ data: { id: 'deversoir-bottom', label: 'Deversoir', type: 'red', source: 'deversoir-balme-junction', target: 'marmottes-1-top',}},
 	{ data: { id: 'la-balme', label: 'La Balme', type: 'black', source: 'deversoir-balme-junction', target: 'campagnules-loup-blanc-junction',}},
@@ -240,8 +317,9 @@ export const elements = [
 	{ data: { id: 'clocher-de-macle', label: 'Clocher de Macle', type: 'black', source: 'marmottes-2-top', target: 'lievre-blanc-top',}},
 	{ data: { id: 'balcons-top', label: 'Balcons', type: 'black', source: 'marmottes-2-top', target: 'balcons-breche-junction',}},
 	{ data: { id: 'balcons-bottom', label: 'Balcons', type: 'black', source: 'balcons-breche-junction', target: 'lievre-blanc-top',}},
-	{ data: { id: 'chamois-top', label: 'Chamois', type: 'red', source: 'pic-blanc-2-top', target: 'couloir-chamois-junction',}},
-	{ data: { id: 'chamois-middle', label: 'Chamois', type: 'red', source: 'couloir-chamois-junction', target: 'chamois-lacs-junction',}},
+	{ data: { id: 'chamois-top', label: 'Chamois', type: 'red', source: 'pic-blanc-2-top', target: 'chamois-rousses-junction',}},
+	{ data: { id: 'chamois-middle-1', label: 'Chamois', type: 'red', source: 'chamois-rousses-junction', target: 'couloir-chamois-junction',}},
+	{ data: { id: 'chamois-middle-2', label: 'Chamois', type: 'red', source: 'couloir-chamois-junction', target: 'chamois-lacs-junction',}},
 	{ data: { id: 'chamois-bottom-1', label: 'Chamois', type: 'red', source: 'chamois-lacs-junction', target: 'les-jeux',}},
 	{ data: { id: 'chamois-bottom-2', label: 'Chamois', type: 'red', source: 'chamois-lacs-junction', target: 'chamois-chavanus-junction',}},
 	{ data: { id: 'bd-des-lacs-top', label: 'bd. des Lacs', type: 'blue', source: 'chamois-lacs-junction', target: 'lacs-turn',}},
@@ -249,6 +327,34 @@ export const elements = [
 	{ data: { id: 'chavanus-top', label: 'Chavanus', type: 'red', source: 'les-jeux', target: 'chamois-chavanus-junction',}},
 	{ data: { id: 'chavanus-bottom', label: 'Chavanus', type: 'red', source: 'chamois-chavanus-junction', target: 'poutran-chavanus-junction',}},
 	{ data: { id: 'poutrans', label: 'Poutrans', type: 'red', source: 'les-jeux', target: 'poutran-chavanus-junction',}},
+	{ data: { id: 'premier-troncon', label: 'Premier Troncon', type: 'green', source: 'les-jeux', target: 'grandes-rousses',}},
+	{ data: { id: 'rif-nel', label: 'Rif Nel', type: 'green', source: 'grandes-rousses', target: 'bergers',}},
+	{ data: { id: 'lac-blanc', label: 'Lac Blanc', type: 'green', source: 'bergers-lac-blanc-junction', target: 'grandes-rousses',}},
+	{ data: { id: 'clarines', label: 'Clarines', type: 'green', source: 'rif-nel-express-top', target: 'grandes-rousses',}},
+	{ data: { id: 'hermines', label: 'Hermines', type: 'red', source: 'marmottes-3-top', target: 'herpie-bottom',}},
+	{ data: { id: 'sarenne-top', label: 'Sarenne', type: 'black', source: 'pic-blanc-3-top', target: 'sarenne-glacier-junction',}},
+	{ data: { id: 'sarenne-middle-0', label: 'Sarenne', type: 'black', source: 'sarenne-glacier-junction', target: 'sarenne-cassini-top-junction',}},
+	{ data: { id: 'sarenne-middle-1', label: 'Sarenne', type: 'black', source: 'sarenne-cassini-top-junction', target: 'sarenne-glacier-bottom-junction',}},
+	{ data: { id: 'sarenne-middle-2', label: 'Sarenne', type: 'black', source: 'sarenne-glacier-bottom-junction', target: 'sarenne-cassini-bottom-junction',}},
+	{ data: { id: 'sarenne-middle-3', label: 'Sarenne', type: 'black', source: 'sarenne-cassini-bottom-junction', target: 'herpie-bottom',}},
+	{ data: { id: 'sarenne-middle-4', label: 'Sarenne', type: 'black', source: 'herpie-bottom', target: 'sarenne-cristaux-junction',}},
+	{ data: { id: 'sarenne-bottom', label: 'Sarenne', type: 'black', source: 'sarenne-cristaux-junction', target: 'chalvets-bottom',}},
+	{ data: { id: 'cassini-1', label: 'Cassini', type: 'black', source: 'sarenne-cassini-top-junction', target: 'cassini-bend',}},
+	{ data: { id: 'cassini-2', label: 'Cassini', type: 'black', source: 'cassini-bend', target: 'sarenne-cassini-bottom-junction',}},
+	{ data: { id: 'glacier-1', label: 'Glacier', type: 'black', source: 'sarenne-glacier-junction', target: 'tunnel-glacier-junction',}},
+	{ data: { id: 'glacier-2', label: 'Glacier', type: 'black', source: 'tunnel-glacier-junction', target: 'sarenne-glacier-bottom-junction',}},
+	{ data: { id: 'tunnel-top', label: 'Tunnel', type: 'black', source: 'pic-blanc-3-top', target: 'tunnel-glacier-junction',}},
+	{ data: { id: 'tunnel-tunnel', label: 'Tunnel', type: 'black', source: 'tunnel-glacier-junction', target: 'tunnel-tunnel-exit',}, classes: ['tunnel']},
+	{ data: { id: 'tunnel-middle', label: 'Tunnel', type: 'black', source: 'tunnel-tunnel-exit', target: 'tunnel-split',}},
+	{ data: { id: 'tunnel-bottom-1', label: 'Tunnel', type: 'black', source: 'tunnel-split', target: 'tunnel-dome-junction',}},
+	{ data: { id: 'tunnel-bottom-2', label: 'Tunnel', type: 'black', source: 'tunnel-split', target: 'lac-blanc-bottom',}},
+	{ data: { id: 'la-breche-top', label: 'La Breche', type: 'black', source: 'tunnel-tunnel-exit', target: 'la-breche-split',}},
+	{ data: { id: 'la-breche-bottom-1', label: 'La Breche', type: 'black', source: 'la-breche-split', target: 'lac-blanc-bottom',}},
+	{ data: { id: 'la-breche-bottom-2', label: 'La Breche', type: 'black', source: 'la-breche-split', target: 'balcons-breche-junction',}},
+	{ data: { id: 'dome-top', label: 'Dome', type: 'red', source: 'dome-des-rousses', target: 'tunnel-dome-junction',}},
+	{ data: { id: 'dome-bottom', label: 'Dome', type: 'red', source: 'tunnel-dome-junction', target: 'pic-blanc-2-top',}},
+	{ data: { id: 'belvedere-top', label: 'Belvedere', type: 'red', source: 'dome-des-rousses', target: 'belvedere-bartavelles-junction',}},
+	{ data: { id: 'belvedere-bottom', label: 'Belvedere', type: 'red', source: 'belvedere-bartavelles-junction', target: 'chamois-rousses-junction',}},
 ]
 
 export const constraints = {
