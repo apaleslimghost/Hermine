@@ -52,6 +52,8 @@ const cy = new Cytoscape({
 				'curve-style': 'round-segments',
 				'source-arrow-shape': 'circle',
 				'target-arrow-shape': 'circle',
+				'source-endpoint': 'inside-to-node',
+				'target-endpoint': 'inside-to-node',
 				'arrow-scale': 0.5,
 			}
 		},
@@ -248,7 +250,7 @@ const App = () => {
 
 		cy.elements().on('click', evt => console.log(evt.target.data('id')))
 
-		cy.elements('node,edge[type="green"],edge[type="blue"],edge[type="red"],edge[type="black"]').layout({
+		cy.layout({
 			name: 'fcose',
 			randomize: false,
 			animate: false,
