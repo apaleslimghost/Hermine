@@ -7,13 +7,7 @@ export default {
 	'La Val Tho (bottom)': { type: 'blue', to: ['Rond-point des pistes'] },
 	'Roc (bottom)': {
 		type: 'green',
-		to: [
-			'Campagnols',
-			'Muscaraigne',
-			'Circuit de Glace',
-			'Peclet',
-			'Cascades (lift)',
-		],
+		to: ['Campagnols', 'Muscaraigne', 'Circuit de Glace', 'Peclet', 'Cascades (lift)'],
 	},
 	'Voie lactee': { type: 'green', to: ['Rond-point des pistes'] },
 	Corniche: { type: 'blue', to: ['Corniche (bottom)'] },
