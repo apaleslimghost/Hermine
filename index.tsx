@@ -8,6 +8,12 @@ import { constraints, elements } from './data'
 
 Cytoscape.use(fcose)
 
+// PrivateNode/PrivateEdge give direct access to Cytoscape's internal position
+// storage, avoiding the overhead of source()/target() wrapper objects and the
+// position() call allocating a new {x,y} on every edge in the layout callback.
+type PrivateNode = { _private: { position: Cytoscape.Position } }
+type PrivateEdge = { _private: { source: PrivateNode; target: PrivateNode } }
+
 const runTypes = ['green', 'blue', 'red', 'black']
 
 const cy = Cytoscape({
@@ -247,8 +253,10 @@ const App = () => {
 					const prev = edge.source().incomers(`edge[label="${label}"]`)
 					const next = edge.target().outgoers(`edge[label="${label}"]`)
 
-					const { x: sx, y: sy } = edge.source().position()
-					const { x: tx, y: ty } = edge.target().position()
+					const { x: sx, y: sy } = (edge as unknown as PrivateEdge)._private.source._private
+						.position
+					const { x: tx, y: ty } = (edge as unknown as PrivateEdge)._private.target._private
+						.position
 
 					const dx = tx - sx
 					const dy = ty - sy
@@ -259,8 +267,9 @@ const App = () => {
 					edge.scratch('_dy', dy)
 					edge.scratch('_edgeLength', d)
 
-					if (next.length && next[0].isEdge()) {
-						const { x: nx, y: ny } = next[0].target().position()
+					if (next.length) {
+						const { x: nx, y: ny } = (next[0] as unknown as PrivateEdge)._private.target._private
+							.position
 
 						edge.scratch(
 							'_targetDirection',
