@@ -1,4 +1,13 @@
-export default {
+type RunType = 'green' | 'blue' | 'red' | 'black'
+type LiftType = 'funitel' | 'telecabine' | 'telesiege' | 'telepherique' | 'teleski' | 'tapis'
+
+interface Stop {
+	type?: RunType | LiftType
+	to: string[]
+	length?: number
+}
+
+const data: Record<string, Stop> = {
 	Pionniers: { type: 'telesiege', to: ['La Folie Douce'] },
 	'La Folie Douce': { to: ['Plein sud', 'Corniche'] },
 	'Plein sud': { type: 'blue', to: ['La Val Tho (top)', 'Voie de la boucle'] },
@@ -137,3 +146,5 @@ export default {
 	},
 	'Cime (top)': { type: 'red', to: ['Cime (bottom)', 'Falaise (bottom)'] },
 }
+
+export default data

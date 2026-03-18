@@ -1,4 +1,6 @@
-export const elements = [
+import type cytoscape from 'cytoscape'
+
+export const elements: cytoscape.ElementDefinition[] = [
 	/// locations
 	{
 		data: { id: 'auris', label: 'Auris en Oisans' },
@@ -2068,7 +2070,12 @@ export const elements = [
 	},
 ]
 
-export const constraints = {
+export const constraints: {
+	alignmentConstraint: {
+		vertical: string[][]
+		horizontal: string[][]
+	}
+} = {
 	alignmentConstraint: {
 		vertical: [
 			// ['lombards-bottom', 'alpauris-bottom'],
