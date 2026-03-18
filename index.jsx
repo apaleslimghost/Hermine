@@ -1,9 +1,8 @@
-import colours from '@quarterto/colours'
 import Cytoscape from 'cytoscape'
 import fcose from 'cytoscape-fcose'
 import { useLayoutEffect, useMemo, useRef, useState } from 'react'
 import { createRoot } from 'react-dom/client'
-import styled, { createGlobalStyle } from 'styled-components'
+import styled from 'styled-components'
 import { constraints, elements } from './data'
 
 Cytoscape.use(fcose)
@@ -133,14 +132,7 @@ const List = styled.ul`
 
 const ListItem = styled.li`
 	padding: 0.5rem 0;
-	border-bottom: 1px solid ${colours.steel.lightest};
-`
-
-const GlobalStyles = createGlobalStyle`
-	body {
-		font-family: 'Galaxie Polaris';
-		color: ${colours.steel.darkest};
-	}
+	border-bottom: 1px solid #ccc;
 `
 
 const Icon = styled.span`
