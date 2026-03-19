@@ -4,7 +4,7 @@ import fcose from 'cytoscape-fcose'
 import { useLayoutEffect, useRef } from 'react'
 import { createRoot } from 'react-dom/client'
 import styled, { createGlobalStyle } from 'styled-components'
-import { constraints, elements } from './data'
+import { constraints, elements } from './data-vt'
 
 Cytoscape.use(fcose)
 
