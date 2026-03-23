@@ -132,7 +132,7 @@ export const elements: cytoscape.ElementDefinition[] = [
 			label: 'Lagopède',
 			id: 'lagopede-bottom',
 			source: 'grand-fond-bottom',
-			target: 'cairn-top',
+			target: 'caron-top',
 			type: 'blue',
 		},
 	},
@@ -222,7 +222,7 @@ export const elements: cytoscape.ElementDefinition[] = [
 			label: 'Gentianes',
 			id: 'gentianes',
 			type: 'blue',
-			source: 'cairn-top',
+			source: 'caron-top',
 			target: 'cairn-bottom__caron-bottom',
 		},
 	},
@@ -241,63 +241,35 @@ export const elements: cytoscape.ElementDefinition[] = [
 		data: {
 			id: 'hermine-junction',
 		},
-		position: {
-			x: 425,
-			y: 300,
-		},
 	},
 	{
 		data: {
 			id: 'deux-lacs-junction',
-		},
-		position: {
-			x: 425,
-			y: 305,
 		},
 	},
 	{
 		data: {
 			id: 'tete-ronde-junction',
 		},
-		position: {
-			x: 490,
-			y: 260,
-		},
 	},
 	{
 		data: {
 			id: 'niverolle-junction',
 		},
-		position: {
-			x: 505,
-			y: 260,
-		},
 	},
 	{
 		data: {
 			id: 'fond-rhodos-junction',
 		},
-		position: {
-			x: 505,
-			y: 255,
-		},
 	},
 	{
 		data: {
 			id: 'fond-rhodos-junction',
-		},
-		position: {
-			x: 450,
-			y: 255,
 		},
 	},
 	{
 		data: {
 			id: 'cime-falaise-junction',
-		},
-		position: {
-			x: 520,
-			y: 270,
 		},
 	},
 	/// generated lifts/nodes
@@ -1512,8 +1484,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 't-l-cabine-d-orelle-bottom',
 		},
 		position: {
-			x: 255,
-			y: 0,
+			y: 2 * (500 - 255),
+			x: 2 * (500 - 0),
 		},
 	},
 	{
@@ -1521,8 +1493,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'rosa-l-bottom',
 		},
 		position: {
-			x: 405,
-			y: 160,
+			y: 2 * (500 - 405),
+			x: 2 * (500 - 160),
 		},
 	},
 	{
@@ -1530,8 +1502,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'peyron-bottom',
 		},
 		position: {
-			x: 410,
-			y: 160,
+			y: 2 * (500 - 410),
+			x: 2 * (500 - 160),
 		},
 	},
 	{
@@ -1539,8 +1511,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'marmottons-top',
 		},
 		position: {
-			x: 405,
-			y: 155,
+			y: 2 * (500 - 405),
+			x: 2 * (500 - 155),
 		},
 	},
 	{
@@ -1548,8 +1520,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 't-l-cabine-d-orelle-caron-bottom',
 		},
 		position: {
-			x: 400,
-			y: 160,
+			y: 2 * (500 - 400),
+			x: 2 * (500 - 160),
 		},
 	},
 	{
@@ -1557,8 +1529,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'rosa-l-bottom',
 		},
 		position: {
-			x: 405,
-			y: 160,
+			y: 2 * (500 - 405),
+			x: 2 * (500 - 160),
 		},
 	},
 	{
@@ -1566,8 +1538,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'marmottons-bottom',
 		},
 		position: {
-			x: 400,
-			y: 155,
+			y: 2 * (500 - 400),
+			x: 2 * (500 - 155),
 		},
 	},
 	{
@@ -1575,8 +1547,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'peyron-top',
 		},
 		position: {
-			x: 515,
-			y: 180,
+			y: 2 * (500 - 515),
+			x: 2 * (500 - 180),
 		},
 	},
 	{
@@ -1584,8 +1556,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'bouchet-bottom',
 		},
 		position: {
-			x: 510,
-			y: 175,
+			y: 2 * (500 - 510),
+			x: 2 * (500 - 175),
 		},
 	},
 	{
@@ -1593,8 +1565,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'bouchet-top',
 		},
 		position: {
-			x: 590,
-			y: 195,
+			y: 2 * (500 - 590),
+			x: 2 * (500 - 195),
 		},
 	},
 	{
@@ -1602,8 +1574,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'boismint-top',
 		},
 		position: {
-			x: 290,
-			y: 305,
+			y: 2 * (500 - 290),
+			x: 2 * (500 - 305),
 		},
 	},
 	{
@@ -1611,8 +1583,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'plan-de-l-eau-top',
 		},
 		position: {
-			x: 275,
-			y: 325,
+			y: 2 * (500 - 275),
+			x: 2 * (500 - 325),
 		},
 	},
 	{
@@ -1620,8 +1592,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'masse-top',
 		},
 		position: {
-			x: 95,
-			y: 395,
+			y: 2 * (500 - 95),
+			x: 2 * (500 - 395),
 		},
 	},
 	{
@@ -1629,8 +1601,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'masse-bottom',
 		},
 		position: {
-			x: 85,
-			y: 420,
+			y: 2 * (500 - 85),
+			x: 2 * (500 - 420),
 		},
 	},
 	{
@@ -1638,8 +1610,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'plan-de-l-eau-bottom',
 		},
 		position: {
-			x: 245,
-			y: 390,
+			y: 2 * (500 - 245),
+			x: 2 * (500 - 390),
 		},
 	},
 	{
@@ -1647,8 +1619,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'bruy-res-1-bottom',
 		},
 		position: {
-			x: 235,
-			y: 430,
+			y: 2 * (500 - 235),
+			x: 2 * (500 - 430),
 		},
 	},
 	{
@@ -1656,8 +1628,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'sunny-express-bottom',
 		},
 		position: {
-			x: 245,
-			y: 435,
+			y: 2 * (500 - 245),
+			x: 2 * (500 - 435),
 		},
 	},
 	{
@@ -1665,8 +1637,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'plans-top',
 		},
 		position: {
-			x: 240,
-			y: 425,
+			y: 2 * (500 - 240),
+			x: 2 * (500 - 425),
 		},
 	},
 	{
@@ -1674,8 +1646,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'bruy-res-1-bottom',
 		},
 		position: {
-			x: 235,
-			y: 430,
+			y: 2 * (500 - 235),
+			x: 2 * (500 - 430),
 		},
 	},
 	{
@@ -1683,8 +1655,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'sunny-express-bottom',
 		},
 		position: {
-			x: 245,
-			y: 435,
+			y: 2 * (500 - 245),
+			x: 2 * (500 - 435),
 		},
 	},
 	{
@@ -1692,8 +1664,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 't-l-cabine-d-orelle-caron-top',
 		},
 		position: {
-			x: 340,
-			y: 230,
+			y: 2 * (500 - 340),
+			x: 2 * (500 - 230),
 		},
 	},
 	{
@@ -1701,8 +1673,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'cime-caron-top',
 		},
 		position: {
-			x: 345,
-			y: 230,
+			y: 2 * (500 - 345),
+			x: 2 * (500 - 230),
 		},
 	},
 	{
@@ -1710,8 +1682,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'rosa-l-top',
 		},
 		position: {
-			x: 435,
-			y: 240,
+			y: 2 * (500 - 435),
+			x: 2 * (500 - 240),
 		},
 	},
 	{
@@ -1719,8 +1691,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'caron-top',
 		},
 		position: {
-			x: 360,
-			y: 300,
+			y: 2 * (500 - 360),
+			x: 2 * (500 - 300),
 		},
 	},
 	{
@@ -1728,8 +1700,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'caron-top',
 		},
 		position: {
-			x: 360,
-			y: 300,
+			y: 2 * (500 - 360),
+			x: 2 * (500 - 300),
 		},
 	},
 	{
@@ -1737,8 +1709,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'grand-fond-bottom',
 		},
 		position: {
-			x: 390,
-			y: 300,
+			y: 2 * (500 - 390),
+			x: 2 * (500 - 300),
 		},
 	},
 	{
@@ -1746,8 +1718,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'plateau-2-bottom',
 		},
 		position: {
-			x: 420,
-			y: 300,
+			y: 2 * (500 - 420),
+			x: 2 * (500 - 300),
 		},
 	},
 	{
@@ -1755,8 +1727,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'plateau-2-top',
 		},
 		position: {
-			x: 465,
-			y: 285,
+			y: 2 * (500 - 465),
+			x: 2 * (500 - 285),
 		},
 	},
 	{
@@ -1764,8 +1736,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'deux-lacs-top',
 		},
 		position: {
-			x: 430,
-			y: 305,
+			y: 2 * (500 - 430),
+			x: 2 * (500 - 305),
 		},
 	},
 	{
@@ -1773,8 +1745,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'grand-fond-top',
 		},
 		position: {
-			x: 470,
-			y: 240,
+			y: 2 * (500 - 470),
+			x: 2 * (500 - 240),
 		},
 	},
 	{
@@ -1782,8 +1754,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'thorens-bottom',
 		},
 		position: {
-			x: 540,
-			y: 265,
+			y: 2 * (500 - 540),
+			x: 2 * (500 - 265),
 		},
 	},
 	{
@@ -1791,8 +1763,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'thorens-top',
 		},
 		position: {
-			x: 560,
-			y: 240,
+			y: 2 * (500 - 560),
+			x: 2 * (500 - 240),
 		},
 	},
 	{
@@ -1800,8 +1772,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'moraine-bottom',
 		},
 		position: {
-			x: 485,
-			y: 330,
+			y: 2 * (500 - 485),
+			x: 2 * (500 - 330),
 		},
 	},
 	{
@@ -1809,8 +1781,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'face-nord-bottom',
 		},
 		position: {
-			x: 580,
-			y: 280,
+			y: 2 * (500 - 580),
+			x: 2 * (500 - 280),
 		},
 	},
 	{
@@ -1818,8 +1790,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'cairn-bottom__caron-bottom',
 		},
 		position: {
-			x: 370,
-			y: 355,
+			y: 2 * (500 - 370),
+			x: 2 * (500 - 355),
 		},
 	},
 	{
@@ -1827,8 +1799,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'boismint-bottom',
 		},
 		position: {
-			x: 350,
-			y: 360,
+			y: 2 * (500 - 350),
+			x: 2 * (500 - 360),
 		},
 	},
 	{
@@ -1836,8 +1808,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'mouti-re-bottom',
 		},
 		position: {
-			x: 355,
-			y: 360,
+			y: 2 * (500 - 355),
+			x: 2 * (500 - 360),
 		},
 	},
 	{
@@ -1845,8 +1817,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'plein-sud-bottom',
 		},
 		position: {
-			x: 415,
-			y: 360,
+			y: 2 * (500 - 415),
+			x: 2 * (500 - 360),
 		},
 	},
 	{
@@ -1854,8 +1826,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'cascades-bottom',
 		},
 		position: {
-			x: 450,
-			y: 360,
+			y: 2 * (500 - 450),
+			x: 2 * (500 - 360),
 		},
 	},
 	{
@@ -1863,8 +1835,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'deux-lacs-bottom',
 		},
 		position: {
-			x: 410,
-			y: 365,
+			y: 2 * (500 - 410),
+			x: 2 * (500 - 365),
 		},
 	},
 	{
@@ -1872,8 +1844,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'cairn-top',
 		},
 		position: {
-			x: 450,
-			y: 375,
+			y: 2 * (500 - 450),
+			x: 2 * (500 - 375),
 		},
 	},
 	{
@@ -1881,8 +1853,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'cascades-bottom',
 		},
 		position: {
-			x: 450,
-			y: 360,
+			y: 2 * (500 - 450),
+			x: 2 * (500 - 360),
 		},
 	},
 	{
@@ -1890,8 +1862,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'musaraigne-bottom',
 		},
 		position: {
-			x: 440,
-			y: 365,
+			y: 2 * (500 - 440),
+			x: 2 * (500 - 365),
 		},
 	},
 	{
@@ -1899,8 +1871,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'musaraigne-top',
 		},
 		position: {
-			x: 455,
-			y: 365,
+			y: 2 * (500 - 455),
+			x: 2 * (500 - 365),
 		},
 	},
 	{
@@ -1908,8 +1880,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'funitel-p-clet-bottom',
 		},
 		position: {
-			x: 440,
-			y: 360,
+			y: 2 * (500 - 440),
+			x: 2 * (500 - 360),
 		},
 	},
 	{
@@ -1917,8 +1889,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'bruy-res-1-top__bruy-res-2-bottom',
 		},
 		position: {
-			x: 330,
-			y: 435,
+			y: 2 * (500 - 330),
+			x: 2 * (500 - 435),
 		},
 	},
 	{
@@ -1926,8 +1898,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'lac-blanc-bottom',
 		},
 		position: {
-			x: 480,
-			y: 355,
+			y: 2 * (500 - 480),
+			x: 2 * (500 - 355),
 		},
 	},
 	{
@@ -1935,8 +1907,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'campagnols-top',
 		},
 		position: {
-			x: 470,
-			y: 360,
+			y: 2 * (500 - 470),
+			x: 2 * (500 - 360),
 		},
 	},
 	{
@@ -1944,8 +1916,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'castor-pollux-top',
 		},
 		position: {
-			x: 480,
-			y: 370,
+			y: 2 * (500 - 480),
+			x: 2 * (500 - 370),
 		},
 	},
 	{
@@ -1953,8 +1925,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'pionniers-bottom',
 		},
 		position: {
-			x: 480,
-			y: 360,
+			y: 2 * (500 - 480),
+			x: 2 * (500 - 360),
 		},
 	},
 	{
@@ -1962,8 +1934,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'castor-pollux-bottom',
 		},
 		position: {
-			x: 475,
-			y: 360,
+			y: 2 * (500 - 475),
+			x: 2 * (500 - 360),
 		},
 	},
 	{
@@ -1971,8 +1943,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'cascades-top',
 		},
 		position: {
-			x: 555,
-			y: 345,
+			y: 2 * (500 - 555),
+			x: 2 * (500 - 345),
 		},
 	},
 	{
@@ -1980,8 +1952,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'funitel-3-vall-es-bottom',
 		},
 		position: {
-			x: 500,
-			y: 400,
+			y: 2 * (500 - 500),
+			x: 2 * (500 - 400),
 		},
 	},
 	{
@@ -1989,8 +1961,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: '3-vall-es-bottom',
 		},
 		position: {
-			x: 505,
-			y: 400,
+			y: 2 * (500 - 505),
+			x: 2 * (500 - 400),
 		},
 	},
 	{
@@ -1998,8 +1970,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'plein-sud-top',
 		},
 		position: {
-			x: 520,
-			y: 405,
+			y: 2 * (500 - 520),
+			x: 2 * (500 - 405),
 		},
 	},
 	{
@@ -2007,8 +1979,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: '3-vall-es-bottom',
 		},
 		position: {
-			x: 505,
-			y: 400,
+			y: 2 * (500 - 505),
+			x: 2 * (500 - 400),
 		},
 	},
 	{
@@ -2016,8 +1988,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'funitel-3-vall-es-top',
 		},
 		position: {
-			x: 475,
-			y: 430,
+			y: 2 * (500 - 475),
+			x: 2 * (500 - 430),
 		},
 	},
 	{
@@ -2025,8 +1997,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: '3-vall-es-top',
 		},
 		position: {
-			x: 510,
-			y: 430,
+			y: 2 * (500 - 510),
+			x: 2 * (500 - 430),
 		},
 	},
 	{
@@ -2034,8 +2006,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'moraine-top',
 		},
 		position: {
-			x: 625,
-			y: 270,
+			y: 2 * (500 - 625),
+			x: 2 * (500 - 270),
 		},
 	},
 	{
@@ -2043,8 +2015,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'funitel-p-clet-top',
 		},
 		position: {
-			x: 675,
-			y: 345,
+			y: 2 * (500 - 675),
+			x: 2 * (500 - 345),
 		},
 	},
 	{
@@ -2052,8 +2024,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'lac-blanc-top',
 		},
 		position: {
-			x: 630,
-			y: 365,
+			y: 2 * (500 - 630),
+			x: 2 * (500 - 365),
 		},
 	},
 	{
@@ -2061,8 +2033,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'doron-bottom',
 		},
 		position: {
-			x: 190,
-			y: 460,
+			y: 2 * (500 - 190),
+			x: 2 * (500 - 460),
 		},
 	},
 	{
@@ -2070,8 +2042,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'croisette-bottom',
 		},
 		position: {
-			x: 185,
-			y: 460,
+			y: 2 * (500 - 185),
+			x: 2 * (500 - 460),
 		},
 	},
 	{
@@ -2079,8 +2051,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'reberty-bottom',
 		},
 		position: {
-			x: 190,
-			y: 455,
+			y: 2 * (500 - 190),
+			x: 2 * (500 - 455),
 		},
 	},
 	{
@@ -2088,8 +2060,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'jardin-d-enfants-bottom',
 		},
 		position: {
-			x: 210,
-			y: 470,
+			y: 2 * (500 - 210),
+			x: 2 * (500 - 470),
 		},
 	},
 	{
@@ -2097,8 +2069,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'jardin-d-enfants-top',
 		},
 		position: {
-			x: 220,
-			y: 460,
+			y: 2 * (500 - 220),
+			x: 2 * (500 - 460),
 		},
 	},
 	{
@@ -2106,8 +2078,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'tortollet-bottom',
 		},
 		position: {
-			x: 160,
-			y: 485,
+			y: 2 * (500 - 160),
+			x: 2 * (500 - 485),
 		},
 	},
 	{
@@ -2115,8 +2087,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'roc-1-bottom',
 		},
 		position: {
-			x: 210,
-			y: 475,
+			y: 2 * (500 - 210),
+			x: 2 * (500 - 475),
 		},
 	},
 	{
@@ -2124,8 +2096,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'roc-1-bottom',
 		},
 		position: {
-			x: 210,
-			y: 475,
+			y: 2 * (500 - 210),
+			x: 2 * (500 - 475),
 		},
 	},
 	{
@@ -2133,8 +2105,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'croisette-top',
 		},
 		position: {
-			x: 205,
-			y: 470,
+			y: 2 * (500 - 205),
+			x: 2 * (500 - 470),
 		},
 	},
 	{
@@ -2142,8 +2114,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'preyerand-bottom',
 		},
 		position: {
-			x: 190,
-			y: 490,
+			y: 2 * (500 - 190),
+			x: 2 * (500 - 490),
 		},
 	},
 	{
@@ -2151,8 +2123,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'preyerand-top',
 		},
 		position: {
-			x: 215,
-			y: 485,
+			y: 2 * (500 - 215),
+			x: 2 * (500 - 485),
 		},
 	},
 	{
@@ -2160,8 +2132,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'preyerand-bottom',
 		},
 		position: {
-			x: 190,
-			y: 490,
+			y: 2 * (500 - 190),
+			x: 2 * (500 - 490),
 		},
 	},
 	{
@@ -2169,8 +2141,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'preyerand-top',
 		},
 		position: {
-			x: 200,
-			y: 490,
+			y: 2 * (500 - 200),
+			x: 2 * (500 - 490),
 		},
 	},
 	{
@@ -2178,8 +2150,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'tortollet-top',
 		},
 		position: {
-			x: 220,
-			y: 490,
+			y: 2 * (500 - 220),
+			x: 2 * (500 - 490),
 		},
 	},
 	{
@@ -2187,8 +2159,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'mont-de-la-chambre-bottom',
 		},
 		position: {
-			x: 280,
-			y: 460,
+			y: 2 * (500 - 280),
+			x: 2 * (500 - 460),
 		},
 	},
 	{
@@ -2196,8 +2168,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'menuires-top',
 		},
 		position: {
-			x: 290,
-			y: 465,
+			y: 2 * (500 - 290),
+			x: 2 * (500 - 465),
 		},
 	},
 	{
@@ -2205,26 +2177,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'mont-de-la-chambre-bottom',
 		},
 		position: {
-			x: 280,
-			y: 460,
-		},
-	},
-	{
-		data: {
-			id: '1156754089',
-		},
-		position: {
-			x: 260,
-			y: 460,
-		},
-	},
-	{
-		data: {
-			id: '1156754105',
-		},
-		position: {
-			x: 265,
-			y: 460,
+			y: 2 * (500 - 280),
+			x: 2 * (500 - 460),
 		},
 	},
 	{
@@ -2232,8 +2186,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'legends-bottom',
 		},
 		position: {
-			x: 230,
-			y: 475,
+			y: 2 * (500 - 230),
+			x: 2 * (500 - 475),
 		},
 	},
 	{
@@ -2241,8 +2195,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'becca-bottom',
 		},
 		position: {
-			x: 300,
-			y: 490,
+			y: 2 * (500 - 300),
+			x: 2 * (500 - 490),
 		},
 	},
 	{
@@ -2250,8 +2204,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'stade-top',
 		},
 		position: {
-			x: 295,
-			y: 485,
+			y: 2 * (500 - 295),
+			x: 2 * (500 - 485),
 		},
 	},
 	{
@@ -2259,8 +2213,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'sunny-express-top',
 		},
 		position: {
-			x: 370,
-			y: 480,
+			y: 2 * (500 - 370),
+			x: 2 * (500 - 480),
 		},
 	},
 	{
@@ -2268,8 +2222,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'mont-de-la-chambre-top',
 		},
 		position: {
-			x: 455,
-			y: 460,
+			y: 2 * (500 - 455),
+			x: 2 * (500 - 460),
 		},
 	},
 	{
@@ -2277,8 +2231,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'bruy-res-2-top',
 		},
 		position: {
-			x: 455,
-			y: 455,
+			y: 2 * (500 - 455),
+			x: 2 * (500 - 455),
 		},
 	},
 	{
@@ -2286,8 +2240,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'roc-1-top',
 		},
 		position: {
-			x: 310,
-			y: 505,
+			y: 2 * (500 - 310),
+			x: 2 * (500 - 505),
 		},
 	},
 	{
@@ -2295,8 +2249,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'roc-2-bottom',
 		},
 		position: {
-			x: 315,
-			y: 520,
+			y: 2 * (500 - 315),
+			x: 2 * (500 - 520),
 		},
 	},
 	{
@@ -2304,8 +2258,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'becca-top',
 		},
 		position: {
-			x: 410,
-			y: 510,
+			y: 2 * (500 - 410),
+			x: 2 * (500 - 510),
 		},
 	},
 	{
@@ -2313,8 +2267,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'roc-2-top',
 		},
 		position: {
-			x: 410,
-			y: 535,
+			y: 2 * (500 - 410),
+			x: 2 * (500 - 535),
 		},
 	},
 	{
@@ -2322,8 +2276,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'granges-top',
 		},
 		position: {
-			x: 420,
-			y: 540,
+			y: 2 * (500 - 420),
+			x: 2 * (500 - 540),
 		},
 	},
 	{
@@ -2331,8 +2285,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'bouquetin-top',
 		},
 		position: {
-			x: 425,
-			y: 540,
+			y: 2 * (500 - 425),
+			x: 2 * (500 - 540),
 		},
 	},
 	{
@@ -2340,8 +2294,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'c-te-brune-top',
 		},
 		position: {
-			x: 465,
-			y: 460,
+			y: 2 * (500 - 465),
+			x: 2 * (500 - 460),
 		},
 	},
 	{
@@ -2349,8 +2303,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'c-te-brune-bottom',
 		},
 		position: {
-			x: 475,
-			y: 530,
+			y: 2 * (500 - 475),
+			x: 2 * (500 - 530),
 		},
 	},
 	{
@@ -2358,8 +2312,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'plan-des-mains-bottom',
 		},
 		position: {
-			x: 520,
-			y: 550,
+			y: 2 * (500 - 520),
+			x: 2 * (500 - 550),
 		},
 	},
 	{
@@ -2367,8 +2321,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'granges-bottom',
 		},
 		position: {
-			x: 305,
-			y: 600,
+			y: 2 * (500 - 305),
+			x: 2 * (500 - 600),
 		},
 	},
 	{
@@ -2376,8 +2330,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'teppes-top',
 		},
 		position: {
-			x: 380,
-			y: 600,
+			y: 2 * (500 - 380),
+			x: 2 * (500 - 600),
 		},
 	},
 	{
@@ -2385,8 +2339,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'plan-des-mains-top',
 		},
 		position: {
-			x: 460,
-			y: 555,
+			y: 2 * (500 - 460),
+			x: 2 * (500 - 555),
 		},
 	},
 	{
@@ -2394,8 +2348,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'plattieres-top',
 		},
 		position: {
-			x: 450,
-			y: 560,
+			y: 2 * (500 - 450),
+			x: 2 * (500 - 560),
 		},
 	},
 	{
@@ -2403,8 +2357,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'roc-de-tougne-top',
 		},
 		position: {
-			x: 385,
-			y: 600,
+			y: 2 * (500 - 385),
+			x: 2 * (500 - 600),
 		},
 	},
 	{
@@ -2412,8 +2366,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'teppes-bottom',
 		},
 		position: {
-			x: 305,
-			y: 605,
+			y: 2 * (500 - 305),
+			x: 2 * (500 - 605),
 		},
 	},
 	{
@@ -2421,8 +2375,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'tougn-te-2-top',
 		},
 		position: {
-			x: 330,
-			y: 645,
+			y: 2 * (500 - 330),
+			x: 2 * (500 - 645),
 		},
 	},
 	{
@@ -2430,8 +2384,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'saint-martin-express-top',
 		},
 		position: {
-			x: 325,
-			y: 645,
+			y: 2 * (500 - 325),
+			x: 2 * (500 - 645),
 		},
 	},
 	{
@@ -2439,8 +2393,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'roc-de-tougne-bottom',
 		},
 		position: {
-			x: 390,
-			y: 645,
+			y: 2 * (500 - 390),
+			x: 2 * (500 - 645),
 		},
 	},
 	{
@@ -2448,8 +2402,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'combes-top',
 		},
 		position: {
-			x: 390,
-			y: 650,
+			y: 2 * (500 - 390),
+			x: 2 * (500 - 650),
 		},
 	},
 	{
@@ -2457,8 +2411,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'bouquetin-bottom',
 		},
 		position: {
-			x: 465,
-			y: 555,
+			y: 2 * (500 - 465),
+			x: 2 * (500 - 555),
 		},
 	},
 	{
@@ -2466,8 +2420,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'mont-vallon-bottom',
 		},
 		position: {
-			x: 530,
-			y: 550,
+			y: 2 * (500 - 530),
+			x: 2 * (500 - 550),
 		},
 	},
 	{
@@ -2475,8 +2429,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'mures-rouges-top',
 		},
 		position: {
-			x: 530,
-			y: 555,
+			y: 2 * (500 - 530),
+			x: 2 * (500 - 555),
 		},
 	},
 	{
@@ -2484,8 +2438,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'mures-rouges-bottom',
 		},
 		position: {
-			x: 540,
-			y: 585,
+			y: 2 * (500 - 540),
+			x: 2 * (500 - 585),
 		},
 	},
 	{
@@ -2493,8 +2447,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'saint-martin-1-bottom',
 		},
 		position: {
-			x: 0,
-			y: 695,
+			y: 2 * (500 - 0),
+			x: 2 * (500 - 695),
 		},
 	},
 	{
@@ -2502,8 +2456,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'village-bottom',
 		},
 		position: {
-			x: 0,
-			y: 705,
+			y: 2 * (500 - 0),
+			x: 2 * (500 - 705),
 		},
 	},
 	{
@@ -2511,8 +2465,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'village-top',
 		},
 		position: {
-			x: 10,
-			y: 700,
+			y: 2 * (500 - 10),
+			x: 2 * (500 - 700),
 		},
 	},
 	{
@@ -2520,8 +2474,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'biolley-2-bottom',
 		},
 		position: {
-			x: 5,
-			y: 695,
+			y: 2 * (500 - 5),
+			x: 2 * (500 - 695),
 		},
 	},
 	{
@@ -2529,8 +2483,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'biolley-2-top',
 		},
 		position: {
-			x: 10,
-			y: 695,
+			y: 2 * (500 - 10),
+			x: 2 * (500 - 695),
 		},
 	},
 	{
@@ -2538,8 +2492,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'saint-martin-express-bottom',
 		},
 		position: {
-			x: 150,
-			y: 680,
+			y: 2 * (500 - 150),
+			x: 2 * (500 - 680),
 		},
 	},
 	{
@@ -2547,8 +2501,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'saint-martin-express-bottom',
 		},
 		position: {
-			x: 150,
-			y: 680,
+			y: 2 * (500 - 150),
+			x: 2 * (500 - 680),
 		},
 	},
 	{
@@ -2556,8 +2510,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'cherferie-top',
 		},
 		position: {
-			x: 285,
-			y: 685,
+			y: 2 * (500 - 285),
+			x: 2 * (500 - 685),
 		},
 	},
 	{
@@ -2565,8 +2519,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'olympic-top',
 		},
 		position: {
-			x: 195,
-			y: 760,
+			y: 2 * (500 - 195),
+			x: 2 * (500 - 760),
 		},
 	},
 	{
@@ -2574,8 +2528,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'caves-bottom',
 		},
 		position: {
-			x: 300,
-			y: 725,
+			y: 2 * (500 - 300),
+			x: 2 * (500 - 725),
 		},
 	},
 	{
@@ -2583,8 +2537,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'olympic-bottom',
 		},
 		position: {
-			x: 295,
-			y: 755,
+			y: 2 * (500 - 295),
+			x: 2 * (500 - 755),
 		},
 	},
 	{
@@ -2592,8 +2546,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'caves-top',
 		},
 		position: {
-			x: 305,
-			y: 710,
+			y: 2 * (500 - 305),
+			x: 2 * (500 - 710),
 		},
 	},
 	{
@@ -2601,8 +2555,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'arpasson-top',
 		},
 		position: {
-			x: 310,
-			y: 710,
+			y: 2 * (500 - 310),
+			x: 2 * (500 - 710),
 		},
 	},
 	{
@@ -2610,8 +2564,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'tougn-te-2-bottom',
 		},
 		position: {
-			x: 360,
-			y: 695,
+			y: 2 * (500 - 360),
+			x: 2 * (500 - 695),
 		},
 	},
 	{
@@ -2619,8 +2573,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'tougn-te-1-top',
 		},
 		position: {
-			x: 365,
-			y: 700,
+			y: 2 * (500 - 365),
+			x: 2 * (500 - 700),
 		},
 	},
 	{
@@ -2628,8 +2582,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'mont-de-la-chambre-bottom',
 		},
 		position: {
-			x: 455,
-			y: 680,
+			y: 2 * (500 - 455),
+			x: 2 * (500 - 680),
 		},
 	},
 	{
@@ -2637,8 +2591,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'chalets-top',
 		},
 		position: {
-			x: 425,
-			y: 685,
+			y: 2 * (500 - 425),
+			x: 2 * (500 - 685),
 		},
 	},
 	{
@@ -2646,8 +2600,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'caves-top',
 		},
 		position: {
-			x: 305,
-			y: 710,
+			y: 2 * (500 - 305),
+			x: 2 * (500 - 710),
 		},
 	},
 	{
@@ -2655,8 +2609,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'cherferie-bottom',
 		},
 		position: {
-			x: 305,
-			y: 725,
+			y: 2 * (500 - 305),
+			x: 2 * (500 - 725),
 		},
 	},
 	{
@@ -2664,8 +2618,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'arpasson-bottom',
 		},
 		position: {
-			x: 360,
-			y: 720,
+			y: 2 * (500 - 360),
+			x: 2 * (500 - 720),
 		},
 	},
 	{
@@ -2673,8 +2627,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'stade-top',
 		},
 		position: {
-			x: 340,
-			y: 755,
+			y: 2 * (500 - 340),
+			x: 2 * (500 - 755),
 		},
 	},
 	{
@@ -2682,8 +2636,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'legends-bottom',
 		},
 		position: {
-			x: 385,
-			y: 755,
+			y: 2 * (500 - 385),
+			x: 2 * (500 - 755),
 		},
 	},
 	{
@@ -2691,8 +2645,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'rhodos-1-bottom',
 		},
 		position: {
-			x: 390,
-			y: 760,
+			y: 2 * (500 - 390),
+			x: 2 * (500 - 760),
 		},
 	},
 	{
@@ -2700,8 +2654,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'legends-bottom',
 		},
 		position: {
-			x: 385,
-			y: 755,
+			y: 2 * (500 - 385),
+			x: 2 * (500 - 755),
 		},
 	},
 	{
@@ -2709,8 +2663,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'tougn-te-1-bottom',
 		},
 		position: {
-			x: 390,
-			y: 755,
+			y: 2 * (500 - 390),
+			x: 2 * (500 - 755),
 		},
 	},
 	{
@@ -2718,8 +2672,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'legends-bottom',
 		},
 		position: {
-			x: 385,
-			y: 755,
+			y: 2 * (500 - 385),
+			x: 2 * (500 - 755),
 		},
 	},
 	{
@@ -2727,8 +2681,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'pas-du-lac-1-bottom',
 		},
 		position: {
-			x: 465,
-			y: 675,
+			y: 2 * (500 - 465),
+			x: 2 * (500 - 675),
 		},
 	},
 	{
@@ -2736,8 +2690,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'aigle-bottom',
 		},
 		position: {
-			x: 470,
-			y: 680,
+			y: 2 * (500 - 470),
+			x: 2 * (500 - 680),
 		},
 	},
 	{
@@ -2745,8 +2699,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'aigle-top',
 		},
 		position: {
-			x: 505,
-			y: 680,
+			y: 2 * (500 - 505),
+			x: 2 * (500 - 680),
 		},
 	},
 	{
@@ -2754,8 +2708,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: '1134357012',
 		},
 		position: {
-			x: 470,
-			y: 670,
+			y: 2 * (500 - 470),
+			x: 2 * (500 - 670),
 		},
 	},
 	{
@@ -2763,8 +2717,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: '1134357015',
 		},
 		position: {
-			x: 475,
-			y: 670,
+			y: 2 * (500 - 475),
+			x: 2 * (500 - 670),
 		},
 	},
 	{
@@ -2772,8 +2726,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'doron-bottom',
 		},
 		position: {
-			x: 465,
-			y: 680,
+			y: 2 * (500 - 465),
+			x: 2 * (500 - 680),
 		},
 	},
 	{
@@ -2781,8 +2735,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'plattieres-bottom',
 		},
 		position: {
-			x: 470,
-			y: 675,
+			y: 2 * (500 - 470),
+			x: 2 * (500 - 675),
 		},
 	},
 	{
@@ -2790,8 +2744,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'doron-bottom',
 		},
 		position: {
-			x: 465,
-			y: 680,
+			y: 2 * (500 - 465),
+			x: 2 * (500 - 680),
 		},
 	},
 	{
@@ -2799,8 +2753,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'chalets-bottom',
 		},
 		position: {
-			x: 465,
-			y: 685,
+			y: 2 * (500 - 465),
+			x: 2 * (500 - 685),
 		},
 	},
 	{
@@ -2808,8 +2762,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'pas-du-lac-1-top__pas-du-lac-2-bottom',
 		},
 		position: {
-			x: 570,
-			y: 710,
+			y: 2 * (500 - 570),
+			x: 2 * (500 - 710),
 		},
 	},
 	{
@@ -2817,8 +2771,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'saulire-express-1-top__saulire-express-2-bottom',
 		},
 		position: {
-			x: 515,
-			y: 750,
+			y: 2 * (500 - 515),
+			x: 2 * (500 - 750),
 		},
 	},
 	{
@@ -2826,8 +2780,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'dent-de-burgin-top',
 		},
 		position: {
-			x: 580,
-			y: 745,
+			y: 2 * (500 - 580),
+			x: 2 * (500 - 745),
 		},
 	},
 	{
@@ -2835,8 +2789,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'adret-top',
 		},
 		position: {
-			x: 545,
-			y: 745,
+			y: 2 * (500 - 545),
+			x: 2 * (500 - 745),
 		},
 	},
 	{
@@ -2844,8 +2798,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'olympe-3-top',
 		},
 		position: {
-			x: 375,
-			y: 770,
+			y: 2 * (500 - 375),
+			x: 2 * (500 - 770),
 		},
 	},
 	{
@@ -2853,8 +2807,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'adret-bottom',
 		},
 		position: {
-			x: 410,
-			y: 780,
+			y: 2 * (500 - 410),
+			x: 2 * (500 - 780),
 		},
 	},
 	{
@@ -2862,8 +2816,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'rhodos-1-top__rhodos-2-bottom',
 		},
 		position: {
-			x: 440,
-			y: 765,
+			y: 2 * (500 - 440),
+			x: 2 * (500 - 765),
 		},
 	},
 	{
@@ -2871,8 +2825,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'c-tes-bottom',
 		},
 		position: {
-			x: 435,
-			y: 775,
+			y: 2 * (500 - 435),
+			x: 2 * (500 - 775),
 		},
 	},
 	{
@@ -2880,8 +2834,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'c-tes-top',
 		},
 		position: {
-			x: 445,
-			y: 765,
+			y: 2 * (500 - 445),
+			x: 2 * (500 - 765),
 		},
 	},
 	{
@@ -2889,8 +2843,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: '1179587182',
 		},
 		position: {
-			x: 440,
-			y: 775,
+			y: 2 * (500 - 440),
+			x: 2 * (500 - 775),
 		},
 	},
 	{
@@ -2898,8 +2852,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: '1190087927',
 		},
 		position: {
-			x: 430,
-			y: 775,
+			y: 2 * (500 - 430),
+			x: 2 * (500 - 775),
 		},
 	},
 	{
@@ -2907,8 +2861,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: '1190087950',
 		},
 		position: {
-			x: 430,
-			y: 780,
+			y: 2 * (500 - 430),
+			x: 2 * (500 - 780),
 		},
 	},
 	{
@@ -2916,8 +2870,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'c-tes-bottom',
 		},
 		position: {
-			x: 435,
-			y: 775,
+			y: 2 * (500 - 435),
+			x: 2 * (500 - 775),
 		},
 	},
 	{
@@ -2925,8 +2879,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'morel-bottom',
 		},
 		position: {
-			x: 405,
-			y: 805,
+			y: 2 * (500 - 405),
+			x: 2 * (500 - 805),
 		},
 	},
 	{
@@ -2934,8 +2888,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'golf-top',
 		},
 		position: {
-			x: 455,
-			y: 815,
+			y: 2 * (500 - 455),
+			x: 2 * (500 - 815),
 		},
 	},
 	{
@@ -2943,8 +2897,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'altiport-bottom',
 		},
 		position: {
-			x: 460,
-			y: 810,
+			y: 2 * (500 - 460),
+			x: 2 * (500 - 810),
 		},
 	},
 	{
@@ -2952,8 +2906,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'inuits-bottom',
 		},
 		position: {
-			x: 455,
-			y: 810,
+			y: 2 * (500 - 455),
+			x: 2 * (500 - 810),
 		},
 	},
 	{
@@ -2961,8 +2915,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'morel-top',
 		},
 		position: {
-			x: 450,
-			y: 800,
+			y: 2 * (500 - 450),
+			x: 2 * (500 - 800),
 		},
 	},
 	{
@@ -2970,8 +2924,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'inuits-bottom',
 		},
 		position: {
-			x: 455,
-			y: 810,
+			y: 2 * (500 - 455),
+			x: 2 * (500 - 810),
 		},
 	},
 	{
@@ -2979,8 +2933,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'fontany-top',
 		},
 		position: {
-			x: 450,
-			y: 805,
+			y: 2 * (500 - 450),
+			x: 2 * (500 - 805),
 		},
 	},
 	{
@@ -2988,8 +2942,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'olympe-2-top__olympe-3-bottom',
 		},
 		position: {
-			x: 345,
-			y: 825,
+			y: 2 * (500 - 345),
+			x: 2 * (500 - 825),
 		},
 	},
 	{
@@ -2997,8 +2951,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'golf-bottom',
 		},
 		position: {
-			x: 375,
-			y: 855,
+			y: 2 * (500 - 375),
+			x: 2 * (500 - 855),
 		},
 	},
 	{
@@ -3006,8 +2960,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'rhodos-2-top',
 		},
 		position: {
-			x: 500,
-			y: 775,
+			y: 2 * (500 - 500),
+			x: 2 * (500 - 775),
 		},
 	},
 	{
@@ -3015,8 +2969,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'altiport-top',
 		},
 		position: {
-			x: 515,
-			y: 770,
+			y: 2 * (500 - 515),
+			x: 2 * (500 - 770),
 		},
 	},
 	{
@@ -3024,8 +2978,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'dent-de-burgin-bottom',
 		},
 		position: {
-			x: 520,
-			y: 785,
+			y: 2 * (500 - 520),
+			x: 2 * (500 - 785),
 		},
 	},
 	{
@@ -3033,8 +2987,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'inuits-top',
 		},
 		position: {
-			x: 480,
-			y: 795,
+			y: 2 * (500 - 480),
+			x: 2 * (500 - 795),
 		},
 	},
 	{
@@ -3042,8 +2996,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'loze-bottom',
 		},
 		position: {
-			x: 510,
-			y: 805,
+			y: 2 * (500 - 510),
+			x: 2 * (500 - 805),
 		},
 	},
 	{
@@ -3051,8 +3005,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'dou-des-lanches-top',
 		},
 		position: {
-			x: 605,
-			y: 825,
+			y: 2 * (500 - 605),
+			x: 2 * (500 - 825),
 		},
 	},
 	{
@@ -3060,8 +3014,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'loze-top',
 		},
 		position: {
-			x: 600,
-			y: 825,
+			y: 2 * (500 - 600),
+			x: 2 * (500 - 825),
 		},
 	},
 	{
@@ -3069,8 +3023,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'mont-vallon-top',
 		},
 		position: {
-			x: 650,
-			y: 500,
+			y: 2 * (500 - 650),
+			x: 2 * (500 - 500),
 		},
 	},
 	{
@@ -3078,8 +3032,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'pas-du-lac-2-top',
 		},
 		position: {
-			x: 645,
-			y: 715,
+			y: 2 * (500 - 645),
+			x: 2 * (500 - 715),
 		},
 	},
 	{
@@ -3087,8 +3041,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'saulire-top',
 		},
 		position: {
-			x: 655,
-			y: 725,
+			y: 2 * (500 - 655),
+			x: 2 * (500 - 725),
 		},
 	},
 	{
@@ -3096,8 +3050,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'saulire-express-2-top',
 		},
 		position: {
-			x: 650,
-			y: 725,
+			y: 2 * (500 - 650),
+			x: 2 * (500 - 725),
 		},
 	},
 	{
@@ -3105,8 +3059,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'suisses-top',
 		},
 		position: {
-			x: 685,
-			y: 720,
+			y: 2 * (500 - 685),
+			x: 2 * (500 - 720),
 		},
 	},
 	{
@@ -3114,8 +3068,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'vizelle-top',
 		},
 		position: {
-			x: 680,
-			y: 720,
+			y: 2 * (500 - 680),
+			x: 2 * (500 - 720),
 		},
 	},
 	{
@@ -3123,8 +3077,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'suisses-top',
 		},
 		position: {
-			x: 685,
-			y: 720,
+			y: 2 * (500 - 685),
+			x: 2 * (500 - 720),
 		},
 	},
 	{
@@ -3132,8 +3086,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'aiguille-du-fruit-top',
 		},
 		position: {
-			x: 775,
-			y: 725,
+			y: 2 * (500 - 775),
+			x: 2 * (500 - 725),
 		},
 	},
 	{
@@ -3141,8 +3095,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'pralong-top',
 		},
 		position: {
-			x: 740,
-			y: 760,
+			y: 2 * (500 - 740),
+			x: 2 * (500 - 760),
 		},
 	},
 	{
@@ -3150,8 +3104,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'biollay-top',
 		},
 		position: {
-			x: 735,
-			y: 760,
+			y: 2 * (500 - 735),
+			x: 2 * (500 - 760),
 		},
 	},
 	{
@@ -3159,8 +3113,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'suisses-bottom',
 		},
 		position: {
-			x: 775,
-			y: 755,
+			y: 2 * (500 - 775),
+			x: 2 * (500 - 755),
 		},
 	},
 	{
@@ -3168,8 +3122,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'chanrossa-top',
 		},
 		position: {
-			x: 865,
-			y: 675,
+			y: 2 * (500 - 865),
+			x: 2 * (500 - 675),
 		},
 	},
 	{
@@ -3177,8 +3131,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'chanrossa-top',
 		},
 		position: {
-			x: 865,
-			y: 675,
+			y: 2 * (500 - 865),
+			x: 2 * (500 - 675),
 		},
 	},
 	{
@@ -3186,8 +3140,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'marmottes-bottom',
 		},
 		position: {
-			x: 790,
-			y: 705,
+			y: 2 * (500 - 790),
+			x: 2 * (500 - 705),
 		},
 	},
 	{
@@ -3195,8 +3149,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'chanrossa-bottom',
 		},
 		position: {
-			x: 795,
-			y: 705,
+			y: 2 * (500 - 795),
+			x: 2 * (500 - 705),
 		},
 	},
 	{
@@ -3204,8 +3158,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'roc-merlet-bottom',
 		},
 		position: {
-			x: 905,
-			y: 680,
+			y: 2 * (500 - 905),
+			x: 2 * (500 - 680),
 		},
 	},
 	{
@@ -3213,8 +3167,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'pyramides-2-top',
 		},
 		position: {
-			x: 915,
-			y: 680,
+			y: 2 * (500 - 915),
+			x: 2 * (500 - 680),
 		},
 	},
 	{
@@ -3222,8 +3176,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'pyramides-2-top',
 		},
 		position: {
-			x: 915,
-			y: 680,
+			y: 2 * (500 - 915),
+			x: 2 * (500 - 680),
 		},
 	},
 	{
@@ -3231,8 +3185,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'aiguille-du-fruit-bottom',
 		},
 		position: {
-			x: 850,
-			y: 760,
+			y: 2 * (500 - 850),
+			x: 2 * (500 - 760),
 		},
 	},
 	{
@@ -3240,8 +3194,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'roc-mugnier-bottom',
 		},
 		position: {
-			x: 855,
-			y: 760,
+			y: 2 * (500 - 855),
+			x: 2 * (500 - 760),
 		},
 	},
 	{
@@ -3249,8 +3203,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'pyramides-2-bottom',
 		},
 		position: {
-			x: 915,
-			y: 735,
+			y: 2 * (500 - 915),
+			x: 2 * (500 - 735),
 		},
 	},
 	{
@@ -3258,8 +3212,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'roc-mugnier-top',
 		},
 		position: {
-			x: 925,
-			y: 735,
+			y: 2 * (500 - 925),
+			x: 2 * (500 - 735),
 		},
 	},
 	{
@@ -3267,8 +3221,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'pyramides-2-bottom',
 		},
 		position: {
-			x: 915,
-			y: 735,
+			y: 2 * (500 - 915),
+			x: 2 * (500 - 735),
 		},
 	},
 	{
@@ -3276,8 +3230,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'sources-top',
 		},
 		position: {
-			x: 690,
-			y: 775,
+			y: 2 * (500 - 690),
+			x: 2 * (500 - 775),
 		},
 	},
 	{
@@ -3285,8 +3239,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'sources-top',
 		},
 		position: {
-			x: 690,
-			y: 775,
+			y: 2 * (500 - 690),
+			x: 2 * (500 - 775),
 		},
 	},
 	{
@@ -3294,8 +3248,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'chenus-top',
 		},
 		position: {
-			x: 675,
-			y: 820,
+			y: 2 * (500 - 675),
+			x: 2 * (500 - 820),
 		},
 	},
 	{
@@ -3303,8 +3257,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'vizelle-bottom',
 		},
 		position: {
-			x: 715,
-			y: 775,
+			y: 2 * (500 - 715),
+			x: 2 * (500 - 775),
 		},
 	},
 	{
@@ -3312,8 +3266,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'vizelle-bottom',
 		},
 		position: {
-			x: 715,
-			y: 775,
+			y: 2 * (500 - 715),
+			x: 2 * (500 - 775),
 		},
 	},
 	{
@@ -3321,8 +3275,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'saulire-bottom',
 		},
 		position: {
-			x: 710,
-			y: 775,
+			y: 2 * (500 - 710),
+			x: 2 * (500 - 775),
 		},
 	},
 	{
@@ -3330,8 +3284,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'sources-bottom',
 		},
 		position: {
-			x: 750,
-			y: 810,
+			y: 2 * (500 - 750),
+			x: 2 * (500 - 810),
 		},
 	},
 	{
@@ -3339,8 +3293,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'sources-bottom',
 		},
 		position: {
-			x: 750,
-			y: 810,
+			y: 2 * (500 - 750),
+			x: 2 * (500 - 810),
 		},
 	},
 	{
@@ -3348,8 +3302,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'biollay-bottom',
 		},
 		position: {
-			x: 770,
-			y: 820,
+			y: 2 * (500 - 770),
+			x: 2 * (500 - 820),
 		},
 	},
 	{
@@ -3357,8 +3311,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'jardin-alpin-top',
 		},
 		position: {
-			x: 770,
-			y: 795,
+			y: 2 * (500 - 770),
+			x: 2 * (500 - 795),
 		},
 	},
 	{
@@ -3366,8 +3320,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'bellec-te-top',
 		},
 		position: {
-			x: 785,
-			y: 805,
+			y: 2 * (500 - 785),
+			x: 2 * (500 - 805),
 		},
 	},
 	{
@@ -3375,8 +3329,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'plantrey-top',
 		},
 		position: {
-			x: 690,
-			y: 840,
+			y: 2 * (500 - 690),
+			x: 2 * (500 - 840),
 		},
 	},
 	{
@@ -3384,8 +3338,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'loze-b-top',
 		},
 		position: {
-			x: 690,
-			y: 835,
+			y: 2 * (500 - 690),
+			x: 2 * (500 - 835),
 		},
 	},
 	{
@@ -3393,8 +3347,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'loze-b-top',
 		},
 		position: {
-			x: 690,
-			y: 835,
+			y: 2 * (500 - 690),
+			x: 2 * (500 - 835),
 		},
 	},
 	{
@@ -3402,8 +3356,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'bouc-blanc-top',
 		},
 		position: {
-			x: 675,
-			y: 825,
+			y: 2 * (500 - 675),
+			x: 2 * (500 - 825),
 		},
 	},
 	{
@@ -3411,8 +3365,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'la-tania-top',
 		},
 		position: {
-			x: 645,
-			y: 865,
+			y: 2 * (500 - 645),
+			x: 2 * (500 - 865),
 		},
 	},
 	{
@@ -3420,8 +3374,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'dou-des-lanches-bottom',
 		},
 		position: {
-			x: 630,
-			y: 860,
+			y: 2 * (500 - 630),
+			x: 2 * (500 - 860),
 		},
 	},
 	{
@@ -3429,8 +3383,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'stade-tania-top',
 		},
 		position: {
-			x: 635,
-			y: 860,
+			y: 2 * (500 - 635),
+			x: 2 * (500 - 860),
 		},
 	},
 	{
@@ -3438,8 +3392,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: '1189944176',
 		},
 		position: {
-			x: 650,
-			y: 860,
+			y: 2 * (500 - 650),
+			x: 2 * (500 - 860),
 		},
 	},
 	{
@@ -3447,8 +3401,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: '1189944176',
 		},
 		position: {
-			x: 650,
-			y: 860,
+			y: 2 * (500 - 650),
+			x: 2 * (500 - 860),
 		},
 	},
 	{
@@ -3456,8 +3410,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'for-t-top',
 		},
 		position: {
-			x: 655,
-			y: 865,
+			y: 2 * (500 - 655),
+			x: 2 * (500 - 865),
 		},
 	},
 	{
@@ -3465,8 +3419,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'toiles-top',
 		},
 		position: {
-			x: 785,
-			y: 820,
+			y: 2 * (500 - 785),
+			x: 2 * (500 - 820),
 		},
 	},
 	{
@@ -3474,8 +3428,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'epicea-top',
 		},
 		position: {
-			x: 740,
-			y: 865,
+			y: 2 * (500 - 740),
+			x: 2 * (500 - 865),
 		},
 	},
 	{
@@ -3483,8 +3437,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'chenus-bottom',
 		},
 		position: {
-			x: 785,
-			y: 850,
+			y: 2 * (500 - 785),
+			x: 2 * (500 - 850),
 		},
 	},
 	{
@@ -3492,8 +3446,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'chenus-bottom',
 		},
 		position: {
-			x: 785,
-			y: 850,
+			y: 2 * (500 - 785),
+			x: 2 * (500 - 850),
 		},
 	},
 	{
@@ -3501,8 +3455,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'chenus-bottom',
 		},
 		position: {
-			x: 785,
-			y: 850,
+			y: 2 * (500 - 785),
+			x: 2 * (500 - 850),
 		},
 	},
 	{
@@ -3510,8 +3464,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'altiport-top',
 		},
 		position: {
-			x: 790,
-			y: 785,
+			y: 2 * (500 - 790),
+			x: 2 * (500 - 785),
 		},
 	},
 	{
@@ -3519,8 +3473,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'pralong-bottom',
 		},
 		position: {
-			x: 810,
-			y: 810,
+			y: 2 * (500 - 810),
+			x: 2 * (500 - 810),
 		},
 	},
 	{
@@ -3528,8 +3482,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'altiport-bottom',
 		},
 		position: {
-			x: 820,
-			y: 810,
+			y: 2 * (500 - 820),
+			x: 2 * (500 - 810),
 		},
 	},
 	{
@@ -3537,8 +3491,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'altiport-bottom',
 		},
 		position: {
-			x: 820,
-			y: 810,
+			y: 2 * (500 - 820),
+			x: 2 * (500 - 810),
 		},
 	},
 	{
@@ -3546,8 +3500,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'ferme-top',
 		},
 		position: {
-			x: 805,
-			y: 795,
+			y: 2 * (500 - 805),
+			x: 2 * (500 - 795),
 		},
 	},
 	{
@@ -3555,8 +3509,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'cospillot-top',
 		},
 		position: {
-			x: 815,
-			y: 810,
+			y: 2 * (500 - 815),
+			x: 2 * (500 - 810),
 		},
 	},
 	{
@@ -3564,8 +3518,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'petite-bosse-top',
 		},
 		position: {
-			x: 895,
-			y: 785,
+			y: 2 * (500 - 895),
+			x: 2 * (500 - 785),
 		},
 	},
 	{
@@ -3573,8 +3527,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'ariondaz-top',
 		},
 		position: {
-			x: 940,
-			y: 775,
+			y: 2 * (500 - 940),
+			x: 2 * (500 - 775),
 		},
 	},
 	{
@@ -3582,8 +3536,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'granges-top',
 		},
 		position: {
-			x: 935,
-			y: 790,
+			y: 2 * (500 - 935),
+			x: 2 * (500 - 790),
 		},
 	},
 	{
@@ -3591,8 +3545,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: '9758920513',
 		},
 		position: {
-			x: 945,
-			y: 770,
+			y: 2 * (500 - 945),
+			x: 2 * (500 - 770),
 		},
 	},
 	{
@@ -3600,8 +3554,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: '9758920513',
 		},
 		position: {
-			x: 945,
-			y: 770,
+			y: 2 * (500 - 945),
+			x: 2 * (500 - 770),
 		},
 	},
 	{
@@ -3609,8 +3563,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: '13208384569',
 		},
 		position: {
-			x: 950,
-			y: 770,
+			y: 2 * (500 - 950),
+			x: 2 * (500 - 770),
 		},
 	},
 	{
@@ -3618,8 +3572,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: '13208384570',
 		},
 		position: {
-			x: 945,
-			y: 765,
+			y: 2 * (500 - 945),
+			x: 2 * (500 - 765),
 		},
 	},
 	{
@@ -3627,8 +3581,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'signal-bottom',
 		},
 		position: {
-			x: 920,
-			y: 795,
+			y: 2 * (500 - 920),
+			x: 2 * (500 - 795),
 		},
 	},
 	{
@@ -3636,8 +3590,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'signal-bottom',
 		},
 		position: {
-			x: 920,
-			y: 795,
+			y: 2 * (500 - 920),
+			x: 2 * (500 - 795),
 		},
 	},
 	{
@@ -3645,8 +3599,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'toiles-bottom',
 		},
 		position: {
-			x: 800,
-			y: 840,
+			y: 2 * (500 - 800),
+			x: 2 * (500 - 840),
 		},
 	},
 	{
@@ -3654,8 +3608,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'cospillot-bottom',
 		},
 		position: {
-			x: 835,
-			y: 840,
+			y: 2 * (500 - 835),
+			x: 2 * (500 - 840),
 		},
 	},
 	{
@@ -3663,8 +3617,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'verdons-bottom',
 		},
 		position: {
-			x: 790,
-			y: 855,
+			y: 2 * (500 - 790),
+			x: 2 * (500 - 855),
 		},
 	},
 	{
@@ -3672,8 +3626,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'jardin-alpin-bottom',
 		},
 		position: {
-			x: 795,
-			y: 855,
+			y: 2 * (500 - 795),
+			x: 2 * (500 - 855),
 		},
 	},
 	{
@@ -3681,8 +3635,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'jardin-alpin-bottom',
 		},
 		position: {
-			x: 795,
-			y: 855,
+			y: 2 * (500 - 795),
+			x: 2 * (500 - 855),
 		},
 	},
 	{
@@ -3690,8 +3644,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'tovets-top',
 		},
 		position: {
-			x: 800,
-			y: 860,
+			y: 2 * (500 - 800),
+			x: 2 * (500 - 860),
 		},
 	},
 	{
@@ -3699,8 +3653,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'jardin-d-enfants-top',
 		},
 		position: {
-			x: 790,
-			y: 860,
+			y: 2 * (500 - 790),
+			x: 2 * (500 - 860),
 		},
 	},
 	{
@@ -3708,8 +3662,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'jardin-d-enfants-bottom',
 		},
 		position: {
-			x: 800,
-			y: 870,
+			y: 2 * (500 - 800),
+			x: 2 * (500 - 870),
 		},
 	},
 	{
@@ -3717,8 +3671,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'bellec-te-bottom',
 		},
 		position: {
-			x: 795,
-			y: 850,
+			y: 2 * (500 - 795),
+			x: 2 * (500 - 850),
 		},
 	},
 	{
@@ -3726,8 +3680,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'praz-top',
 		},
 		position: {
-			x: 805,
-			y: 860,
+			y: 2 * (500 - 805),
+			x: 2 * (500 - 860),
 		},
 	},
 	{
@@ -3735,8 +3689,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'belv-d-re-top',
 		},
 		position: {
-			x: 935,
-			y: 825,
+			y: 2 * (500 - 935),
+			x: 2 * (500 - 825),
 		},
 	},
 	{
@@ -3744,8 +3698,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'ariondaz-bottom',
 		},
 		position: {
-			x: 910,
-			y: 865,
+			y: 2 * (500 - 910),
+			x: 2 * (500 - 865),
 		},
 	},
 	{
@@ -3753,8 +3707,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'belv-d-re-bottom',
 		},
 		position: {
-			x: 920,
-			y: 860,
+			y: 2 * (500 - 920),
+			x: 2 * (500 - 860),
 		},
 	},
 	{
@@ -3762,8 +3716,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'mickey-top',
 		},
 		position: {
-			x: 925,
-			y: 855,
+			y: 2 * (500 - 925),
+			x: 2 * (500 - 855),
 		},
 	},
 	{
@@ -3771,8 +3725,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'belv-d-re-bottom',
 		},
 		position: {
-			x: 920,
-			y: 860,
+			y: 2 * (500 - 920),
+			x: 2 * (500 - 860),
 		},
 	},
 	{
@@ -3780,8 +3734,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'signal-top',
 		},
 		position: {
-			x: 960,
-			y: 730,
+			y: 2 * (500 - 960),
+			x: 2 * (500 - 730),
 		},
 	},
 	{
@@ -3789,8 +3743,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'chapelets-top',
 		},
 		position: {
-			x: 970,
-			y: 735,
+			y: 2 * (500 - 970),
+			x: 2 * (500 - 735),
 		},
 	},
 	{
@@ -3798,8 +3752,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'chapelets-bottom',
 		},
 		position: {
-			x: 1000,
-			y: 795,
+			y: 2 * (500 - 1000),
+			x: 2 * (500 - 795),
 		},
 	},
 	{
@@ -3807,8 +3761,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'granges-bottom',
 		},
 		position: {
-			x: 965,
-			y: 820,
+			y: 2 * (500 - 965),
+			x: 2 * (500 - 820),
 		},
 	},
 	{
@@ -3816,8 +3770,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'olympe-1-top__olympe-2-bottom',
 		},
 		position: {
-			x: 325,
-			y: 910,
+			y: 2 * (500 - 325),
+			x: 2 * (500 - 910),
 		},
 	},
 	{
@@ -3825,8 +3779,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'tkd-gros-murger-top',
 		},
 		position: {
-			x: 610,
-			y: 880,
+			y: 2 * (500 - 610),
+			x: 2 * (500 - 880),
 		},
 	},
 	{
@@ -3834,8 +3788,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'stade-tania-bottom',
 		},
 		position: {
-			x: 615,
-			y: 885,
+			y: 2 * (500 - 615),
+			x: 2 * (500 - 885),
 		},
 	},
 	{
@@ -3843,8 +3797,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'bouc-blanc-bottom',
 		},
 		position: {
-			x: 610,
-			y: 885,
+			y: 2 * (500 - 610),
+			x: 2 * (500 - 885),
 		},
 	},
 	{
@@ -3852,8 +3806,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'la-tania-bottom',
 		},
 		position: {
-			x: 575,
-			y: 920,
+			y: 2 * (500 - 575),
+			x: 2 * (500 - 920),
 		},
 	},
 	{
@@ -3861,8 +3815,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'tkd-gros-murger-bottom',
 		},
 		position: {
-			x: 570,
-			y: 920,
+			y: 2 * (500 - 570),
+			x: 2 * (500 - 920),
 		},
 	},
 	{
@@ -3870,8 +3824,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'olympe-1-bottom',
 		},
 		position: {
-			x: 375,
-			y: 1000,
+			y: 2 * (500 - 375),
+			x: 2 * (500 - 1000),
 		},
 	},
 	{
@@ -3879,8 +3833,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'epicea-bottom',
 		},
 		position: {
-			x: 785,
-			y: 875,
+			y: 2 * (500 - 785),
+			x: 2 * (500 - 875),
 		},
 	},
 	{
@@ -3888,8 +3842,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'for-t-bottom',
 		},
 		position: {
-			x: 710,
-			y: 920,
+			y: 2 * (500 - 710),
+			x: 2 * (500 - 920),
 		},
 	},
 	{
@@ -3897,8 +3851,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'praz-bottom',
 		},
 		position: {
-			x: 705,
-			y: 920,
+			y: 2 * (500 - 705),
+			x: 2 * (500 - 920),
 		},
 	},
 	{
@@ -3906,8 +3860,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'plantrey-bottom',
 		},
 		position: {
-			x: 790,
-			y: 875,
+			y: 2 * (500 - 790),
+			x: 2 * (500 - 875),
 		},
 	},
 	{
@@ -3915,8 +3869,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'grangettes-bottom',
 		},
 		position: {
-			x: 850,
-			y: 880,
+			y: 2 * (500 - 850),
+			x: 2 * (500 - 880),
 		},
 	},
 	{
@@ -3924,8 +3878,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'tovets-bottom',
 		},
 		position: {
-			x: 835,
-			y: 890,
+			y: 2 * (500 - 835),
+			x: 2 * (500 - 890),
 		},
 	},
 	{
@@ -3933,8 +3887,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'roys-top',
 		},
 		position: {
-			x: 840,
-			y: 880,
+			y: 2 * (500 - 840),
+			x: 2 * (500 - 880),
 		},
 	},
 	{
@@ -3942,8 +3896,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 			id: 'roys-bottom',
 		},
 		position: {
-			x: 845,
-			y: 885,
+			y: 2 * (500 - 845),
+			x: 2 * (500 - 885),
 		},
 	},
 ]
