@@ -1,4 +1,5 @@
 import Cytoscape from 'cytoscape'
+import edgehandles from 'cytoscape-edgehandles'
 import type { FcoseLayoutOptions } from 'cytoscape-fcose'
 import fcose from 'cytoscape-fcose'
 import { useLayoutEffect, useRef } from 'react'
@@ -7,6 +8,7 @@ import styled, { createGlobalStyle } from 'styled-components'
 import { constraints, elements } from './data-vt'
 
 Cytoscape.use(fcose)
+Cytoscape.use(edgehandles)
 
 // PrivateNode/PrivateEdge give direct access to Cytoscape's internal position
 // storage, avoiding the overhead of source()/target() wrapper objects and the
@@ -15,6 +17,8 @@ type PrivateNode = { _private: { position: Cytoscape.Position } }
 type PrivateEdge = { _private: { source: PrivateNode; target: PrivateNode } }
 
 const runTypes = ['green', 'blue', 'red', 'black']
+
+const storedEdges: Cytoscape.ElementDefinition[] = JSON.parse(localStorage.getItem('edges') ?? '[]')
 
 const cy = Cytoscape({
 	// maxZoom: 1,
@@ -89,13 +93,147 @@ const cy = Cytoscape({
 			},
 		},
 		{
-			selector: 'edge.tunnel',
+			selector: 'edge.provisional',
 			style: {
 				'line-style': 'dashed',
 			},
 		},
+		{
+			selector: '.eh-ghost, .eh-preview',
+			style: {
+				opacity: 0.5,
+			},
+		},
 	],
 })
+
+cy.edgehandles({
+	edgeParams: () => ({ data: { type: 'blue' }, classes: ['provisional'] }),
+}).enableDrawMode()
+
+cy.on('ehcomplete', (event, sourceNode, targetNode, addedEdge: Cytoscape.EdgeSingular) => {
+	localStorage.setItem(
+		'edges',
+		JSON.stringify(storedEdges.concat(addedEdge.json() as Cytoscape.ElementDefinition)),
+	)
+	calculateDistance(addedEdge)
+	runLayout(true)
+})
+
+const calculateDistance = (edge: Cytoscape.EdgeSingular) => {
+	const { x: tx, y: ty } = edge.target().position()
+	const { x: sx, y: sy } = edge.source().position()
+
+	const d = Math.sqrt((sx - tx) ** 2 + (sy - ty) ** 2)
+
+	edge.scratch('_irlCrowFliesDistance', d)
+}
+
+const runLayout = (animate = false) => {
+	const layoutOptions: FcoseLayoutOptions = {
+		name: 'fcose',
+		randomize: false,
+		animate,
+		animationDuration: 200,
+		idealEdgeLength(edge: Cytoscape.EdgeSingular) {
+			return edge.scratch('_irlCrowFliesDistance')
+		},
+		nodeRepulsion: 80000,
+		uniformNodeDimensions: true,
+		...constraints,
+		stop() {
+			const edges = cy.elements(
+				'edge[type="green"],edge[type="blue"],edge[type="red"],edge[type="black"]',
+			)
+
+			for (const edge of edges) {
+				const label: string = edge.data('label')
+				const prev = edge.source().incomers(`edge[label="${label}"]`)
+				const next = edge.target().outgoers(`edge[label="${label}"]`)
+
+				const { x: sx, y: sy } = (edge as unknown as PrivateEdge)._private.source._private.position
+				const { x: tx, y: ty } = (edge as unknown as PrivateEdge)._private.target._private.position
+
+				const dx = tx - sx
+				const dy = ty - sy
+
+				const d = Math.sqrt(dx * dx + dy * dy)
+
+				edge.scratch('_dx', dx)
+				edge.scratch('_dy', dy)
+				edge.scratch('_edgeLength', d)
+
+				if (next.length) {
+					const { x: nx, y: ny } = (next[0] as unknown as PrivateEdge)._private.target._private
+						.position
+
+					edge.scratch(
+						'_targetDirection',
+						Math.abs(sx - nx) > Math.abs(sy - ny) ? 'horizontal' : 'vertical',
+					)
+				} else {
+					edge.scratch('_targetDirection', Math.abs(dx) > Math.abs(dy) ? 'horizontal' : 'vertical')
+				}
+
+				if (prev.length && prev[0].isEdge()) {
+					const { x: px, y: py } = prev[0].source().position()
+
+					edge.scratch(
+						'_sourceDirection',
+						Math.abs(tx - px) > Math.abs(ty - py) ? 'horizontal' : 'vertical',
+					)
+				} else {
+					edge.scratch('_sourceDirection', Math.abs(dx) > Math.abs(dy) ? 'horizontal' : 'vertical')
+				}
+			}
+
+			const bendOffset = 0.2
+
+			cy.elements('edge[type="green"],edge[type="blue"],edge[type="red"],edge[type="black"]').style(
+				{
+					'segment-weights': (edge: Cytoscape.EdgeSingular) => {
+						if (edge.scratch('_targetDirection') === edge.scratch('_sourceDirection')) {
+							return [bendOffset, 1 - bendOffset]
+						}
+						const dy: number = edge.scratch('_dy')
+						const d: number = edge.scratch('_edgeLength')
+						const sourceDirection: string = edge.scratch('_sourceDirection')
+						const w = (dy * dy) / (d * d)
+						return [sourceDirection === 'horizontal' ? 1 - w : w]
+					},
+					'segment-distances': (edge: Cytoscape.EdgeSingular) => {
+						const dx: number = edge.scratch('_dx')
+						const dy: number = edge.scratch('_dy')
+						const d: number = edge.scratch('_edgeLength')
+						const targetDirection: string = edge.scratch('_targetDirection')
+						const sourceDirection: string = edge.scratch('_sourceDirection')
+
+						if (targetDirection === sourceDirection) {
+							const h = targetDirection === 'horizontal'
+							const d1 = h ? dx : dy
+							const d2 = h ? dy : -dx
+							const sd = (bendOffset * d * d2) / d1
+							return [-sd, sd]
+						}
+
+						const sd = (dx * dy) / d
+						return [sourceDirection === 'horizontal' ? -sd : sd]
+					},
+				},
+			)
+		},
+	}
+
+	cy.elements().style({
+		display: 'none',
+	})
+
+	cy.$('#genepi-run-top').component().style({
+		display: 'element',
+	})
+
+	cy.$(':visible').layout(layoutOptions).run()
+}
 
 const _StopSelect = (props: React.SelectHTMLAttributes<HTMLSelectElement>) => (
 	<select defaultValue="" {...props}>
@@ -219,130 +357,16 @@ const App = () => {
 	useLayoutEffect(() => {
 		if (!cytoscapeContainer.current) return
 
-		cy.add(elements)
+		cy.add(elements.concat(storedEdges))
 		cy.mount(cytoscapeContainer.current)
 
 		cy.fit()
 
 		for (const edge of cy.edges()) {
-			const { x: tx, y: ty } = edge.target().position()
-			const { x: sx, y: sy } = edge.source().position()
-
-			const d = Math.sqrt((sx - tx) ** 2 + (sy - ty) ** 2)
-
-			edge.scratch('_irlCrowFliesDistance', d)
+			calculateDistance(edge)
 		}
 
-		const layoutOptions: FcoseLayoutOptions = {
-			name: 'fcose',
-			randomize: false,
-			animate: false,
-			idealEdgeLength(edge: Cytoscape.EdgeSingular) {
-				return edge.scratch('_irlCrowFliesDistance')
-			},
-			nodeRepulsion: 80000,
-			uniformNodeDimensions: true,
-			...constraints,
-			stop() {
-				const edges = cy.elements(
-					'edge[type="green"],edge[type="blue"],edge[type="red"],edge[type="black"]',
-				)
-
-				for (const edge of edges) {
-					const label: string = edge.data('label')
-					const prev = edge.source().incomers(`edge[label="${label}"]`)
-					const next = edge.target().outgoers(`edge[label="${label}"]`)
-
-					const { x: sx, y: sy } = (edge as unknown as PrivateEdge)._private.source._private
-						.position
-					const { x: tx, y: ty } = (edge as unknown as PrivateEdge)._private.target._private
-						.position
-
-					const dx = tx - sx
-					const dy = ty - sy
-
-					const d = Math.sqrt(dx * dx + dy * dy)
-
-					edge.scratch('_dx', dx)
-					edge.scratch('_dy', dy)
-					edge.scratch('_edgeLength', d)
-
-					if (next.length) {
-						const { x: nx, y: ny } = (next[0] as unknown as PrivateEdge)._private.target._private
-							.position
-
-						edge.scratch(
-							'_targetDirection',
-							Math.abs(sx - nx) > Math.abs(sy - ny) ? 'horizontal' : 'vertical',
-						)
-					} else {
-						edge.scratch(
-							'_targetDirection',
-							Math.abs(dx) > Math.abs(dy) ? 'horizontal' : 'vertical',
-						)
-					}
-
-					if (prev.length && prev[0].isEdge()) {
-						const { x: px, y: py } = prev[0].source().position()
-
-						edge.scratch(
-							'_sourceDirection',
-							Math.abs(tx - px) > Math.abs(ty - py) ? 'horizontal' : 'vertical',
-						)
-					} else {
-						edge.scratch(
-							'_sourceDirection',
-							Math.abs(dx) > Math.abs(dy) ? 'horizontal' : 'vertical',
-						)
-					}
-				}
-
-				const bendOffset = 0.2
-
-				cy.elements(
-					'edge[type="green"],edge[type="blue"],edge[type="red"],edge[type="black"]',
-				).style({
-					'segment-weights': (edge: Cytoscape.EdgeSingular) => {
-						if (edge.scratch('_targetDirection') === edge.scratch('_sourceDirection')) {
-							return [bendOffset, 1 - bendOffset]
-						}
-						const dy: number = edge.scratch('_dy')
-						const d: number = edge.scratch('_edgeLength')
-						const sourceDirection: string = edge.scratch('_sourceDirection')
-						const w = (dy * dy) / (d * d)
-						return [sourceDirection === 'horizontal' ? 1 - w : w]
-					},
-					'segment-distances': (edge: Cytoscape.EdgeSingular) => {
-						const dx: number = edge.scratch('_dx')
-						const dy: number = edge.scratch('_dy')
-						const d: number = edge.scratch('_edgeLength')
-						const targetDirection: string = edge.scratch('_targetDirection')
-						const sourceDirection: string = edge.scratch('_sourceDirection')
-
-						if (targetDirection === sourceDirection) {
-							const h = targetDirection === 'horizontal'
-							const d1 = h ? dx : dy
-							const d2 = h ? dy : -dx
-							const sd = (bendOffset * d * d2) / d1
-							return [-sd, sd]
-						}
-
-						const sd = (dx * dy) / d
-						return [sourceDirection === 'horizontal' ? -sd : sd]
-					},
-				})
-			},
-		}
-
-		cy.elements().style({
-			display: 'none',
-		})
-
-		cy.$('#genepi-run-top').component().style({
-			display: 'element',
-		})
-
-		cy.$(':visible').layout(layoutOptions).run()
+		runLayout()
 	}, [])
 
 	return (

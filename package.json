@@ -30,8 +30,10 @@
 		"vite": "^5.0.0"
 	},
 	"dependencies": {
+		"@types/cytoscape-edgehandles": "^4.0.5",
 		"cytoscape": "^3.31.0",
 		"cytoscape-cose-bilkent": "^4.1.0",
+		"cytoscape-edgehandles": "^4.0.1",
 		"cytoscape-fcose": "^2.2.0",
 		"lodash.minby": "^4.6.0",
 		"react": "^19.0.0",
