@@ -3,6 +3,306 @@ import type cytoscape from 'cytoscape'
 export const elements: cytoscape.ElementDefinition[] = [
 	{
 		data: {
+			label: 'Genépi',
+			id: 'genepi-run-top',
+			source: 'moraine-top',
+			target: 'face-nord-bottom',
+			type: 'blue',
+		},
+	},
+	{
+		data: {
+			label: 'Genépi',
+			id: 'genepi-run-bottom',
+			target: 'moraine-bottom',
+			source: 'face-nord-bottom',
+			type: 'blue',
+		},
+	},
+	{
+		data: {
+			label: 'Moraine',
+			id: 'moraine-run',
+			target: 'moraine-bottom',
+			source: 'moraine-top',
+			type: 'blue',
+		},
+	},
+	{
+		data: {
+			label: 'Face Nord',
+			id: 'face-nord-run',
+			target: 'face-nord-bottom',
+			source: 'thorens-top',
+			type: 'blue',
+		},
+	},
+	{
+		data: {
+			label: 'Chocards',
+			id: 'chocards-run',
+			target: 'thorens-bottom',
+			source: 'thorens-top',
+			type: 'blue',
+		},
+	},
+	{
+		data: {
+			label: 'Portette',
+			id: 'portette-run',
+			source: 'thorens-bottom',
+			target: 'moraine-bottom',
+			type: 'red',
+		},
+	},
+	{
+		data: {
+			label: 'Niverolle',
+			id: 'niverolle-top',
+			source: 'grand-fond-top',
+			target: 'niverolle-junction',
+			type: 'blue',
+		},
+	},
+	{
+		data: {
+			label: 'Niverolle',
+			id: 'niverolle-bottom',
+			target: 'thorens-bottom',
+			source: 'niverolle-junction',
+			type: 'blue',
+		},
+	},
+	{
+		data: {
+			label: 'Fond',
+			id: 'fond-top',
+			target: 'fond-rhodos-junction',
+			source: 'niverolle-junction',
+			type: 'blue',
+		},
+	},
+	{
+		data: {
+			label: 'Fond',
+			id: 'fond-bottom',
+			source: 'fond-rhodos-junction',
+			target: 'plateau-2-top',
+			type: 'blue',
+		},
+	},
+	{
+		data: {
+			label: 'Rhodos',
+			id: 'rhodos',
+			source: 'fond-rhodos-junction',
+			target: 'moraine-bottom',
+			type: 'red',
+		},
+	},
+	{
+		data: {
+			label: 'Plateau',
+			id: 'plateau-run',
+			source: 'plateau-2-top',
+			target: 'plateau-2-bottom',
+			type: 'blue',
+		},
+	},
+	{
+		data: {
+			label: 'Lagopède',
+			id: 'lagopede-top',
+			source: 'deux-lacs-top',
+			target: 'plateau-2-bottom',
+			type: 'blue',
+		},
+	},
+	{
+		data: {
+			label: 'Lagopède',
+			id: 'lagopede-middle',
+			source: 'plateau-2-bottom',
+			target: 'grand-fond-bottom',
+			type: 'blue',
+		},
+	},
+	{
+		data: {
+			label: 'Lagopède',
+			id: 'lagopede-bottom',
+			source: 'grand-fond-bottom',
+			target: 'cairn-top',
+			type: 'blue',
+		},
+	},
+	{
+		data: {
+			label: 'Médaille',
+			id: 'medaille',
+			source: 'niverolle-junction',
+			target: 'plateau-2-top',
+			type: 'red',
+		},
+	},
+	{
+		data: {
+			label: 'Tête Ronde',
+			id: 'tete-ronde-top',
+			source: 'funitel-p-clet-top',
+			target: 'tete-ronde-junction',
+			type: 'blue',
+		},
+	},
+	{
+		data: {
+			label: 'Christine',
+			id: 'christine',
+			source: 'tete-ronde-junction',
+			target: 'moraine-bottom',
+			type: 'red',
+		},
+	},
+	{
+		data: {
+			label: 'Cime',
+			id: 'cime-top',
+			source: 'cime-caron-top',
+			target: 'cime-falaise-junction',
+			type: 'red',
+		},
+	},
+	{
+		data: {
+			label: 'Cime',
+			id: 'cime-bottom',
+			source: 'plateau-2-top',
+			target: 'cime-falaise-junction',
+			type: 'red',
+		},
+	},
+	{
+		data: {
+			label: 'Falaise',
+			id: 'falaise-bottom',
+			source: 'cime-falaise-junction',
+			target: 'plateau-2-bottom',
+			type: 'red',
+		},
+	},
+	{
+		data: {
+			label: 'Traverseé 2 Lacs',
+			id: 'traversee-deux-lacs-top',
+			type: 'green',
+			source: 'deux-lacs-top',
+			target: 'deux-lacs-junction',
+		},
+	},
+	{
+		data: {
+			label: 'Hermine',
+			id: 'hermine-top',
+			type: 'blue',
+			source: 'deux-lacs-junction',
+			target: 'hermine-junction',
+		},
+	},
+	{
+		data: {
+			label: 'Hermine',
+			id: 'hermine-bottom',
+			type: 'blue',
+			source: 'hermine-junction',
+			target: 'cairn-bottom__caron-bottom',
+		},
+	},
+	{
+		data: {
+			label: 'Gentianes',
+			id: 'gentianes',
+			type: 'blue',
+			source: 'cairn-top',
+			target: 'cairn-bottom__caron-bottom',
+		},
+	},
+	{
+		data: {
+			label: 'Arolles',
+			id: 'arolles',
+			type: 'black',
+			source: 'deux-lacs-top',
+			target: 'hermine-junction',
+		},
+	},
+
+	/// junctions
+	{
+		data: {
+			id: 'hermine-junction',
+		},
+		position: {
+			x: 425,
+			y: 300,
+		},
+	},
+	{
+		data: {
+			id: 'deux-lacs-junction',
+		},
+		position: {
+			x: 425,
+			y: 305,
+		},
+	},
+	{
+		data: {
+			id: 'tete-ronde-junction',
+		},
+		position: {
+			x: 490,
+			y: 260,
+		},
+	},
+	{
+		data: {
+			id: 'niverolle-junction',
+		},
+		position: {
+			x: 505,
+			y: 260,
+		},
+	},
+	{
+		data: {
+			id: 'fond-rhodos-junction',
+		},
+		position: {
+			x: 505,
+			y: 255,
+		},
+	},
+	{
+		data: {
+			id: 'fond-rhodos-junction',
+		},
+		position: {
+			x: 450,
+			y: 255,
+		},
+	},
+	{
+		data: {
+			id: 'cime-falaise-junction',
+		},
+		position: {
+			x: 520,
+			y: 270,
+		},
+	},
+	/// generated lifts/nodes
+	{
+		data: {
 			type: 'chair_lift',
 			id: 'cascades',
 			source: 'cascades-bottom',
@@ -14,8 +314,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 		data: {
 			type: 'chair_lift',
 			id: 'portette',
-			source: 'portette-bottom',
-			target: 'portette-top',
+			source: 'moraine-bottom',
+			target: 'thorens-bottom',
 			label: 'Portette',
 		},
 	},
@@ -86,8 +386,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 		data: {
 			type: 'chair_lift',
 			id: 'mouti-re',
-			source: 'mouti-re-bottom',
-			target: 'mouti-re-top',
+			source: 'cairn-bottom__caron-bottom',
+			target: 'deux-lacs-top',
 			label: 'Moutière',
 		},
 	},
@@ -1185,7 +1485,7 @@ export const elements: cytoscape.ElementDefinition[] = [
 			type: 'gondola',
 			id: 'face-nord',
 			source: 'face-nord-bottom',
-			target: 'face-nord-top',
+			target: 'thorens-top',
 			label: 'Face Nord',
 		},
 	},
@@ -1470,15 +1770,6 @@ export const elements: cytoscape.ElementDefinition[] = [
 	},
 	{
 		data: {
-			id: 'mouti-re-top',
-		},
-		position: {
-			x: 420,
-			y: 310,
-		},
-	},
-	{
-		data: {
 			id: 'grand-fond-top',
 		},
 		position: {
@@ -1497,38 +1788,11 @@ export const elements: cytoscape.ElementDefinition[] = [
 	},
 	{
 		data: {
-			id: 'portette-top',
-		},
-		position: {
-			x: 535,
-			y: 265,
-		},
-	},
-	{
-		data: {
 			id: 'thorens-top',
 		},
 		position: {
 			x: 560,
 			y: 240,
-		},
-	},
-	{
-		data: {
-			id: 'face-nord-top',
-		},
-		position: {
-			x: 565,
-			y: 240,
-		},
-	},
-	{
-		data: {
-			id: 'portette-bottom',
-		},
-		position: {
-			x: 485,
-			y: 325,
 		},
 	},
 	{

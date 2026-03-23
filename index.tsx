@@ -334,7 +334,15 @@ const App = () => {
 			},
 		}
 
-		cy.layout(layoutOptions).run()
+		cy.elements().style({
+			display: 'none',
+		})
+
+		cy.$('#genepi-run-top').component().style({
+			display: 'element',
+		})
+
+		cy.$(':visible').layout(layoutOptions).run()
 	}, [])
 
 	return (
