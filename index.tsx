@@ -243,9 +243,12 @@ const runLayout = (animate = false) => {
 		tile: false,
 		gravity: 0.001,
 		nodeRepulsion: 100000,
+		idealEdgeLength: (edge: Cytoscape.EdgeSingular) => {
+			return 5 * Math.sqrt(edge.scratch('_irlCrowFliesDistance'))
+		},
 	}
 
-	cy.layout(layoutOptions).run()
+	// cy.layout(layoutOptions).run()
 }
 
 cy.on('click', (event) => {
@@ -375,6 +378,14 @@ const App = () => {
 		if (!cytoscapeContainer.current) return
 
 		cy.add(elements.concat(storedEdges))
+
+		console.log(
+			cy
+				.$('[[degree=0]]')
+				.jsons()
+				.map((e) => e.data.id),
+		)
+
 		cy.mount(cytoscapeContainer.current)
 
 		cy.fit()

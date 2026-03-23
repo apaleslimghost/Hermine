@@ -241,35 +241,63 @@ export const elements: cytoscape.ElementDefinition[] = [
 		data: {
 			id: 'hermine-junction',
 		},
+		position: {
+			y: 2 * (500 - 425),
+			x: 2 * (500 - 300),
+		},
 	},
 	{
 		data: {
 			id: 'deux-lacs-junction',
+		},
+		position: {
+			y: 2 * (500 - 425),
+			x: 2 * (500 - 305),
 		},
 	},
 	{
 		data: {
 			id: 'tete-ronde-junction',
 		},
+		position: {
+			y: 2 * (500 - 490),
+			x: 2 * (500 - 260),
+		},
 	},
 	{
 		data: {
 			id: 'niverolle-junction',
 		},
-	},
-	{
-		data: {
-			id: 'fond-rhodos-junction',
+		position: {
+			y: 2 * (500 - 505),
+			x: 2 * (500 - 260),
 		},
 	},
 	{
 		data: {
 			id: 'fond-rhodos-junction',
+		},
+		position: {
+			y: 2 * (500 - 505),
+			x: 2 * (500 - 255),
+		},
+	},
+	{
+		data: {
+			id: 'fond-rhodos-junction',
+		},
+		position: {
+			y: 2 * (500 - 450),
+			x: 2 * (500 - 255),
 		},
 	},
 	{
 		data: {
 			id: 'cime-falaise-junction',
+		},
+		position: {
+			y: 2 * (500 - 520),
+			x: 2 * (500 - 270),
 		},
 	},
 	/// generated lifts/nodes
@@ -385,7 +413,7 @@ export const elements: cytoscape.ElementDefinition[] = [
 		data: {
 			type: 'chair_lift',
 			id: 'peyron',
-			source: 'peyron-bottom',
+			source: 'rosa-l-bottom',
 			target: 'peyron-top',
 			label: 'Peyron',
 		},
@@ -394,7 +422,7 @@ export const elements: cytoscape.ElementDefinition[] = [
 		data: {
 			type: 'chair_lift',
 			id: 'bouchet',
-			source: 'bouchet-bottom',
+			source: 'peyron-top',
 			target: 'bouchet-top',
 			label: 'Bouchet',
 		},
@@ -422,7 +450,7 @@ export const elements: cytoscape.ElementDefinition[] = [
 			type: 'chair_lift',
 			id: 'plein-sud',
 			source: 'plein-sud-bottom',
-			target: 'plein-sud-top',
+			target: '3-vall-es-bottom',
 			label: 'Plein Sud',
 		},
 	},
@@ -430,7 +458,7 @@ export const elements: cytoscape.ElementDefinition[] = [
 		data: {
 			type: 'cable_car',
 			id: 'funitel-3-vall-es',
-			source: 'funitel-3-vall-es-bottom',
+			source: '3-vall-es-bottom',
 			target: 'funitel-3-vall-es-top',
 			label: 'Funitel 3 Vallées',
 		},
@@ -1393,8 +1421,8 @@ export const elements: cytoscape.ElementDefinition[] = [
 		data: {
 			type: 'gondola',
 			id: 't-l-cabine-d-orelle-caron',
-			source: 't-l-cabine-d-orelle-caron-bottom',
-			target: 't-l-cabine-d-orelle-caron-top',
+			source: 'rosa-l-bottom',
+			target: 'cime-caron-top',
 			label: "Télécabine d'Orelle-Caron",
 		},
 	},
@@ -1472,15 +1500,6 @@ export const elements: cytoscape.ElementDefinition[] = [
 	},
 	{
 		data: {
-			type: 'chair_lift',
-			id: 'marmottons',
-			source: 'marmottons-bottom',
-			target: 'marmottons-top',
-			label: 'Marmottons',
-		},
-	},
-	{
-		data: {
 			id: 't-l-cabine-d-orelle-bottom',
 		},
 		position: {
@@ -1499,33 +1518,6 @@ export const elements: cytoscape.ElementDefinition[] = [
 	},
 	{
 		data: {
-			id: 'peyron-bottom',
-		},
-		position: {
-			y: 2 * (500 - 410),
-			x: 2 * (500 - 160),
-		},
-	},
-	{
-		data: {
-			id: 'marmottons-top',
-		},
-		position: {
-			y: 2 * (500 - 405),
-			x: 2 * (500 - 155),
-		},
-	},
-	{
-		data: {
-			id: 't-l-cabine-d-orelle-caron-bottom',
-		},
-		position: {
-			y: 2 * (500 - 400),
-			x: 2 * (500 - 160),
-		},
-	},
-	{
-		data: {
 			id: 'rosa-l-bottom',
 		},
 		position: {
@@ -1535,29 +1527,11 @@ export const elements: cytoscape.ElementDefinition[] = [
 	},
 	{
 		data: {
-			id: 'marmottons-bottom',
-		},
-		position: {
-			y: 2 * (500 - 400),
-			x: 2 * (500 - 155),
-		},
-	},
-	{
-		data: {
 			id: 'peyron-top',
 		},
 		position: {
 			y: 2 * (500 - 515),
 			x: 2 * (500 - 180),
-		},
-	},
-	{
-		data: {
-			id: 'bouchet-bottom',
-		},
-		position: {
-			y: 2 * (500 - 510),
-			x: 2 * (500 - 175),
 		},
 	},
 	{
@@ -1657,15 +1631,6 @@ export const elements: cytoscape.ElementDefinition[] = [
 		position: {
 			y: 2 * (500 - 245),
 			x: 2 * (500 - 435),
-		},
-	},
-	{
-		data: {
-			id: 't-l-cabine-d-orelle-caron-top',
-		},
-		position: {
-			y: 2 * (500 - 340),
-			x: 2 * (500 - 230),
 		},
 	},
 	{
@@ -1800,15 +1765,6 @@ export const elements: cytoscape.ElementDefinition[] = [
 		},
 		position: {
 			y: 2 * (500 - 350),
-			x: 2 * (500 - 360),
-		},
-	},
-	{
-		data: {
-			id: 'mouti-re-bottom',
-		},
-		position: {
-			y: 2 * (500 - 355),
 			x: 2 * (500 - 360),
 		},
 	},
@@ -1949,29 +1905,11 @@ export const elements: cytoscape.ElementDefinition[] = [
 	},
 	{
 		data: {
-			id: 'funitel-3-vall-es-bottom',
-		},
-		position: {
-			y: 2 * (500 - 500),
-			x: 2 * (500 - 400),
-		},
-	},
-	{
-		data: {
 			id: '3-vall-es-bottom',
 		},
 		position: {
 			y: 2 * (500 - 505),
 			x: 2 * (500 - 400),
-		},
-	},
-	{
-		data: {
-			id: 'plein-sud-top',
-		},
-		position: {
-			y: 2 * (500 - 520),
-			x: 2 * (500 - 405),
 		},
 	},
 	{
@@ -2705,24 +2643,6 @@ export const elements: cytoscape.ElementDefinition[] = [
 	},
 	{
 		data: {
-			id: '1134357012',
-		},
-		position: {
-			y: 2 * (500 - 470),
-			x: 2 * (500 - 670),
-		},
-	},
-	{
-		data: {
-			id: '1134357015',
-		},
-		position: {
-			y: 2 * (500 - 475),
-			x: 2 * (500 - 670),
-		},
-	},
-	{
-		data: {
 			id: 'doron-bottom',
 		},
 		position: {
@@ -2836,33 +2756,6 @@ export const elements: cytoscape.ElementDefinition[] = [
 		position: {
 			y: 2 * (500 - 445),
 			x: 2 * (500 - 765),
-		},
-	},
-	{
-		data: {
-			id: '1179587182',
-		},
-		position: {
-			y: 2 * (500 - 440),
-			x: 2 * (500 - 775),
-		},
-	},
-	{
-		data: {
-			id: '1190087927',
-		},
-		position: {
-			y: 2 * (500 - 430),
-			x: 2 * (500 - 775),
-		},
-	},
-	{
-		data: {
-			id: '1190087950',
-		},
-		position: {
-			y: 2 * (500 - 430),
-			x: 2 * (500 - 780),
 		},
 	},
 	{
@@ -3389,24 +3282,6 @@ export const elements: cytoscape.ElementDefinition[] = [
 	},
 	{
 		data: {
-			id: '1189944176',
-		},
-		position: {
-			y: 2 * (500 - 650),
-			x: 2 * (500 - 860),
-		},
-	},
-	{
-		data: {
-			id: '1189944176',
-		},
-		position: {
-			y: 2 * (500 - 650),
-			x: 2 * (500 - 860),
-		},
-	},
-	{
-		data: {
 			id: 'for-t-top',
 		},
 		position: {
@@ -3538,42 +3413,6 @@ export const elements: cytoscape.ElementDefinition[] = [
 		position: {
 			y: 2 * (500 - 935),
 			x: 2 * (500 - 790),
-		},
-	},
-	{
-		data: {
-			id: '9758920513',
-		},
-		position: {
-			y: 2 * (500 - 945),
-			x: 2 * (500 - 770),
-		},
-	},
-	{
-		data: {
-			id: '9758920513',
-		},
-		position: {
-			y: 2 * (500 - 945),
-			x: 2 * (500 - 770),
-		},
-	},
-	{
-		data: {
-			id: '13208384569',
-		},
-		position: {
-			y: 2 * (500 - 950),
-			x: 2 * (500 - 770),
-		},
-	},
-	{
-		data: {
-			id: '13208384570',
-		},
-		position: {
-			y: 2 * (500 - 945),
-			x: 2 * (500 - 765),
 		},
 	},
 	{
