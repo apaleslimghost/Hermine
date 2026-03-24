@@ -240,15 +240,14 @@ const runLayout = (animate = false) => {
 		randomize: false,
 		stop: bendyEdges,
 		animate,
-		tile: false,
 		gravity: 0.001,
 		nodeRepulsion: 100000,
 		idealEdgeLength: (edge: Cytoscape.EdgeSingular) => {
-			return 5 * Math.sqrt(edge.scratch('_irlCrowFliesDistance'))
+			return 5 * Math.sqrt(edge.scratch('_irlCrowFliesDistance') ?? 50)
 		},
 	}
 
-	// cy.layout(layoutOptions).run()
+	cy.layout(layoutOptions).run()
 }
 
 cy.on('click', (event) => {

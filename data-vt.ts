@@ -305,7 +305,7 @@ export const elements: cytoscape.ElementDefinition[] = [
 		data: {
 			type: 'chair_lift',
 			id: 'cascades',
-			source: 'cascades-bottom',
+			source: 'lac-blanc-bottom',
 			target: 'cascades-top',
 			label: 'Cascades',
 		},
@@ -341,7 +341,7 @@ export const elements: cytoscape.ElementDefinition[] = [
 		data: {
 			type: 'chair_lift',
 			id: 'boismint',
-			source: 'boismint-bottom',
+			source: 'cairn-bottom__caron-bottom',
 			target: 'boismint-top',
 			label: 'Boismint',
 		},
@@ -405,7 +405,7 @@ export const elements: cytoscape.ElementDefinition[] = [
 			type: 'chair_lift',
 			id: 'rosa-l',
 			source: 'rosa-l-bottom',
-			target: 'rosa-l-top',
+			target: 'grand-fond-top',
 			label: 'Rosaël',
 		},
 	},
@@ -638,7 +638,7 @@ export const elements: cytoscape.ElementDefinition[] = [
 		data: {
 			type: 'chair_lift',
 			id: 'pionniers',
-			source: 'pionniers-bottom',
+			source: 'lac-blanc-bottom',
 			target: '3-vall-es-bottom',
 			label: 'Pionniers',
 		},
@@ -773,7 +773,7 @@ export const elements: cytoscape.ElementDefinition[] = [
 		data: {
 			type: 'magic_carpet',
 			id: 'castor-pollux',
-			source: 'castor-pollux-bottom',
+			source: 'lac-blanc-bottom',
 			target: 'castor-pollux-top',
 			label: 'Castor Pollux',
 		},
@@ -1109,24 +1109,6 @@ export const elements: cytoscape.ElementDefinition[] = [
 			source: 'bruy-res-1-bottom',
 			target: 'plans-top',
 			label: 'Plans',
-		},
-	},
-	{
-		data: {
-			type: 'magic_carpet',
-			id: 'musaraigne',
-			source: 'musaraigne-bottom',
-			target: 'musaraigne-top',
-			label: 'Musaraigne',
-		},
-	},
-	{
-		data: {
-			type: 'magic_carpet',
-			id: 'campagnols',
-			source: 'cascades-bottom',
-			target: 'campagnols-top',
-			label: 'Campagnols',
 		},
 	},
 	{
@@ -1644,15 +1626,6 @@ export const elements: cytoscape.ElementDefinition[] = [
 	},
 	{
 		data: {
-			id: 'rosa-l-top',
-		},
-		position: {
-			y: 2 * (500 - 435),
-			x: 2 * (500 - 240),
-		},
-	},
-	{
-		data: {
 			id: 'caron-top',
 		},
 		position: {
@@ -1761,28 +1734,10 @@ export const elements: cytoscape.ElementDefinition[] = [
 	},
 	{
 		data: {
-			id: 'boismint-bottom',
-		},
-		position: {
-			y: 2 * (500 - 350),
-			x: 2 * (500 - 360),
-		},
-	},
-	{
-		data: {
 			id: 'plein-sud-bottom',
 		},
 		position: {
 			y: 2 * (500 - 415),
-			x: 2 * (500 - 360),
-		},
-	},
-	{
-		data: {
-			id: 'cascades-bottom',
-		},
-		position: {
-			y: 2 * (500 - 450),
 			x: 2 * (500 - 360),
 		},
 	},
@@ -1802,33 +1757,6 @@ export const elements: cytoscape.ElementDefinition[] = [
 		position: {
 			y: 2 * (500 - 450),
 			x: 2 * (500 - 375),
-		},
-	},
-	{
-		data: {
-			id: 'cascades-bottom',
-		},
-		position: {
-			y: 2 * (500 - 450),
-			x: 2 * (500 - 360),
-		},
-	},
-	{
-		data: {
-			id: 'musaraigne-bottom',
-		},
-		position: {
-			y: 2 * (500 - 440),
-			x: 2 * (500 - 365),
-		},
-	},
-	{
-		data: {
-			id: 'musaraigne-top',
-		},
-		position: {
-			y: 2 * (500 - 455),
-			x: 2 * (500 - 365),
 		},
 	},
 	{
@@ -1860,38 +1788,11 @@ export const elements: cytoscape.ElementDefinition[] = [
 	},
 	{
 		data: {
-			id: 'campagnols-top',
-		},
-		position: {
-			y: 2 * (500 - 470),
-			x: 2 * (500 - 360),
-		},
-	},
-	{
-		data: {
 			id: 'castor-pollux-top',
 		},
 		position: {
 			y: 2 * (500 - 480),
 			x: 2 * (500 - 370),
-		},
-	},
-	{
-		data: {
-			id: 'pionniers-bottom',
-		},
-		position: {
-			y: 2 * (500 - 480),
-			x: 2 * (500 - 360),
-		},
-	},
-	{
-		data: {
-			id: 'castor-pollux-bottom',
-		},
-		position: {
-			y: 2 * (500 - 475),
-			x: 2 * (500 - 360),
 		},
 	},
 	{
