@@ -1,7 +1,7 @@
 import Cytoscape from 'cytoscape'
 import edgehandles from 'cytoscape-edgehandles'
 import fcose, { type FcoseLayoutOptions } from 'cytoscape-fcose'
-import { useLayoutEffect, useRef } from 'react'
+import { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { createRoot } from 'react-dom/client'
 import styled, { createGlobalStyle } from 'styled-components'
 import { elements } from './data-vt'
@@ -15,7 +15,8 @@ Cytoscape.use(edgehandles)
 type PrivateNode = { _private: { position: Cytoscape.Position } }
 type PrivateEdge = { _private: { source: PrivateNode; target: PrivateNode } }
 
-const runTypes = ['green', 'blue', 'red', 'black']
+type RunType = 'green' | 'blue' | 'red' | 'black'
+const runTypes: RunType[] = ['green', 'blue', 'red', 'black']
 
 const storedEdges: Cytoscape.ElementDefinition[] = JSON.parse(localStorage.getItem('edges') ?? '[]')
 
@@ -112,7 +113,15 @@ const eh = cy.edgehandles({
 
 const saveElement = (element: Cytoscape.EdgeSingular | Cytoscape.NodeSingular) => {
 	const json = element.json() as Cytoscape.ElementDefinition
-	storedEdges.push(json)
+	if (storedEdges.find((e) => e.data?.id === json.data?.id)) {
+		storedEdges.splice(
+			storedEdges.findIndex((e) => e.data?.id === json.data?.id),
+			1,
+			json,
+		)
+	} else {
+		storedEdges.push(json)
+	}
 	localStorage.setItem('edges', JSON.stringify(storedEdges))
 }
 
@@ -357,7 +366,7 @@ const Fullscreen = styled.div`
 	height: 100vh;
 `
 
-const _Flex = styled.div<{ $vertical?: boolean }>`
+const Flex = styled.div<{ $vertical?: boolean }>`
 	display: flex;
 	gap: 1rem;
 	flex-direction: ${({ $vertical }) => ($vertical ? 'column' : 'row')};
@@ -368,10 +377,74 @@ const Graph = styled.section`
 	flex-basis: 50vw;
 `
 
+const ControlPane = styled.div`
+	position: fixed;
+	z-index: 1;
+	top: 1rem;
+	right: 1rem;
+	background: white;
+	padding: 1rem;
+	border: 1px dashed black;
+	width: 12em;
+`
+
 Object.assign(window, { cy })
+
+const RunControls = ({ run }: { run: Cytoscape.EdgeSingular }) => {
+	const [name, setName] = useState<string | undefined>(run.data('label'))
+	const [type, setType] = useState<RunType | undefined>(run.data('type'))
+	const [provisional, setProvisional] = useState<boolean>(run.hasClass('provisional'))
+
+	return (
+		<ControlPane>
+			<Flex $vertical>
+				<input
+					value={name}
+					onChange={(e) => {
+						setName(e.target.value)
+						run.data('label', e.target.value)
+						saveElement(run)
+					}}
+				/>
+				<select
+					value={type}
+					onChange={(e) => {
+						setType(e.target.value as RunType)
+						run.data('type', e.target.value as RunType)
+						saveElement(run)
+					}}
+				>
+					<option value="">Select type</option>
+					{runTypes.map((t) => (
+						<option key={t} value={t}>
+							{t}
+						</option>
+					))}
+				</select>
+				<label>
+					<input
+						type="checkbox"
+						checked={provisional}
+						onChange={(e) => {
+							setProvisional(e.target.checked)
+							if (e.target.checked) {
+								run.addClass('provisional')
+							} else {
+								run.removeClass('provisional')
+							}
+							saveElement(run)
+						}}
+					/>
+					draft
+				</label>
+			</Flex>
+		</ControlPane>
+	)
+}
 
 const App = () => {
 	const cytoscapeContainer = useRef<HTMLElement>(null)
+	const [selectedRun, setSelectedRun] = useState<Cytoscape.EdgeSingular | undefined>(undefined)
 
 	useLayoutEffect(() => {
 		if (!cytoscapeContainer.current) return
@@ -396,10 +469,30 @@ const App = () => {
 		runLayout(true)
 	}, [])
 
+	const handleNodeClick = useCallback((event: Cytoscape.EventObject) => {
+		if (
+			event.target.length &&
+			event.target.isEdge() &&
+			runTypes.includes(event.target.data('type'))
+		) {
+			setSelectedRun(event.target as Cytoscape.EdgeSingular)
+		} else {
+			setSelectedRun(undefined)
+		}
+	}, [])
+
+	useEffect(() => {
+		cy.on('click', handleNodeClick)
+
+		return () => {
+			cy.off('click', handleNodeClick)
+		}
+	}, [handleNodeClick])
+
 	return (
 		<>
 			<GlobalStyles />
-
+			{selectedRun && <RunControls run={selectedRun} />}
 			<Fullscreen>
 				<Graph ref={cytoscapeContainer} />
 			</Fullscreen>
